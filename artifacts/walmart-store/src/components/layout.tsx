@@ -162,8 +162,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/catalog">Product</NavLink>
-              <NavLink href="/about">How It&apos;s Work</NavLink>
-              <NavLink href="/faq">Blog</NavLink>
+              <NavLink href="/faq">FAQ</NavLink>
               <NavLink href="/contact">Contact</NavLink>
             </nav>
 

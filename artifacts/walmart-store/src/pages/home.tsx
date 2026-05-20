@@ -157,33 +157,6 @@ export default function Home() {
         <div className="border-t" />
       </div>
 
-      {/* How it works */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-3">How It Works</h2>
-          <p className="text-muted-foreground">From application to delivery — a straightforward process.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { step: "01", title: "Apply", desc: "Submit your wholesale application with your business information and tax documentation." },
-            { step: "02", title: "Get Approved", desc: "Our team reviews and verifies your application within 24–48 hours." },
-            { step: "03", title: "Place Your Order", desc: "Access wholesale pricing, browse the catalog, and submit your purchase order." },
-            { step: "04", title: "We Ship to You", desc: "We handle customs documentation and coordinate freight to your destination." },
-          ].map((s) => (
-            <div key={s.step}>
-              <div className="text-3xl font-bold text-primary/15 mb-4">{s.step}</div>
-              <h3 className="font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t" />
-      </div>
-
       {/* Testimonials */}
       <section className="max-w-5xl mx-auto px-4 py-20">
         <div className="mb-12">
