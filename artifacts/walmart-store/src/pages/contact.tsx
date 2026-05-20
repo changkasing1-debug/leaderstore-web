@@ -64,7 +64,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs text-muted-foreground">Email</div>
-                    <div className="text-sm font-medium">sales@globaltrade.com</div>
+                    <div className="text-sm font-medium">sales@leaderstore.com</div>
                   </div>
                 </div>
               </CardContent>

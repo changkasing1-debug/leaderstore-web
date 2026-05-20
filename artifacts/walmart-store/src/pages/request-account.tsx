@@ -204,7 +204,7 @@ export default function RequestAccount() {
                   <div className="flex items-start gap-2">
                     <Checkbox id="terms" required />
                     <label htmlFor="terms" className="text-sm text-muted-foreground leading-tight">
-                      I confirm this is a legitimate business inquiry and authorize GlobalTrade to verify my business information.
+                      I confirm this is a legitimate business inquiry and authorize Leader Store to verify my business information.
                     </label>
                   </div>
 

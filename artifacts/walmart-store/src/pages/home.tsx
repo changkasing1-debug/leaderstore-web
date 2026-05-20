@@ -78,7 +78,7 @@ export default function Home() {
       {/* Why us */}
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Why Partner With GlobalTrade</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Why Partner With Leader Store</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">We handle the complexity of international sourcing so you can focus on growing your retail business.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -191,7 +191,7 @@ export default function Home() {
             <Users className="h-10 w-10 mx-auto mb-4 opacity-80" />
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to Expand Your Product Range?</h2>
             <p className="max-w-lg mx-auto mb-6 opacity-80">
-              Join 500+ retailers and distributors who source through GlobalTrade. Verified business accounts get immediate access to pricing and availability.
+              Join 500+ retailers and distributors who source through Leader Store. Verified business accounts get immediate access to pricing and availability.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>

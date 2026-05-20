@@ -18,7 +18,7 @@ export default function About() {
     <Layout>
       <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl font-bold mb-2">About GlobalTrade</h1>
+          <h1 className="text-3xl font-bold mb-2">About Leader Store</h1>
           <p className="text-muted-foreground">Your trusted partner for wholesale imports and brand distribution</p>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function About() {
             <Badge className="mb-3">Since 2010</Badge>
             <h2 className="text-2xl font-bold mb-4">Bridging Global Brands to Local Markets</h2>
             <p className="text-muted-foreground mb-4">
-              GlobalTrade was founded with a clear mission: make world-class brands accessible to retailers and distributors of all sizes. What started as a small trading company in Miami has grown into a trusted partner for over 500 businesses across 35 countries.
+              Leader Store was founded with a clear mission: make world-class brands accessible to retailers and distributors of all sizes. What started as a small trading company in Miami has grown into a trusted partner for over 500 businesses across 35 countries.
             </p>
             <p className="text-muted-foreground">
               We hold direct distribution agreements with 120+ major brands across electronics, apparel, toys, beauty, and household goods. Our relationships with manufacturers allow us to offer competitive pricing, flexible MOQs, and authentic products with full documentation.

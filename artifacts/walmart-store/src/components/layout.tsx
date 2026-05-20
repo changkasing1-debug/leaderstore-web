@@ -34,7 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <span>Authorized distributor of 120+ major brands | Wholesale only</span>
-          <span className="hidden sm:inline">Contact: sales@globaltrade.com | +1 (555) 123-4567</span>
+          <span className="hidden sm:inline">Contact: sales@leaderstore.com | +1 (555) 123-4567</span>
         </div>
       </div>
 
@@ -43,13 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <Link href={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"} className="flex items-center gap-2">
-              <div className="h-8 w-8 bg-primary rounded-md flex items-center justify-center">
-                <Package className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div>
-                <span className="text-lg font-bold text-foreground leading-tight">GlobalTrade</span>
-                <p className="text-[10px] text-muted-foreground leading-tight -mt-0.5">Wholesale Imports</p>
-              </div>
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Leader Store" className="h-9 w-auto rounded" />
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
@@ -97,10 +91,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="h-7 w-7 bg-primary rounded-md flex items-center justify-center">
-                  <Package className="h-4 w-4 text-primary-foreground" />
-                </div>
-                <span className="font-bold">GlobalTrade</span>
+                <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Leader Store" className="h-8 w-auto rounded" />
+                <span className="font-bold">Leader Store</span>
               </div>
               <p className="text-sm text-muted-foreground">Authorized wholesale importer and distributor of major international brands. Serving retailers and distributors across 35+ countries.</p>
             </div>
@@ -135,7 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t text-center text-xs text-muted-foreground">
-            © 2025 GlobalTrade Wholesale Imports. All rights reserved. | Authorized distributor only. B2B wholesale transactions.
+            © 2025 Leader Store Wholesale Imports. All rights reserved. | Authorized distributor only. B2B wholesale transactions.
           </div>
         </div>
       </footer>
