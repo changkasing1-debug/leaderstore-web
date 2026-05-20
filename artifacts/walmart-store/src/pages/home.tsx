@@ -57,17 +57,17 @@ export default function Home() {
             <rect width="100" height="100" fill="url(#heroGrid)" />
           </svg>
         </div>
-        <div className="relative max-w-5xl mx-auto px-4 py-24 md:py-36">
+        <div className="relative max-w-4xl mx-auto px-4 py-24 md:py-36 text-center">
           <p className="text-accent font-medium text-sm uppercase tracking-widest mb-6">
             Miami, Florida — Wholesale Import & Distribution
           </p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
             U.S. Brands.<br />Latin American Markets.
           </h1>
-          <p className="text-lg text-primary-foreground/70 mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg text-primary-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed">
             Leader Store LLC sources and distributes authentic U.S. products to retailers and distributors across Latin America. Direct sourcing. Reliable logistics. Real wholesale pricing.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
