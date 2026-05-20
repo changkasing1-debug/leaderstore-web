@@ -96,8 +96,8 @@ export default function Home() {
             <rect width="100" height="100" fill="url(#heroGrid)" />
           </svg>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 py-24 md:py-32">
-          <div className="max-w-2xl">
+        <div className="relative max-w-7xl mx-auto px-4 py-24 md:py-32 text-center">
+          <div className="max-w-3xl mx-auto">
             <Badge className="bg-accent text-accent-foreground mb-6">
               Wholesale Import & Distribution
             </Badge>
@@ -106,12 +106,12 @@ export default function Home() {
               <br />
               Trusted Imports.
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-lg leading-relaxed">
+            <p className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-2xl mx-auto leading-relaxed">
               Bringing premium brands from the U.S. to Latin America. Your
               reliable partner for wholesale distribution across Kitchen & Home,
               Pet Supplies, Electronics, and Beauty.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Button
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
@@ -137,39 +137,35 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <Badge variant="outline" className="mb-4">
-              About Us
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Your Bridge to U.S. Brands
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Leader Store LLC is a Miami-based import and distribution company
-              specialized in connecting Latin American markets with top U.S.
-              brands. We source and distribute products across categories
-              including Kitchen & Home, Pet Supplies, Electronics, and Beauty —
-              delivering quality and reliability to our partners.
+      <section className="max-w-3xl mx-auto px-4 py-20 text-center">
+        <Badge variant="outline" className="mb-4">
+          About Us
+        </Badge>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Your Bridge to U.S. Brands
+        </h2>
+        <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+          Leader Store LLC is a Miami-based import and distribution company
+          specialized in connecting Latin American markets with top U.S.
+          brands. We source and distribute products across categories
+          including Kitchen & Home, Pet Supplies, Electronics, and Beauty —
+          delivering quality and reliability to our partners.
+        </p>
+        <p className="text-muted-foreground leading-relaxed mb-8">
+          With our strategic location in Miami and deep relationships with
+          American manufacturers, we streamline the import process so you can
+          focus on growing your retail business.
+        </p>
+        <div className="bg-gradient-to-br from-muted to-muted/50 rounded-2xl h-64 flex items-center justify-center">
+          <div className="text-center">
+            <img
+              src={`${base}logo.jpg`}
+              alt="Leader Store LLC"
+              className="h-24 w-auto mx-auto mb-3 rounded-lg shadow-lg"
+            />
+            <p className="text-sm text-muted-foreground font-medium">
+              Miami, Florida — Gateway to Latin America
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              With our strategic location in Miami and deep relationships with
-              American manufacturers, we streamline the import process so you can
-              focus on growing your retail business.
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-muted to-muted/50 rounded-2xl h-80 flex items-center justify-center">
-            <div className="text-center">
-              <img
-                src={`${base}logo.jpg`}
-                alt="Leader Store LLC"
-                className="h-32 w-auto mx-auto mb-4 rounded-lg shadow-lg"
-              />
-              <p className="text-sm text-muted-foreground font-medium">
-                Miami, Florida — Gateway to Latin America
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -279,56 +275,40 @@ export default function Home() {
       </section>
 
       {/* Contact CTA */}
-      <section className="max-w-7xl mx-auto px-4 py-20">
+      <section className="max-w-4xl mx-auto px-4 py-20">
         <Card className="bg-primary text-primary-foreground border-0 overflow-hidden">
-          <CardContent className="py-14 px-6 md:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Ready to Source U.S. Products?
-                </h2>
-                <p className="text-primary-foreground/70 mb-6 leading-relaxed">
-                  Whether you are a retailer, distributor, or e-commerce business in
-                  Latin America, we are here to help you access the best U.S.
-                  brands at competitive wholesale prices.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3 text-sm">
-                    <MapPin className="h-4 w-4 flex-shrink-0" />
-                    4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Phone className="h-4 w-4 flex-shrink-0" />
-                    (786) 940-1456
-                  </div>
-                  <div className="flex items-center gap-3 text-sm">
-                    <Mail className="h-4 w-4 flex-shrink-0" />
-                    info@leaderstore.us
-                  </div>
-                </div>
-                <Button
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                  asChild
-                >
-                  <Link href={base + "/contact"}>
-                    Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+          <CardContent className="py-14 px-6 md:px-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Ready to Source U.S. Products?
+            </h2>
+            <p className="text-primary-foreground/70 mb-6 leading-relaxed max-w-2xl mx-auto">
+              Whether you are a retailer, distributor, or e-commerce business in
+              Latin America, we are here to help you access the best U.S.
+              brands at competitive wholesale prices.
+            </p>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3 text-sm justify-center">
+                <MapPin className="h-4 w-4 flex-shrink-0" />
+                4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
               </div>
-              <div className="rounded-xl overflow-hidden h-64 md:h-72 bg-primary-foreground/10">
-                <iframe
-                  src="https://maps.google.com/maps?q=4805+NW+79TH+AVE%2C+STE+10+A101%2C+Miami%2C+FL+33166&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Leader Store LLC Location"
-                />
+              <div className="flex items-center gap-3 text-sm justify-center">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                (786) 940-1456
+              </div>
+              <div className="flex items-center gap-3 text-sm justify-center">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                info@leaderstore.us
               </div>
             </div>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+              asChild
+            >
+              <Link href={base + "/contact"}>
+                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </section>

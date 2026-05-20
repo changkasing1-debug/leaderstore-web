@@ -33,7 +33,7 @@ export default function Catalog() {
   return (
     <Layout>
       <div className="bg-muted/50 border-b">
-        <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-2">Our Products</h1>
           <p className="text-muted-foreground">
             Wholesale catalog with MOQs and pricing for Latin American partners
@@ -41,19 +41,19 @@ export default function Catalog() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-5xl mx-auto px-4 py-10">
         {/* Filters */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          <div className="relative flex-1 max-w-md">
+        <div className="flex flex-col items-center gap-4 mb-8">
+          <div className="relative w-full max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               placeholder="Search products or brands..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9"
+              className="pl-9 w-full"
             />
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 justify-center">
             <SlidersHorizontal className="h-4 w-4 text-muted-foreground flex-shrink-0" />
             {categories.map((c) => (
               <Badge

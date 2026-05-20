@@ -24,7 +24,7 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <Layout>
-        <div className="max-w-7xl mx-auto px-4 py-20 text-center">
+        <div className="max-w-3xl mx-auto px-4 py-20 text-center">
           <Package className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
           <h1 className="text-xl font-bold mb-2">Product Not Found</h1>
           <p className="text-muted-foreground mb-4">
@@ -40,21 +40,21 @@ export default function ProductDetail() {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <Button variant="ghost" size="sm" className="mb-4" asChild>
           <Link href={base + "/catalog"}>
             <ArrowLeft className="mr-1 h-4 w-4" /> Back to Products
           </Link>
         </Button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {/* Image */}
-          <div className="bg-gradient-to-br from-muted to-muted/50 rounded-xl flex items-center justify-center min-h-[400px]">
+          <div className="bg-gradient-to-br from-muted to-muted/50 rounded-xl flex items-center justify-center min-h-[300px]">
             <Package className="h-24 w-24 text-muted-foreground/20" />
           </div>
 
           {/* Info */}
-          <div>
+          <div className="text-left">
             <div className="flex items-center gap-2 mb-2">
               <Badge>{product.brand}</Badge>
               <Badge variant="outline">{product.category}</Badge>

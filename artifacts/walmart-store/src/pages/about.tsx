@@ -14,7 +14,7 @@ export default function About() {
   return (
     <Layout>
       <div className="bg-muted/50 border-b">
-        <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-2">About Leader Store LLC</h1>
           <p className="text-muted-foreground">
             Your trusted partner for U.S. imports and Latin American distribution
@@ -24,28 +24,26 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
         {/* Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Badge className="mb-4">Miami, Florida</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold mb-5">
-              Bridging U.S. Brands to Latin America
-            </h2>
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              Leader Store LLC was founded with a clear mission: make quality
-              U.S. products accessible to retailers and distributors across Latin
-              America. Based in Miami — the commercial gateway to the Americas —
-              we leverage our strategic location to streamline imports and
-              deliver reliable distribution.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              We specialize in four core categories: Kitchen & Home, Pet
-              Supplies, Electronics, and Beauty & Personal Care. Our deep
-              relationships with American manufacturers allow us to offer
-              competitive wholesale pricing, flexible order quantities, and
-              authentic products with full documentation.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <Badge className="mb-4">Miami, Florida</Badge>
+          <h2 className="text-2xl md:text-3xl font-bold mb-5">
+            Bridging U.S. Brands to Latin America
+          </h2>
+          <p className="text-muted-foreground mb-4 leading-relaxed">
+            Leader Store LLC was founded with a clear mission: make quality
+            U.S. products accessible to retailers and distributors across Latin
+            America. Based in Miami — the commercial gateway to the Americas —
+            we leverage our strategic location to streamline imports and
+            deliver reliable distribution.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            We specialize in four core categories: Kitchen & Home, Pet
+            Supplies, Electronics, and Beauty & Personal Care. Our deep
+            relationships with American manufacturers allow us to offer
+            competitive wholesale pricing, flexible order quantities, and
+            authentic products with full documentation.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: Globe, label: "LatAm Focus", sub: "Regional Expertise" },
               { icon: Users, label: "500+", sub: "Partners" },
@@ -71,7 +69,7 @@ export default function About() {
               What Sets Us Apart
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="max-w-3xl mx-auto grid grid-cols-1 gap-4">
             {[
               {
                 icon: ShieldCheck,
@@ -108,8 +106,8 @@ export default function About() {
                 key={item.title}
                 className="hover:border-accent/30 transition-colors"
               >
-                <CardContent className="pt-6">
-                  <div className="h-10 w-10 bg-accent/10 rounded-lg flex items-center justify-center mb-3">
+                <CardContent className="pt-5 text-center">
+                  <div className="h-10 w-10 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <item.icon className="h-5 w-5 text-accent" />
                   </div>
                   <h3 className="font-semibold mb-1">{item.title}</h3>
@@ -123,7 +121,7 @@ export default function About() {
         </div>
 
         {/* Markets */}
-        <div>
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <Badge variant="outline" className="mb-4">Coverage</Badge>
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
@@ -146,7 +144,7 @@ export default function About() {
             ].map((m) => (
               <div
                 key={m}
-                className="flex items-center gap-2 px-4 py-3 bg-muted rounded-lg"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-muted rounded-lg"
               >
                 <Globe className="h-4 w-4 text-accent" />
                 <span className="text-sm font-medium">{m}</span>
