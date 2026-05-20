@@ -8,7 +8,7 @@ const NewsletterSubscribeBody = z.object({
   name: z.string().optional(),
 });
 
-router.post("/api/newsletter/subscribe", (req, res) => {
+router.post("/newsletter/subscribe", (req, res) => {
   const parsed = NewsletterSubscribeBody.safeParse(req.body);
   if (!parsed.success) {
     res.status(400).json({ error: "Invalid email address" });
