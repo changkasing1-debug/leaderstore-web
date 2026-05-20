@@ -1,0 +1,137 @@
+import Layout from "@/components/layout";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+const faqs = [
+  {
+    category: "Getting Started",
+    items: [
+      {
+        q: "How do I become a wholesale partner?",
+        a: "Fill out our Apply for Wholesale form with your business information, EIN number, and resale tax certificate. Our team reviews applications within 24–48 hours and will contact you with next steps.",
+      },
+      {
+        q: "What types of businesses do you work with?",
+        a: "We work with retailers, distributors, e-commerce businesses, and importers operating in Latin America. We require a valid resale tax certificate and EIN (for U.S.-based buyers) or equivalent documentation.",
+      },
+      {
+        q: "Is there a minimum order quantity (MOQ)?",
+        a: "Yes, MOQs vary by product category and brand. Kitchen & Home starts at 50 units, Electronics at 25 units, Pet Supplies at 100 units, and Beauty & Personal Care at 75 units. Contact us for specific product minimums.",
+      },
+    ],
+  },
+  {
+    category: "Orders & Pricing",
+    items: [
+      {
+        q: "How is wholesale pricing structured?",
+        a: "We offer tiered pricing based on order volume. The more you order, the better your unit price. After your account is approved, you'll receive access to our full wholesale price list with all tiers.",
+      },
+      {
+        q: "Do you offer credit terms?",
+        a: "Established partners with a minimum 6-month purchase history may qualify for net-30 payment terms. New accounts are required to pay upfront via wire transfer, ACH, or credit card.",
+      },
+      {
+        q: "Can I place a sample order before committing to a large purchase?",
+        a: "Yes, we offer sample orders for approved wholesale accounts. Sample orders are charged at reduced wholesale pricing and are subject to a maximum of 5 units per SKU.",
+      },
+    ],
+  },
+  {
+    category: "Shipping & Logistics",
+    items: [
+      {
+        q: "Do you handle customs and import documentation?",
+        a: "Yes. We provide all necessary commercial invoices, packing lists, certificates of origin, and other export documentation. Our logistics team can also coordinate with your customs broker.",
+      },
+      {
+        q: "What shipping methods do you use?",
+        a: "We ship via sea freight (FCL and LCL), air freight, and courier services depending on order size and urgency. We work with major freight forwarders to Latin America.",
+      },
+      {
+        q: "How long does shipping take?",
+        a: "Transit times vary by destination. Air freight: 3–7 business days. Sea freight: 10–30 business days depending on the port. We provide tracking for all shipments.",
+      },
+    ],
+  },
+  {
+    category: "Products & Authenticity",
+    items: [
+      {
+        q: "Are all products authentic U.S. brands?",
+        a: "Absolutely. We source exclusively from authorized U.S. distributors and manufacturers. All products come with full documentation and are 100% authentic. See our Authenticity Guarantee page for details.",
+      },
+      {
+        q: "What product categories do you carry?",
+        a: "We carry Kitchen & Home, Pet Supplies, Consumer Electronics, and Beauty & Personal Care products. Our catalog is updated regularly as we add new brands and SKUs.",
+      },
+      {
+        q: "Can you source specific brands or products not in your catalog?",
+        a: "Yes, for partners with consistent order volume, we offer sourcing services for brands not currently in our catalog. Contact us with your requirements.",
+      },
+    ],
+  },
+  {
+    category: "Returns & Support",
+    items: [
+      {
+        q: "What is your return policy?",
+        a: "We accept returns for defective or damaged goods within 30 days of delivery. Returns due to buyer error are accepted within 15 days with a 15% restocking fee. See our full Return Policy for details.",
+      },
+      {
+        q: "What support do you offer after the sale?",
+        a: "All wholesale accounts have access to a dedicated account manager. We provide bilingual (English/Spanish) support via email and phone, Monday–Friday 9AM–6PM EST.",
+      },
+    ],
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b last:border-b-0">
+      <button
+        className="w-full flex items-center justify-between py-4 text-left gap-4"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="font-medium text-sm">{q}</span>
+        <ChevronDown
+          className={`h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <p className="text-sm text-muted-foreground pb-4 leading-relaxed">{a}</p>
+      )}
+    </div>
+  );
+}
+
+export default function FAQ() {
+  return (
+    <Layout>
+      <div className="border-b">
+        <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+          <h1 className="text-3xl font-bold mb-2">Frequently Asked Questions</h1>
+          <p className="text-muted-foreground">
+            Everything you need to know about partnering with Leader Store LLC
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 py-12 space-y-10">
+        {faqs.map((section) => (
+          <div key={section.category}>
+            <h2 className="text-lg font-semibold mb-1 text-primary">
+              {section.category}
+            </h2>
+            <div className="border rounded-md px-4">
+              {section.items.map((item) => (
+                <FAQItem key={item.q} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  );
+}
