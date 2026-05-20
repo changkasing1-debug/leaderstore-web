@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center h-16 relative">
+          <div className="flex items-center h-20 relative">
             {/* Left nav — Home + Products */}
             <nav className="hidden md:flex items-center gap-1 flex-1">
               <NavLink href="/">Home</NavLink>
@@ -83,7 +83,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <img
                   src={`${base}logo.jpg`}
                   alt="Leader Store LLC"
-                  className="h-10 w-auto rounded"
+                  className="h-16 w-auto rounded"
                 />
               </Link>
             </div>
