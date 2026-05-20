@@ -2,15 +2,12 @@ import Layout from "@/components/layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  Building2,
   Globe,
   ShieldCheck,
-  Award,
-  TrendingUp,
-  Users,
-  Package,
   Truck,
-  FileCheck,
+  MapPin,
+  BadgeDollarSign,
+  Users,
 } from "lucide-react";
 
 export default function About() {
@@ -18,35 +15,47 @@ export default function About() {
     <Layout>
       <div className="bg-muted/50 border-b">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl font-bold mb-2">About Leader Store</h1>
-          <p className="text-muted-foreground">Your trusted partner for wholesale imports and brand distribution</p>
+          <h1 className="text-3xl font-bold mb-2">About Leader Store LLC</h1>
+          <p className="text-muted-foreground">
+            Your trusted partner for U.S. imports and Latin American distribution
+          </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
         {/* Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <Badge className="mb-3">Since 2010</Badge>
-            <h2 className="text-2xl font-bold mb-4">Bridging Global Brands to Local Markets</h2>
-            <p className="text-muted-foreground mb-4">
-              Leader Store was founded with a clear mission: make world-class brands accessible to retailers and distributors of all sizes. What started as a small trading company in Miami has grown into a trusted partner for over 500 businesses across 35 countries.
+            <Badge className="mb-4">Miami, Florida</Badge>
+            <h2 className="text-2xl md:text-3xl font-bold mb-5">
+              Bridging U.S. Brands to Latin America
+            </h2>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              Leader Store LLC was founded with a clear mission: make quality
+              U.S. products accessible to retailers and distributors across Latin
+              America. Based in Miami — the commercial gateway to the Americas —
+              we leverage our strategic location to streamline imports and
+              deliver reliable distribution.
             </p>
-            <p className="text-muted-foreground">
-              We hold direct distribution agreements with 120+ major brands across electronics, apparel, toys, beauty, and household goods. Our relationships with manufacturers allow us to offer competitive pricing, flexible MOQs, and authentic products with full documentation.
+            <p className="text-muted-foreground leading-relaxed">
+              We specialize in four core categories: Kitchen & Home, Pet
+              Supplies, Electronics, and Beauty & Personal Care. Our deep
+              relationships with American manufacturers allow us to offer
+              competitive wholesale pricing, flexible order quantities, and
+              authentic products with full documentation.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: Award, label: "15 Years", sub: "In Business" },
-              { icon: Globe, label: "35 Countries", sub: "Served" },
+              { icon: Globe, label: "LatAm Focus", sub: "Regional Expertise" },
               { icon: Users, label: "500+", sub: "Partners" },
-              { icon: Package, label: "120+", sub: "Brands" },
+              { icon: ShieldCheck, label: "100%", sub: "Authentic" },
+              { icon: Truck, label: "Door-to-Door", sub: "Logistics" },
             ].map((s) => (
               <Card key={s.label}>
                 <CardContent className="pt-5 text-center">
-                  <s.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                  <div className="text-xl font-bold">{s.label}</div>
+                  <s.icon className="h-6 w-6 text-accent mx-auto mb-2" />
+                  <div className="text-lg font-bold">{s.label}</div>
                   <div className="text-xs text-muted-foreground">{s.sub}</div>
                 </CardContent>
               </Card>
@@ -56,23 +65,57 @@ export default function About() {
 
         {/* What sets us apart */}
         <div>
-          <h2 className="text-2xl font-bold mb-8 text-center">What Sets Us Apart</h2>
+          <div className="text-center mb-12">
+            <Badge variant="outline" className="mb-4">Our Strengths</Badge>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              What Sets Us Apart
+            </h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: ShieldCheck, title: "Brand Authorization", desc: "We provide certificates of authorization for every brand we distribute. Your customers can verify authenticity directly with manufacturers." },
-              { icon: Truck, title: "End-to-End Logistics", desc: "From factory pickup to your warehouse door. We handle freight forwarding, customs clearance, and last-mile delivery." },
-              { icon: TrendingUp, title: "Market Intelligence", desc: "Our team monitors trends across categories to help you stock products with the highest sell-through potential." },
-              { icon: FileCheck, title: "Compliance Ready", desc: "All products ship with required certifications (FCC, CE, RoHS, etc.) and safety documentation for your market." },
-              { icon: Building2, title: "Flexible MOQs", desc: "We work with retailers of all sizes. Our minimum order quantities are designed to be accessible for growing businesses." },
-              { icon: Globe, title: "Regional Expertise", desc: "Team members based in North America, Europe, and Asia ensure responsive support across time zones." },
+              {
+                icon: ShieldCheck,
+                title: "Quality Assurance",
+                desc: "Every product is sourced directly from verified U.S. manufacturers. Full certificates and compliance documentation provided.",
+              },
+              {
+                icon: Truck,
+                title: "End-to-End Logistics",
+                desc: "From supplier pickup in the U.S. to your warehouse door. We handle freight, customs, and last-mile delivery.",
+              },
+              {
+                icon: BadgeDollarSign,
+                title: "Competitive Pricing",
+                desc: "Volume-based wholesale tiers designed for growing retailers. No minimums that exclude smaller businesses.",
+              },
+              {
+                icon: MapPin,
+                title: "Strategic Location",
+                desc: "Miami-based operations provide faster transit times and lower shipping costs to Latin America.",
+              },
+              {
+                icon: Globe,
+                title: "Market Knowledge",
+                desc: "Our team understands both U.S. supply chains and Latin American consumer preferences.",
+              },
+              {
+                icon: Users,
+                title: "Dedicated Support",
+                desc: "Personal account management and bilingual support for smooth communication.",
+              },
             ].map((item) => (
-              <Card key={item.title} className="hover:border-primary/20 transition-colors">
+              <Card
+                key={item.title}
+                className="hover:border-accent/30 transition-colors"
+              >
                 <CardContent className="pt-6">
-                  <div className="h-10 w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
-                    <item.icon className="h-5 w-5 text-primary" />
+                  <div className="h-10 w-10 bg-accent/10 rounded-lg flex items-center justify-center mb-3">
+                    <item.icon className="h-5 w-5 text-accent" />
                   </div>
                   <h3 className="font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {item.desc}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -81,24 +124,31 @@ export default function About() {
 
         {/* Markets */}
         <div>
-          <h2 className="text-2xl font-bold mb-6">Markets We Serve</h2>
+          <div className="text-center mb-10">
+            <Badge variant="outline" className="mb-4">Coverage</Badge>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              Markets We Serve
+            </h2>
+            <p className="text-muted-foreground">
+              Active distribution across major Latin American markets
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "United States",
-              "Canada",
               "Mexico",
-              "United Kingdom",
-              "Germany",
-              "France",
-              "Spain",
-              "Italy",
-              "Brazil",
               "Colombia",
-              "Australia",
-              "UAE",
+              "Peru",
+              "Chile",
+              "Ecuador",
+              "Panama",
+              "Costa Rica",
+              "Guatemala",
             ].map((m) => (
-              <div key={m} className="flex items-center gap-2 px-4 py-3 bg-muted rounded-lg">
-                <Globe className="h-4 w-4 text-primary" />
+              <div
+                key={m}
+                className="flex items-center gap-2 px-4 py-3 bg-muted rounded-lg"
+              >
+                <Globe className="h-4 w-4 text-accent" />
                 <span className="text-sm font-medium">{m}</span>
               </div>
             ))}

@@ -1,25 +1,33 @@
 import { Link, useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Menu,
   X,
   Package,
-  Building2,
   Phone,
-  FileText,
-  UserPlus,
-  ShoppingCart,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-function NavLink({ href, children, icon: Icon }: { href: string; children: React.ReactNode; icon?: React.ComponentType<{ className?: string }> }) {
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   const [location] = useLocation();
   const isActive = location === href;
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
   const fullHref = base + href;
   return (
-    <Link href={fullHref} className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-muted"}`}>
-      {Icon && <Icon className="h-4 w-4" />}
+    <Link
+      href={fullHref}
+      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+        isActive
+          ? "bg-accent text-accent-foreground"
+          : "text-foreground hover:text-primary"
+      }`}
+    >
       {children}
     </Link>
   );
@@ -27,58 +35,118 @@ function NavLink({ href, children, icon: Icon }: { href: string; children: React
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4">
+      <div className="bg-primary text-primary-foreground text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span>Authorized distributor of 120+ major brands | Wholesale only</span>
-          <span className="hidden sm:inline">Contact: sales@leaderstore.com | +1 (555) 123-4567</span>
+          <span className="hidden sm:inline">Import & Distribution — Miami, FL</span>
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1">
+              <Phone className="h-3 w-3" />
+              (786) 940-1456
+            </span>
+            <span className="flex items-center gap-1">
+              <Mail className="h-3 w-3" />
+              info@leaderstore.us
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-background border-b">
+      <header
+        className={`sticky top-0 z-50 bg-background border-b transition-shadow ${
+          scrolled ? "shadow-sm" : ""
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <Link href={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"} className="flex items-center gap-2">
-              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Leader Store" className="h-9 w-auto rounded" />
+            <Link href={base + "/"} className="flex items-center gap-2">
+              <img
+                src={`${base}logo.jpg`}
+                alt="Leader Store LLC"
+                className="h-10 w-auto rounded"
+              />
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">
-              <NavLink href="/" icon={Building2}>Home</NavLink>
-              <NavLink href="/catalog" icon={Package}>Catalog</NavLink>
-              <NavLink href="/about" icon={FileText}>About</NavLink>
-              <NavLink href="/contact" icon={Phone}>Contact</NavLink>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/about">About</NavLink>
+              <NavLink href="/catalog">Products</NavLink>
+              <NavLink href="/contact">Contact</NavLink>
             </nav>
 
             <div className="hidden md:flex items-center gap-2">
-              <Button variant="outline" size="sm" asChild>
-                <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/request-account"}>
-                  <UserPlus className="h-4 w-4 mr-1" />
-                  Request Account
-                </Link>
-              </Button>
-              <Button size="sm" variant="ghost" className="relative">
-                <ShoppingCart className="h-4 w-4" />
-                <span className="absolute -top-1 -right-1 h-4 w-4 bg-accent text-accent-foreground text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+              <Button
+                size="sm"
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                asChild
+              >
+                <Link href={base + "/contact"}>Get in Touch</Link>
               </Button>
             </div>
 
-            <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
 
         {mobileOpen && (
           <div className="md:hidden border-t bg-background px-4 py-3 space-y-1">
-            <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/"} className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted" onClick={() => setMobileOpen(false)}><Building2 className="h-4 w-4" /> Home</Link>
-            <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/catalog"} className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted" onClick={() => setMobileOpen(false)}><Package className="h-4 w-4" /> Catalog</Link>
-            <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/about"} className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted" onClick={() => setMobileOpen(false)}><FileText className="h-4 w-4" /> About</Link>
-            <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/contact"} className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted" onClick={() => setMobileOpen(false)}><Phone className="h-4 w-4" /> Contact</Link>
-            <Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/request-account"} className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted" onClick={() => setMobileOpen(false)}><UserPlus className="h-4 w-4" /> Request Account</Link>
+            <Link
+              href={base + "/"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href={base + "/about"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href={base + "/catalog"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              Products
+            </Link>
+            <Link
+              href={base + "/contact"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact
+            </Link>
+            <Link
+              href={base + "/contact"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm bg-accent text-accent-foreground font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              Get in Touch
+            </Link>
           </div>
         )}
       </header>
@@ -86,48 +154,81 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-muted border-t">
+      <footer className="bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="Leader Store" className="h-8 w-auto rounded" />
-                <span className="font-bold">Leader Store</span>
+                <img
+                  src={`${base}logo.jpg`}
+                  alt="Leader Store LLC"
+                  className="h-10 w-auto rounded"
+                />
               </div>
-              <p className="text-sm text-muted-foreground">Authorized wholesale importer and distributor of major international brands. Serving retailers and distributors across 35+ countries.</p>
+              <p className="text-sm text-primary-foreground/70">
+                Miami-based import and distribution company connecting Latin
+                American markets with top U.S. brands.
+              </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-3">Categories</h4>
-              <ul className="space-y-1.5 text-sm text-muted-foreground">
-                <li>Electronics</li>
-                <li>Apparel & Footwear</li>
-                <li>Toys & Games</li>
-                <li>Beauty & Personal Care</li>
-                <li>Household Goods</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3">Company</h4>
-              <ul className="space-y-1.5 text-sm text-muted-foreground">
-                <li><Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/about"} className="hover:text-foreground">About Us</Link></li>
-                <li><Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/contact"} className="hover:text-foreground">Contact</Link></li>
-                <li><Link href={(import.meta.env.BASE_URL.replace(/\/$/, "") || "") + "/request-account"} className="hover:text-foreground">Become a Partner</Link></li>
-                <li>Terms & Conditions</li>
-                <li>Privacy Policy</li>
+              <h4 className="font-semibold mb-3">Quick Links</h4>
+              <ul className="space-y-1.5 text-sm text-primary-foreground/70">
+                <li>
+                  <Link href={base + "/"} className="hover:text-primary-foreground">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href={base + "/about"} className="hover:text-primary-foreground">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href={base + "/catalog"} className="hover:text-primary-foreground">
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href={base + "/contact"} className="hover:text-primary-foreground">
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-3">Contact</h4>
-              <ul className="space-y-1.5 text-sm text-muted-foreground">
-                <li>sales@globaltrade.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>1200 Trade Center Blvd</li>
-                <li>Miami, FL 33131, USA</li>
+              <ul className="space-y-1.5 text-sm text-primary-foreground/70">
+                <li className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
+                </li>
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 flex-shrink-0" />
+                  (786) 940-1456
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  info@leaderstore.us
+                </li>
               </ul>
+              <div className="flex items-center gap-3 mt-4">
+                <div className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
+                  <Facebook className="h-4 w-4" />
+                </div>
+                <div className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
+                  <Instagram className="h-4 w-4" />
+                </div>
+                <div className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
+                  <Linkedin className="h-4 w-4" />
+                </div>
+                <div className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors cursor-pointer">
+                  <Twitter className="h-4 w-4" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t text-center text-xs text-muted-foreground">
-            © 2025 Leader Store Wholesale Imports. All rights reserved. | Authorized distributor only. B2B wholesale transactions.
+          <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center text-xs text-primary-foreground/50">
+            &copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.
           </div>
         </div>
       </footer>

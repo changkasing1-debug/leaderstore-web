@@ -8,7 +8,13 @@ import { Badge } from "@/components/ui/badge";
 import { Package, Search, SlidersHorizontal } from "lucide-react";
 import { products } from "@/lib/data";
 
-const categories = ["All", "Electronics", "Apparel", "Toys", "Beauty", "Household"];
+const categories = [
+  "All",
+  "Electronics",
+  "Kitchen & Home",
+  "Pet Supplies",
+  "Beauty",
+];
 
 export default function Catalog() {
   const [search, setSearch] = useState("");
@@ -16,22 +22,26 @@ export default function Catalog() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
 
   const filtered = products.filter((p) => {
-    const matchSearch = p.name.toLowerCase().includes(search.toLowerCase()) ||
+    const matchSearch =
+      p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.brand.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = activeCategory === "All" || p.category === activeCategory;
+    const matchCategory =
+      activeCategory === "All" || p.category === activeCategory;
     return matchSearch && matchCategory;
   });
 
   return (
     <Layout>
       <div className="bg-muted/50 border-b">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold mb-2">Product Catalog</h1>
-          <p className="text-muted-foreground">Browse our wholesale catalog with MOQs and pricing</p>
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <h1 className="text-3xl font-bold mb-2">Our Products</h1>
+          <p className="text-muted-foreground">
+            Wholesale catalog with MOQs and pricing for Latin American partners
+          </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-10">
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1 max-w-md">
@@ -61,21 +71,37 @@ export default function Catalog() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filtered.map((p) => (
-            <Link key={p.id} href={base + `/product/${p.id}`} className="group">
-              <Card className="h-full transition-all group-hover:shadow-md group-hover:border-primary/20">
+            <Link
+              key={p.id}
+              href={base + `/product/${p.id}`}
+              className="group"
+            >
+              <Card className="h-full transition-all group-hover:shadow-md group-hover:border-accent/30">
                 <div className="h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
                   <Package className="h-14 w-14 text-muted-foreground/30" />
                 </div>
                 <CardContent className="pt-4">
                   <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-xs">{p.brand}</Badge>
-                    <span className="text-xs text-muted-foreground">{p.category}</span>
+                    <Badge variant="secondary" className="text-xs">
+                      {p.brand}
+                    </Badge>
+                    <span className="text-xs text-muted-foreground">
+                      {p.category}
+                    </span>
                   </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-2">{p.name}</h3>
-                  <p className="text-xs text-muted-foreground mb-3">{p.description.slice(0, 80)}...</p>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+                    {p.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    {p.description.slice(0, 80)}...
+                  </p>
                   <div className="flex items-center justify-between pt-2 border-t">
-                    <span className="text-sm font-bold text-primary">{p.priceRange}</span>
-                    <span className="text-xs text-muted-foreground">MOQ: {p.moq}</span>
+                    <span className="text-sm font-bold text-accent">
+                      {p.priceRange}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      MOQ: {p.moq}
+                    </span>
                   </div>
                 </CardContent>
               </Card>
@@ -86,8 +112,17 @@ export default function Catalog() {
         {filtered.length === 0 && (
           <div className="text-center py-20">
             <Package className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
-            <p className="text-muted-foreground">No products match your search</p>
-            <Button variant="outline" className="mt-3" onClick={() => { setSearch(""); setActiveCategory("All"); }}>
+            <p className="text-muted-foreground">
+              No products match your search
+            </p>
+            <Button
+              variant="outline"
+              className="mt-3"
+              onClick={() => {
+                setSearch("");
+                setActiveCategory("All");
+              }}
+            >
               Clear Filters
             </Button>
           </div>

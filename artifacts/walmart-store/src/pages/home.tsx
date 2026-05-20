@@ -2,58 +2,133 @@ import { Link } from "wouter";
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
-  Package,
-  Truck,
-  ShieldCheck,
-  Globe,
   ArrowRight,
-  Award,
-  TrendingUp,
-  Users,
-  CheckCircle2,
+  UtensilsCrossed,
+  Dog,
+  Smartphone,
+  Sparkles,
+  ShieldCheck,
+  Truck,
+  BadgeDollarSign,
+  Quote,
+  Star,
+  ChevronRight,
+  MapPin,
+  Phone,
+  Mail,
 } from "lucide-react";
-import { brands, stats, products } from "@/lib/data";
+
+const categories = [
+  {
+    icon: UtensilsCrossed,
+    title: "Kitchen & Home",
+    desc: "Premium cookware, appliances, and home essentials sourced from top U.S. manufacturers.",
+  },
+  {
+    icon: Dog,
+    title: "Pet Supplies",
+    desc: "High-quality pet food, toys, and accessories for the growing pet care market.",
+  },
+  {
+    icon: Smartphone,
+    title: "Electronics",
+    desc: "Consumer electronics and tech accessories from trusted American brands.",
+  },
+  {
+    icon: Sparkles,
+    title: "Beauty & Personal Care",
+    desc: "Skincare, cosmetics, and personal care products with strong market demand.",
+  },
+];
+
+const whyUs = [
+  {
+    icon: ShieldCheck,
+    title: "Quality Brands",
+    desc: "We partner exclusively with reputable U.S. manufacturers to ensure every product meets high standards.",
+  },
+  {
+    icon: Truck,
+    title: "Reliable Distribution",
+    desc: "End-to-end logistics from Miami to Latin America. Customs, freight, and delivery handled.",
+  },
+  {
+    icon: BadgeDollarSign,
+    title: "Competitive Pricing",
+    desc: "Volume-based wholesale pricing that helps your margins stay healthy and competitive.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Carlos M.",
+    role: "Retailer — Colombia",
+    text: "Leader Store has been our go-to supplier for U.S. kitchen products. Consistent quality and reliable delivery every time.",
+  },
+  {
+    name: "Ana R.",
+    role: "Distributor — Mexico",
+    text: "Their pet supply catalog is excellent. We have grown our business 40% since partnering with them.",
+  },
+  {
+    name: "Luis P.",
+    role: "E-commerce — Peru",
+    text: "Competitive pricing and authentic products. Our customers love the U.S. brands they bring us.",
+  },
+];
 
 export default function Home() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
-  const featured = products.slice(0, 4);
 
   return (
     <Layout>
       {/* Hero */}
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
-              <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
+              <pattern id="heroGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" strokeWidth="0.3" />
               </pattern>
             </defs>
-            <rect width="100" height="100" fill="url(#grid)" />
+            <rect width="100" height="100" fill="url(#heroGrid)" />
           </svg>
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
+        <div className="relative max-w-7xl mx-auto px-4 py-24 md:py-32">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-primary-foreground/10 rounded-full px-3 py-1 text-xs font-medium mb-6">
-              <Award className="h-3.5 w-3.5" />
-              Authorized distributor of 120+ global brands
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              Wholesale Access to<br />World-Class Brands
+            <Badge className="bg-accent text-accent-foreground mb-6">
+              Wholesale Import & Distribution
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
+              Quality Products.
+              <br />
+              Trusted Imports.
             </h1>
-            <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg">
-              Connect your retail business with authentic products from the world's leading manufacturers. Competitive MOQs, reliable logistics, and full authorization documentation.
+            <p className="text-lg md:text-xl text-primary-foreground/75 mb-8 max-w-lg leading-relaxed">
+              Bringing premium brands from the U.S. to Latin America. Your
+              reliable partner for wholesale distribution across Kitchen & Home,
+              Pet Supplies, Electronics, and Beauty.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+            <div className="flex flex-wrap gap-4">
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                asChild
+              >
+                <Link href={base + "/contact"}>
+                  Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                asChild
+              >
                 <Link href={base + "/catalog"}>
-                  Browse Catalog <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link href={base + "/request-account"}>
-                  Request Account
+                  View Products <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -61,148 +136,198 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b bg-background">
-        <div className="max-w-7xl mx-auto px-4 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary">{s.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{s.label}</div>
-              </div>
-            ))}
+      {/* About */}
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Badge variant="outline" className="mb-4">
+              About Us
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Your Bridge to U.S. Brands
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Leader Store LLC is a Miami-based import and distribution company
+              specialized in connecting Latin American markets with top U.S.
+              brands. We source and distribute products across categories
+              including Kitchen & Home, Pet Supplies, Electronics, and Beauty —
+              delivering quality and reliability to our partners.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              With our strategic location in Miami and deep relationships with
+              American manufacturers, we streamline the import process so you can
+              focus on growing your retail business.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-muted to-muted/50 rounded-2xl h-80 flex items-center justify-center">
+            <div className="text-center">
+              <img
+                src={`${base}logo.jpg`}
+                alt="Leader Store LLC"
+                className="h-32 w-auto mx-auto mb-4 rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-muted-foreground font-medium">
+                Miami, Florida — Gateway to Latin America
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Why us */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Why Partner With Leader Store</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">We handle the complexity of international sourcing so you can focus on growing your retail business.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: ShieldCheck, title: "100% Authentic", desc: "Direct relationships with brands. Full traceability and certificates of authenticity provided." },
-            { icon: Truck, title: "Global Logistics", desc: "Sea and air freight options. Customs clearance handled. Door-to-door delivery available." },
-            { icon: TrendingUp, title: "Competitive Pricing", desc: "Volume-based pricing tiers. MOQs designed for growing retailers, not just giants." },
-            { icon: Globe, title: "Market Expansion", desc: "Access brands that may not have direct distribution in your region yet." },
-          ].map((item) => (
-            <Card key={item.title} className="hover:border-primary/30 transition-colors">
-              <CardContent className="pt-6">
-                <div className="h-10 w-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
-                  <item.icon className="h-5 w-5 text-primary" />
-                </div>
-                <h3 className="font-semibold mb-1">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="bg-muted/50 py-16">
+      {/* What We Offer */}
+      <section className="bg-muted/40 py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Featured Products</h2>
-              <p className="text-muted-foreground text-sm mt-1">High-demand items with strong margins</p>
-            </div>
-            <Button variant="outline" asChild>
-              <Link href={base + "/catalog"}>View All <ArrowRight className="ml-2 h-4 w-4" /></Link>
-            </Button>
+          <div className="text-center mb-14">
+            <Badge variant="outline" className="mb-4">
+              Our Categories
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              What We Offer
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Four core product categories with proven demand in Latin American
+              markets
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featured.map((p) => (
-              <Link key={p.id} href={base + `/product/${p.id}`} className="group">
-                <Card className="overflow-hidden h-full transition-all group-hover:shadow-md group-hover:border-primary/20">
-                  <div className="h-40 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                    <Package className="h-12 w-12 text-muted-foreground/40" />
+            {categories.map((cat) => (
+              <Card
+                key={cat.title}
+                className="group hover:border-accent/40 transition-all hover:shadow-md"
+              >
+                <CardContent className="pt-6 pb-6 text-center">
+                  <div className="h-14 w-14 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                    <cat.icon className="h-7 w-7 text-accent" />
                   </div>
-                  <CardContent className="pt-4">
-                    <div className="text-xs text-primary font-medium mb-1">{p.brand}</div>
-                    <h3 className="font-semibold text-sm mb-1 line-clamp-2">{p.name}</h3>
-                    <p className="text-xs text-muted-foreground mb-2">{p.category} | MOQ: {p.moq}</p>
-                    <div className="text-sm font-semibold">{p.priceRange}</div>
-                  </CardContent>
-                </Card>
-              </Link>
+                  <h3 className="font-semibold text-lg mb-2">{cat.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {cat.desc}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Brands */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Brands We Represent</h2>
-          <p className="text-muted-foreground">Direct distribution agreements with leading global manufacturers</p>
+      {/* Why Choose Us */}
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <div className="text-center mb-14">
+          <Badge variant="outline" className="mb-4">
+            Why Us
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Why Choose Leader Store
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Three reasons retailers and distributors across Latin America trust
+            us
+          </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {brands.map((b) => (
-            <Card key={b.id} className="hover:border-primary/30 transition-colors">
-              <CardContent className="pt-5 pb-5 text-center">
-                <div className="h-10 w-10 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-sm font-bold text-primary">{b.logo}</span>
-                </div>
-                <h3 className="font-semibold text-sm">{b.name}</h3>
-                <p className="text-xs text-muted-foreground">{b.category}</p>
-              </CardContent>
-            </Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {whyUs.map((item, i) => (
+            <div key={item.title} className="text-center">
+              <div className="h-16 w-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <item.icon className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-sm font-bold text-accent mb-2">
+                0{i + 1}
+              </div>
+              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="bg-muted/50 py-16">
+      {/* Testimonials */}
+      <section className="bg-muted/40 py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">How It Works</h2>
-            <p className="text-muted-foreground">Four simple steps to start sourcing</p>
+          <div className="text-center mb-14">
+            <Badge variant="outline" className="mb-4">
+              Testimonials
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              What Our Clients Say
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { step: "01", title: "Request Account", desc: "Submit your business information for verification. We review within 24 hours." },
-              { step: "02", title: "Browse Catalog", desc: "Access our full catalog with wholesale pricing, MOQs, and availability." },
-              { step: "03", title: "Place Order", desc: "Submit PO with your desired quantities. We confirm stock and delivery timeline." },
-              { step: "04", title: "Receive & Sell", desc: "Goods delivered to your warehouse. Start selling with full margin control." },
-            ].map((s, i) => (
-              <div key={s.step} className="relative">
-                <div className="flex items-start gap-3">
-                  <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <span className="text-xs font-bold text-primary-foreground">{i + 1}</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <Card key={t.name} className="hover:border-primary/20">
+                <CardContent className="pt-6 pb-6">
+                  <Quote className="h-6 w-6 text-accent/60 mb-3" />
+                  <p className="text-foreground leading-relaxed mb-5">
+                    {t.text}
+                  </p>
+                  <div className="flex items-center gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-accent text-accent"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <h3 className="font-semibold">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{s.desc}</p>
-                  </div>
-                </div>
-              </div>
+                  <div className="font-semibold text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <Card className="bg-primary text-primary-foreground border-0">
-          <CardContent className="py-12 px-6 md:px-12 text-center">
-            <Users className="h-10 w-10 mx-auto mb-4 opacity-80" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Ready to Expand Your Product Range?</h2>
-            <p className="max-w-lg mx-auto mb-6 opacity-80">
-              Join 500+ retailers and distributors who source through Leader Store. Verified business accounts get immediate access to pricing and availability.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                <Link href={base + "/request-account"}>
-                  <CheckCircle2 className="mr-2 h-4 w-4" />
-                  Create Account
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link href={base + "/contact"}>Talk to Sales</Link>
-              </Button>
+      {/* Contact CTA */}
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <Card className="bg-primary text-primary-foreground border-0 overflow-hidden">
+          <CardContent className="py-14 px-6 md:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  Ready to Source U.S. Products?
+                </h2>
+                <p className="text-primary-foreground/70 mb-6 leading-relaxed">
+                  Whether you are a retailer, distributor, or e-commerce business in
+                  Latin America, we are here to help you access the best U.S.
+                  brands at competitive wholesale prices.
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-3 text-sm">
+                    <MapPin className="h-4 w-4 flex-shrink-0" />
+                    4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Phone className="h-4 w-4 flex-shrink-0" />
+                    (786) 940-1456
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    info@leaderstore.us
+                  </div>
+                </div>
+                <Button
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                  asChild
+                >
+                  <Link href={base + "/contact"}>
+                    Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="rounded-xl overflow-hidden h-64 md:h-72 bg-primary-foreground/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.1234567890123!2d-80.12345678901234!3d25.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDA3JzI0LjQiTiA4MMKwMDcnMjQuNCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Leader Store LLC Location"
+                />
+              </div>
             </div>
           </CardContent>
         </Card>
