@@ -13,7 +13,7 @@ import {
 export default function About() {
   return (
     <Layout>
-      <div className="bg-muted/50 border-b">
+      <div className="border-b">
         <div className="max-w-3xl mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-2">About Leader Store LLC</h1>
           <p className="text-muted-foreground">

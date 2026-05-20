@@ -71,7 +71,7 @@ export default function RequestAccount() {
 
   return (
     <Layout>
-      <div className="bg-muted/50 border-b">
+      <div className="border-b">
         <div className="max-w-3xl mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-2">Request a Wholesale Account</h1>
           <p className="text-muted-foreground">

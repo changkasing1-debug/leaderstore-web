@@ -138,9 +138,6 @@ export default function Home() {
 
       {/* About */}
       <section className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <Badge variant="outline" className="mb-4">
-          About Us
-        </Badge>
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Your Bridge to U.S. Brands
         </h2>
@@ -151,32 +148,17 @@ export default function Home() {
           including Kitchen & Home, Pet Supplies, Electronics, and Beauty —
           delivering quality and reliability to our partners.
         </p>
-        <p className="text-muted-foreground leading-relaxed mb-8">
+        <p className="text-muted-foreground leading-relaxed">
           With our strategic location in Miami and deep relationships with
           American manufacturers, we streamline the import process so you can
           focus on growing your retail business.
         </p>
-        <div className="bg-gradient-to-br from-muted to-muted/50 rounded-2xl h-64 flex items-center justify-center">
-          <div className="text-center">
-            <img
-              src={`${base}logo.jpg`}
-              alt="Leader Store LLC"
-              className="h-24 w-auto mx-auto mb-3 rounded-lg shadow-lg"
-            />
-            <p className="text-sm text-muted-foreground font-medium">
-              Miami, Florida — Gateway to Latin America
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* What We Offer */}
-      <section className="bg-muted/40 py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
-            <Badge variant="outline" className="mb-4">
-              Our Categories
-            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
               What We Offer
             </h2>
@@ -189,10 +171,10 @@ export default function Home() {
             {categories.map((cat) => (
               <Card
                 key={cat.title}
-                className="group hover:border-accent/40 transition-all hover:shadow-md"
+                className="group hover:border-accent/40 transition-colors"
               >
                 <CardContent className="pt-6 pb-6 text-center">
-                  <div className="h-14 w-14 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                  <div className="h-14 w-14 bg-accent/10 rounded-md flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                     <cat.icon className="h-7 w-7 text-accent" />
                   </div>
                   <h3 className="font-semibold text-lg mb-2">{cat.title}</h3>
@@ -209,9 +191,6 @@ export default function Home() {
       {/* Why Choose Us */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center mb-14">
-          <Badge variant="outline" className="mb-4">
-            Why Us
-          </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
             Why Choose Leader Store
           </h2>
@@ -223,7 +202,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {whyUs.map((item, i) => (
             <div key={item.title} className="text-center">
-              <div className="h-16 w-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+              <div className="h-16 w-16 bg-primary/10 rounded-md flex items-center justify-center mx-auto mb-5">
                 <item.icon className="h-8 w-8 text-primary" />
               </div>
               <div className="text-sm font-bold text-accent mb-2">
@@ -239,12 +218,9 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-muted/40 py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
-            <Badge variant="outline" className="mb-4">
-              Testimonials
-            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
               What Our Clients Say
             </h2>

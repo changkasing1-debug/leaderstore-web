@@ -32,7 +32,7 @@ export default function Catalog() {
 
   return (
     <Layout>
-      <div className="bg-muted/50 border-b">
+      <div className="border-b">
         <div className="max-w-7xl mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-2">Our Products</h1>
           <p className="text-muted-foreground">
@@ -76,7 +76,7 @@ export default function Catalog() {
               href={base + `/product/${p.id}`}
               className="group"
             >
-              <Card className="h-full transition-all group-hover:shadow-md group-hover:border-accent/30">
+              <Card className="h-full transition-colors group-hover:border-accent/30">
                 <div className="h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
                   <Package className="h-14 w-14 text-muted-foreground/30" />
                 </div>
