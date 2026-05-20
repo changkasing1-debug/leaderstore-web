@@ -21,9 +21,9 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={fullHref}
-      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
         isActive
-          ? "bg-accent text-accent-foreground"
+          ? "text-accent"
           : "text-foreground hover:text-primary"
       }`}
     >
@@ -46,20 +46,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top bar */}
+      {/* Top bar — contact info */}
       <div className="bg-primary text-primary-foreground text-xs py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="hidden sm:inline">Import & Distribution — Miami, FL</span>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              <Phone className="h-3 w-3" />
-              (786) 940-1456
-            </span>
-            <span className="flex items-center gap-1">
-              <Mail className="h-3 w-3" />
-              info@leaderstore.us
-            </span>
-          </div>
+        <div className="max-w-7xl mx-auto flex items-center justify-end gap-6">
+          <a
+            href="mailto:info@leaderstore.us"
+            className="flex items-center gap-1.5 hover:text-accent transition-colors"
+          >
+            <Mail className="h-3 w-3" />
+            info@leaderstore.us
+          </a>
+          <a
+            href="tel:+17869401456"
+            className="flex items-center gap-1.5 hover:text-accent transition-colors"
+          >
+            <Phone className="h-3 w-3" />
+            <b>(786) 940-1456</b>
+          </a>
         </div>
       </div>
 
@@ -70,32 +73,35 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center h-20 relative">
-            {/* Left nav — Home + Products */}
-            <nav className="hidden md:flex items-center gap-1 flex-1">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo left */}
+            <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
+              <img
+                src={`${base}logo.jpg`}
+                alt="Leader Store LLC logo – wholesale distributor USA"
+                className="h-14 w-auto rounded"
+              />
+            </Link>
+
+            {/* Desktop nav */}
+            <nav className="hidden lg:flex items-center gap-1">
               <NavLink href="/">Home</NavLink>
-              <NavLink href="/catalog">Products</NavLink>
-            </nav>
-
-            {/* Center logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
-              <Link href={base + "/"}>
-                <img
-                  src={`${base}logo.jpg`}
-                  alt="Leader Store LLC"
-                  className="h-16 w-auto rounded"
-                />
-              </Link>
-            </div>
-
-            {/* Right nav — About + Contact */}
-            <nav className="hidden md:flex items-center gap-1 flex-1 justify-end">
               <NavLink href="/about">About</NavLink>
+              <NavLink href="/catalog">Product</NavLink>
+              <NavLink href="/about">How It&apos;s Work</NavLink>
+              <NavLink href="/about">Blog</NavLink>
               <NavLink href="/contact">Contact</NavLink>
+              <Button
+                size="sm"
+                className="ml-2 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                asChild
+              >
+                <Link href={base + "/request-account"}>Apply for Wholesale</Link>
+              </Button>
             </nav>
 
             <button
-              className="md:hidden p-2 ml-auto"
+              className="lg:hidden p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? (
@@ -107,8 +113,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
+        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t bg-background px-4 py-3 space-y-1">
+          <div className="lg:hidden border-t bg-background px-4 py-3 space-y-1">
             <Link
               href={base + "/"}
               className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
@@ -128,7 +135,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
               onClick={() => setMobileOpen(false)}
             >
-              Products
+              Product
+            </Link>
+            <Link
+              href={base + "/about"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              How It&apos;s Work
+            </Link>
+            <Link
+              href={base + "/about"}
+              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
+              onClick={() => setMobileOpen(false)}
+            >
+              Blog
             </Link>
             <Link
               href={base + "/contact"}
@@ -138,11 +159,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               Contact
             </Link>
             <Link
-              href={base + "/contact"}
+              href={base + "/request-account"}
               className="flex items-center gap-2 px-3 py-2 rounded-md text-sm bg-accent text-accent-foreground font-medium"
               onClick={() => setMobileOpen(false)}
             >
-              Get in Touch
+              Apply for Wholesale
             </Link>
           </div>
         )}
