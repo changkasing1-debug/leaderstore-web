@@ -49,8 +49,12 @@ export default function ProductDetail() {
 
         <div className="grid grid-cols-1 gap-8">
           {/* Image */}
-          <div className="bg-gradient-to-br from-muted to-muted/50 rounded-xl flex items-center justify-center min-h-[300px]">
-            <Package className="h-24 w-24 text-muted-foreground/20" />
+          <div className="overflow-hidden rounded-xl border">
+            <img
+              src={`${base}prod-${product.image}.png`}
+              alt={product.name}
+              className="w-full h-auto max-h-[500px] object-cover"
+            />
           </div>
 
           {/* Info */}

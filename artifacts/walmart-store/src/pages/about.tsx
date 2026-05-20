@@ -1,5 +1,4 @@
 import Layout from "@/components/layout";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Globe,
@@ -11,65 +10,66 @@ import {
 } from "lucide-react";
 
 export default function About() {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
+
   return (
     <Layout>
-      <div className="border-b">
-        <div className="max-w-3xl mx-auto px-4 py-12 text-center">
-          <h1 className="text-3xl font-bold mb-2">About Leader Store LLC</h1>
-          <p className="text-muted-foreground">
-            Your trusted partner for U.S. imports and Latin American distribution
-          </p>
+      {/* Hero image */}
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <img
+          src={`${base}about-office.png`}
+          alt="Leader Store Miami office"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-primary/70" />
+        <div className="relative h-full flex items-center justify-center text-center px-4">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
+              About Leader Store LLC
+            </h1>
+            <p className="text-primary-foreground/70">
+              Your trusted partner for U.S. imports and Latin American distribution
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
+      <div className="max-w-5xl mx-auto px-4 py-16 space-y-16">
         {/* Story */}
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="text-center max-w-2xl mx-auto">
           <Badge className="mb-4">Miami, Florida</Badge>
-          <h2 className="text-2xl md:text-3xl font-bold mb-5">
+          <h2 className="text-2xl font-bold mb-5">
             Bridging U.S. Brands to Latin America
           </h2>
-          <p className="text-muted-foreground mb-4 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Leader Store LLC was founded with a clear mission: make quality
             U.S. products accessible to retailers and distributors across Latin
             America. Based in Miami — the commercial gateway to the Americas —
             we leverage our strategic location to streamline imports and
             deliver reliable distribution.
           </p>
-          <p className="text-muted-foreground leading-relaxed mb-10">
-            We specialize in four core categories: Kitchen & Home, Pet
-            Supplies, Electronics, and Beauty & Personal Care. Our deep
-            relationships with American manufacturers allow us to offer
-            competitive wholesale pricing, flexible order quantities, and
-            authentic products with full documentation.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: Globe, label: "LatAm Focus", sub: "Regional Expertise" },
-              { icon: Users, label: "500+", sub: "Partners" },
-              { icon: ShieldCheck, label: "100%", sub: "Authentic" },
-              { icon: Truck, label: "Door-to-Door", sub: "Logistics" },
-            ].map((s) => (
-              <Card key={s.label}>
-                <CardContent className="pt-5 text-center">
-                  <s.icon className="h-6 w-6 text-accent mx-auto mb-2" />
-                  <div className="text-lg font-bold">{s.label}</div>
-                  <div className="text-xs text-muted-foreground">{s.sub}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        </div>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+          {[
+            { icon: Globe, label: "LatAm Focus", sub: "Regional Expertise" },
+            { icon: Users, label: "500+", sub: "Partners" },
+            { icon: ShieldCheck, label: "100%", sub: "Authentic" },
+            { icon: Truck, label: "Door-to-Door", sub: "Logistics" },
+          ].map((s) => (
+            <div key={s.label} className="bg-background p-6 text-center">
+              <s.icon className="h-5 w-5 text-accent mx-auto mb-2" />
+              <div className="text-sm font-bold">{s.label}</div>
+              <div className="text-xs text-muted-foreground">{s.sub}</div>
+            </div>
+          ))}
         </div>
 
         {/* What sets us apart */}
         <div>
-          <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4">Our Strengths</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              What Sets Us Apart
-            </h2>
-          </div>
-          <div className="max-w-3xl mx-auto grid grid-cols-1 gap-4">
+          <h2 className="text-2xl font-bold mb-8 text-center">What Sets Us Apart</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {[
               {
                 icon: ShieldCheck,
@@ -102,51 +102,31 @@ export default function About() {
                 desc: "Personal account management and bilingual support for smooth communication.",
               },
             ].map((item) => (
-              <Card
-                key={item.title}
-                className="hover:border-accent/30 transition-colors"
-              >
-                <CardContent className="pt-5 text-center">
-                  <div className="h-10 w-10 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <item.icon className="h-5 w-5 text-accent" />
-                  </div>
-                  <h3 className="font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.desc}
-                  </p>
-                </CardContent>
-              </Card>
+              <div key={item.title} className="bg-background p-6">
+                <item.icon className="h-4 w-4 text-accent mb-3" />
+                <h3 className="font-semibold mb-1 text-sm">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Markets */}
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <Badge variant="outline" className="mb-4">Coverage</Badge>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Markets We Serve
-            </h2>
-            <p className="text-muted-foreground">
-              Active distribution across major Latin American markets
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="text-center">
+          <Badge variant="outline" className="mb-4">Coverage</Badge>
+          <h2 className="text-2xl font-bold mb-6">Markets We Serve</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border max-w-2xl mx-auto">
             {[
-              "Mexico",
-              "Colombia",
-              "Peru",
-              "Chile",
-              "Ecuador",
-              "Panama",
-              "Costa Rica",
-              "Guatemala",
+              "Mexico", "Colombia", "Peru", "Chile",
+              "Ecuador", "Panama", "Costa Rica", "Guatemala",
             ].map((m) => (
               <div
                 key={m}
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-muted rounded-lg"
+                className="bg-background flex items-center justify-center gap-2 px-4 py-3"
               >
-                <Globe className="h-4 w-4 text-accent" />
+                <Globe className="h-3 w-3 text-accent" />
                 <span className="text-sm font-medium">{m}</span>
               </div>
             ))}

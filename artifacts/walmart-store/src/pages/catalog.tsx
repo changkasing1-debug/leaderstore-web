@@ -76,9 +76,13 @@ export default function Catalog() {
               href={base + `/product/${p.id}`}
               className="group"
             >
-              <Card className="h-full transition-colors group-hover:border-accent/30">
-                <div className="h-48 bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                  <Package className="h-14 w-14 text-muted-foreground/30" />
+              <Card className="h-full transition-colors group-hover:border-accent/30 overflow-hidden">
+                <div className="h-48 overflow-hidden bg-muted">
+                  <img
+                    src={`${base}prod-${p.image}.png`}
+                    alt={p.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <CardContent className="pt-4">
                   <div className="flex items-center justify-between mb-2">

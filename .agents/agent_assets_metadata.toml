@@ -1,0 +1,80 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "oMqm1dprJjwk9GjG1QulN"
+uri = "file://artifacts/walmart-store/public/hero-warehouse.png"
+type = "image"
+title = "Wholesale warehouse hero"
+
+[[generated]]
+id = "5RVKvAfqaR6XA2NIZT_Sw"
+uri = "file://artifacts/walmart-store/public/cat-kitchen.png"
+type = "image"
+title = "Kitchen products category"
+
+[[generated]]
+id = "YyNLfuCF0hcIOZe90-ebm"
+uri = "file://artifacts/walmart-store/public/cat-pet.png"
+type = "image"
+title = "Pet supplies category"
+
+[[generated]]
+id = "46U_fJDmzwa4rfdKFXzwU"
+uri = "file://artifacts/walmart-store/public/cat-electronics.png"
+type = "image"
+title = "Electronics category"
+
+[[generated]]
+id = "71LF0OMRoZrlOZtHQFJ5R"
+uri = "file://artifacts/walmart-store/public/cat-beauty.png"
+type = "image"
+title = "Beauty products category"
+
+[[generated]]
+id = "Hu6Irzgh2RqRTgx7rtYmV"
+uri = "file://artifacts/walmart-store/public/prod-headphones.png"
+type = "image"
+title = "Sony headphones product"
+
+[[generated]]
+id = "GHwcXYOZvyvIluQ_2A4as"
+uri = "file://artifacts/walmart-store/public/prod-smartphone.png"
+type = "image"
+title = "Samsung smartphone product"
+
+[[generated]]
+id = "qGA8CQM0uVSxWdMsH5MZU"
+uri = "file://artifacts/walmart-store/public/prod-sneakers.png"
+type = "image"
+title = "Nike sneakers product"
+
+[[generated]]
+id = "u5-s0M-5otlZ93CudYgP7"
+uri = "file://artifacts/walmart-store/public/prod-toy.png"
+type = "image"
+title = "LEGO toy product"
+
+[[generated]]
+id = "r9kzSn6dhByHZnJts9LtS"
+uri = "file://artifacts/walmart-store/public/prod-watch.png"
+type = "image"
+title = "Apple Watch product"
+
+[[generated]]
+id = "APeZIrw1EgUA4IPDLq199"
+uri = "file://artifacts/walmart-store/public/prod-skincare.png"
+type = "image"
+title = "Skincare product"
+
+[[generated]]
+id = "TNFjXb56NcTd7B80lkBmM"
+uri = "file://artifacts/walmart-store/public/prod-lighting.png"
+type = "image"
+title = "Smart lighting product"
+
+[[generated]]
+id = "IZhXK_UO2UCedGhXEPTSf"
+uri = "file://artifacts/walmart-store/public/about-office.png"
+type = "image"
+title = "Miami office interior"
