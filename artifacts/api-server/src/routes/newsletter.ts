@@ -1,10 +1,10 @@
 import { Router, type IRouter } from "express";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const router: IRouter = Router();
 
 const NewsletterSubscribeBody = z.object({
-  email: z.email(),
+  email: z.string().email(),
   name: z.string().optional(),
 });
 
