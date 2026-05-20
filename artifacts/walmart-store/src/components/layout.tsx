@@ -73,7 +73,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center h-20">
             {/* Logo left */}
             <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
               <img
@@ -83,33 +83,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               />
             </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* Desktop nav — centered in middle column */}
+            <nav className="hidden lg:flex items-center gap-1 justify-self-center">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About</NavLink>
               <NavLink href="/catalog">Product</NavLink>
               <NavLink href="/about">How It&apos;s Work</NavLink>
               <NavLink href="/about">Blog</NavLink>
               <NavLink href="/contact">Contact</NavLink>
+            </nav>
+
+            <div className="flex items-center justify-end">
               <Button
                 size="sm"
-                className="ml-2 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                className="hidden lg:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
                 asChild
               >
                 <Link href={base + "/request-account"}>Apply for Wholesale</Link>
               </Button>
-            </nav>
 
-            <button
-              className="lg:hidden p-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
-              {mobileOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </button>
+              <button
+                className="lg:hidden p-2"
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                {mobileOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
