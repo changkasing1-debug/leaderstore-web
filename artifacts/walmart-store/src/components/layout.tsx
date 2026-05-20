@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import {
   Menu,
   X,
-  Package,
   Phone,
   Mail,
   MapPin,
@@ -71,34 +70,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <Link href={base + "/"} className="flex items-center gap-2">
-              <img
-                src={`${base}logo.jpg`}
-                alt="Leader Store LLC"
-                className="h-10 w-auto rounded"
-              />
-            </Link>
-
-            <nav className="hidden md:flex items-center gap-1">
+          <div className="flex items-center h-16 relative">
+            {/* Left nav — Home + Products */}
+            <nav className="hidden md:flex items-center gap-1 flex-1">
               <NavLink href="/">Home</NavLink>
-              <NavLink href="/about">About</NavLink>
               <NavLink href="/catalog">Products</NavLink>
+            </nav>
+
+            {/* Center logo */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center">
+              <Link href={base + "/"}>
+                <img
+                  src={`${base}logo.jpg`}
+                  alt="Leader Store LLC"
+                  className="h-10 w-auto rounded"
+                />
+              </Link>
+            </div>
+
+            {/* Right nav — About + Contact */}
+            <nav className="hidden md:flex items-center gap-1 flex-1 justify-end">
+              <NavLink href="/about">About</NavLink>
               <NavLink href="/contact">Contact</NavLink>
             </nav>
 
-            <div className="hidden md:flex items-center gap-2">
-              <Button
-                size="sm"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-                asChild
-              >
-                <Link href={base + "/contact"}>Get in Touch</Link>
-              </Button>
-            </div>
-
             <button
-              className="md:hidden p-2"
+              className="md:hidden p-2 ml-auto"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
               {mobileOpen ? (
