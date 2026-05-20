@@ -11,6 +11,7 @@ import {
   Linkedin,
   Twitter,
   Send,
+  Truck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -120,23 +121,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top bar — contact info */}
+      {/* Top bar — promo + contact info */}
       <div className="bg-primary text-primary-foreground text-xs py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-end gap-6">
-          <a
-            href="mailto:info@leaderstore.us"
-            className="flex items-center gap-1.5 hover:text-accent transition-colors"
-          >
-            <Mail className="h-3 w-3" />
-            info@leaderstore.us
-          </a>
-          <a
-            href="tel:+17869401456"
-            className="flex items-center gap-1.5 hover:text-accent transition-colors"
-          >
-            <Phone className="h-3 w-3" />
-            <b>(786) 940-1456</b>
-          </a>
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-1.5 text-accent font-medium">
+            <Truck className="h-3.5 w-3.5" />
+            <span>Envíos gratis dentro de US en pedidos de más de $3,000</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a
+              href="mailto:info@leaderstore.us"
+              className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors"
+            >
+              <Mail className="h-3 w-3" />
+              info@leaderstore.us
+            </a>
+            <a
+              href="tel:+17869401456"
+              className="flex items-center gap-1.5 hover:text-accent transition-colors"
+            >
+              <Phone className="h-3 w-3" />
+              <b>(786) 940-1456</b>
+            </a>
+          </div>
         </div>
       </div>
 
