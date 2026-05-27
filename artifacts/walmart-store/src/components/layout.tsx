@@ -86,74 +86,46 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
-      setSearchOpen(false);
-      setSearchQuery("");
-    }
-  };
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top bar — contact ticker */}
-      <div className="bg-primary text-primary-foreground text-xs py-2.5 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative">
-          <div className="flex animate-marquee whitespace-nowrap gap-12 justify-center">
-            <a href="mailto:info@leaderstore.us" className="flex items-center gap-1.5 hover:text-accent transition-colors shrink-0">
-              <Mail className="h-3 w-3" /> info@leaderstore.us
-            </a>
-            <span className="text-primary-foreground/30 shrink-0">|</span>
-            <a href="tel:+17869401456" className="flex items-center gap-1.5 hover:text-accent transition-colors shrink-0">
-              <Phone className="h-3 w-3" /> (786) 940-1456
-            </a>
-            <span className="text-primary-foreground/30 shrink-0">|</span>
-            <span className="flex items-center gap-1.5 shrink-0">
-              <MapPin className="h-3 w-3" /> 4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
-            </span>
-            <span className="text-primary-foreground/30 shrink-0">|</span>
-            <a href="mailto:info@leaderstore.us" className="flex items-center gap-1.5 hover:text-accent transition-colors shrink-0">
-              <Mail className="h-3 w-3" /> info@leaderstore.us
-            </a>
-            <span className="text-primary-foreground/30 shrink-0">|</span>
-            <a href="tel:+17869401456" className="flex items-center gap-1.5 hover:text-accent transition-colors shrink-0">
-              <Phone className="h-3 w-3" /> (786) 940-1456
-            </a>
-            <span className="text-primary-foreground/30 shrink-0">|</span>
-            <span className="flex items-center gap-1.5 shrink-0">
-              <MapPin className="h-3 w-3" /> 4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166
-            </span>
-          </div>
+      {/* Search bar — standalone, top */}
+      <div className="bg-[#001A2E] py-3 px-4 z-50">
+        <div className="max-w-3xl mx-auto relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/40" />
+          <Input
+            placeholder="Search products, brands, categories..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                if (searchQuery.trim()) {
+                  setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
+                  setSearchQuery("");
+                }
+              }
+            }}
+            className="pl-12 w-full h-11 bg-white/10 border-white/20 text-white placeholder:text-white/40 rounded-lg text-base focus-visible:ring-[#015D2C]"
+          />
         </div>
       </div>
 
-      {/* Search bar + logo */}
-      <div className="bg-background border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+      {/* Nav bar — logo + links + button */}
+      <div className="bg-background border-b sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
             <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded" />
           </Link>
 
-          <form onSubmit={handleSearch} className="flex-1 max-w-xl relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search products, brands, categories..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 w-full bg-muted border-0"
-            />
-          </form>
-
-          <div className="hidden md:flex items-center gap-3">
-            <Link href={base + "/catalog"} className="text-sm font-medium hover:text-accent transition-colors">Catalog</Link>
-            <Link href={base + "/about"} className="text-sm font-medium hover:text-accent transition-colors">About</Link>
-            <Link href={base + "/contact"} className="text-sm font-medium hover:text-accent transition-colors">Contact</Link>
-            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold" asChild>
+          <div className="hidden md:flex items-center gap-6">
+            <Link href={base + "/catalog"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Catalog</Link>
+            <Link href={base + "/about"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">About</Link>
+            <Link href={base + "/contact"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Contact</Link>
+            <Button size="sm" className="btn-primary h-9 px-5" asChild>
               <Link href={base + "/request-account"}>Apply for Wholesale</Link>
             </Button>
           </div>
@@ -166,10 +138,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile menu */}
         {searchOpen && (
           <div className="md:hidden border-t bg-background px-4 py-3 space-y-2">
-            <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>Catalog</Link>
-            <Link href={base + "/about"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>About</Link>
-            <Link href={base + "/contact"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>Contact</Link>
-            <Link href={base + "/request-account"} className="block text-sm py-2 text-accent font-semibold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
+            <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Catalog</Link>
+            <Link href={base + "/about"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>About</Link>
+            <Link href={base + "/contact"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Contact</Link>
+            <Link href={base + "/request-account"} className="block text-sm py-2 text-[#015D2C] font-bold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
           </div>
         )}
       </div>
