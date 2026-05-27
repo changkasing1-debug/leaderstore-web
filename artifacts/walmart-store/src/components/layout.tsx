@@ -1,8 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import {
-  Menu,
-  X,
   Phone,
   Mail,
   MapPin,
@@ -11,38 +9,20 @@ import {
   Linkedin,
   Twitter,
   Send,
+  Search,
+  Menu,
+  X,
+  ArrowUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const [location] = useLocation();
-  const isActive = location === href;
-  const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
-  const fullHref = base + href;
-  return (
-    <Link
-      href={fullHref}
-      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
-        isActive
-          ? "text-accent"
-          : "text-foreground hover:text-primary"
-      }`}
-    >
-      {children}
-    </Link>
-  );
-}
-
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
   return (
     <li>
-      <Link
-        href={base + href}
-        className="text-sm text-primary-foreground/65 hover:text-primary-foreground transition-colors"
-      >
+      <Link href={base + href} className="text-sm text-primary-foreground/65 hover:text-primary-foreground transition-colors">
         {children}
       </Link>
     </li>
@@ -81,24 +61,11 @@ function Newsletter() {
   return (
     <div>
       <h4 className="font-semibold mb-1 text-sm">Newsletter</h4>
-      <p className="text-xs text-primary-foreground/65 mb-3">
-        Subscribe to receive product updates and wholesale offers.
-      </p>
+      <p className="text-xs text-primary-foreground/65 mb-3">Subscribe to receive product updates and wholesale offers.</p>
       <form onSubmit={handleSubmit} className="flex gap-2">
-        <Input
-          type="email"
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm h-9"
-        />
-        <Button
-          type="submit"
-          size="sm"
-          disabled={loading}
-          className="bg-accent text-accent-foreground hover:bg-accent/90 px-3 h-9 flex-shrink-0"
-        >
+        <Input type="email" placeholder="your@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required
+          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm h-9" />
+        <Button type="submit" size="sm" disabled={loading} className="bg-accent text-accent-foreground hover:bg-accent/90 px-3 h-9 flex-shrink-0">
           <Send className="h-4 w-4" />
         </Button>
       </form>
@@ -107,20 +74,34 @@ function Newsletter() {
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Top bar — scrolling contact ticker */}
+      {/* Top bar — contact ticker */}
       <div className="bg-primary text-primary-foreground text-xs py-2.5 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto relative">
           <div className="flex animate-marquee whitespace-nowrap gap-12 justify-center">
@@ -151,103 +132,47 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Navbar */}
-      <header
-        className={`sticky top-0 z-50 bg-background border-b transition-shadow ${
-          scrolled ? "shadow-sm" : ""
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center h-20">
-            {/* Logo left */}
-            <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
-              <img
-                src={`${base}logo.jpg`}
-                alt="Leader Store LLC logo – wholesale distributor USA"
-                className="h-14 w-auto rounded"
-              />
-            </Link>
+      {/* Search bar + logo */}
+      <div className="bg-background border-b sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+          <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
+            <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded" />
+          </Link>
 
-            {/* Desktop nav — centered in middle column */}
-            <nav className="hidden lg:flex items-center gap-1 justify-self-center">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/catalog">Product</NavLink>
-              <NavLink href="/faq">FAQ</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
-            </nav>
+          <form onSubmit={handleSearch} className="flex-1 max-w-xl relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search products, brands, categories..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 w-full bg-muted border-0"
+            />
+          </form>
 
-            <div className="flex items-center justify-end">
-              <Button
-                size="sm"
-                className="hidden lg:inline-flex bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                asChild
-              >
-                <Link href={base + "/request-account"}>Apply for Wholesale</Link>
-              </Button>
-
-              <button
-                className="lg:hidden p-2"
-                onClick={() => setMobileOpen(!mobileOpen)}
-              >
-                {mobileOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <Menu className="h-5 w-5" />
-                )}
-              </button>
-            </div>
+          <div className="hidden md:flex items-center gap-3">
+            <Link href={base + "/catalog"} className="text-sm font-medium hover:text-accent transition-colors">Catalog</Link>
+            <Link href={base + "/about"} className="text-sm font-medium hover:text-accent transition-colors">About</Link>
+            <Link href={base + "/contact"} className="text-sm font-medium hover:text-accent transition-colors">Contact</Link>
+            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold" asChild>
+              <Link href={base + "/request-account"}>Apply for Wholesale</Link>
+            </Button>
           </div>
+
+          <button className="md:hidden p-2" onClick={() => setSearchOpen(!searchOpen)}>
+            {searchOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
 
         {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="lg:hidden border-t bg-background px-4 py-3 space-y-1">
-            <Link
-              href={base + "/"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
-              onClick={() => setMobileOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href={base + "/about"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
-              onClick={() => setMobileOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href={base + "/catalog"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
-              onClick={() => setMobileOpen(false)}
-            >
-              Product
-            </Link>
-            <Link
-              href={base + "/faq"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
-              onClick={() => setMobileOpen(false)}
-            >
-              FAQ
-            </Link>
-            <Link
-              href={base + "/contact"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-muted"
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link
-              href={base + "/request-account"}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-sm bg-accent text-accent-foreground font-medium"
-              onClick={() => setMobileOpen(false)}
-            >
-              Apply for Wholesale
-            </Link>
+        {searchOpen && (
+          <div className="md:hidden border-t bg-background px-4 py-3 space-y-2">
+            <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>Catalog</Link>
+            <Link href={base + "/about"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>About</Link>
+            <Link href={base + "/contact"} className="block text-sm py-2 hover:text-accent" onClick={() => setSearchOpen(false)}>Contact</Link>
+            <Link href={base + "/request-account"} className="block text-sm py-2 text-accent font-semibold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
           </div>
         )}
-      </header>
+      </div>
 
       <main className="flex-1">{children}</main>
 
@@ -255,35 +180,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 pt-14 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-
-            {/* Brand */}
             <div className="lg:col-span-2">
-              <img
-                src={`${base}logo.jpg`}
-                alt="Leader Store LLC"
-                className="h-10 w-auto rounded mb-4"
-              />
+              <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded mb-4" />
               <p className="text-sm text-primary-foreground/65 leading-relaxed mb-5 max-w-xs">
                 Miami-based import and distribution company connecting Latin American markets with top U.S. brands.
               </p>
               <div className="flex items-center gap-3 mb-6">
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
-                  <Instagram className="h-4 w-4" />
-                </a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
-                  <Linkedin className="h-4 w-4" />
-                </a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors">
-                  <Twitter className="h-4 w-4" />
-                </a>
+                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Facebook className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Instagram className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Linkedin className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Twitter className="h-4 w-4" /></a>
               </div>
               <Newsletter />
             </div>
-
-            {/* Company */}
             <div>
               <h4 className="font-semibold mb-4 text-sm">Company</h4>
               <ul className="space-y-2.5">
@@ -294,8 +203,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <FooterLink href="/faq">FAQ</FooterLink>
               </ul>
             </div>
-
-            {/* Products */}
             <div>
               <h4 className="font-semibold mb-4 text-sm">Products</h4>
               <ul className="space-y-2.5">
@@ -306,8 +213,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <FooterLink href="/catalog">Beauty &amp; Care</FooterLink>
               </ul>
             </div>
-
-            {/* Support + Contact */}
             <div>
               <h4 className="font-semibold mb-4 text-sm">Support</h4>
               <ul className="space-y-2.5 mb-6">
@@ -324,20 +229,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4 flex-shrink-0" />
-                  <a href="tel:+17869401456" className="hover:text-primary-foreground transition-colors">
-                    (786) 940-1456
-                  </a>
+                  <a href="tel:+17869401456" className="hover:text-primary-foreground transition-colors">(786) 940-1456</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  <a href="mailto:info@leaderstore.us" className="hover:text-primary-foreground transition-colors">
-                    info@leaderstore.us
-                  </a>
+                  <a href="mailto:info@leaderstore.us" className="hover:text-primary-foreground transition-colors">info@leaderstore.us</a>
                 </li>
               </ul>
             </div>
           </div>
-
           <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
             <span>&copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.</span>
             <div className="flex items-center gap-4">
@@ -348,6 +248,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-50 h-10 w-10 bg-accent text-accent-foreground rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-accent/90 ${
+          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <ArrowUp className="h-5 w-5" />
+      </button>
     </div>
   );
 }

@@ -167,6 +167,36 @@
     animation: marquee 20s linear infinite;
   }
 
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+
+  @keyframes heroFade {
+    0%, 20% { opacity: 1; }
+    25%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-count {
+    animation: countUp 0.5s ease-out forwards;
+  }
+
+  @keyframes brandScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-brand-scroll {
+    animation: brandScroll 30s linear infinite;
+  }
+
   input[type="search"]::-webkit-search-cancel-button {
     @apply hidden;
   }
