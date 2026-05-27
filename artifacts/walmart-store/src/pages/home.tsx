@@ -65,6 +65,82 @@ const industries = [
   "Health & Wellness", "Toys & Entertainment", "Sports & Fitness",
 ];
 
+type Review = { img: string; name: string; location: string; quote: string };
+
+function ReviewCarousel({ reviews, base }: { reviews: Review[]; base: string }) {
+  const [idx, setIdx] = useState(0);
+  const total = reviews.length;
+  const prev = () => setIdx((i) => (i - 1 + total) % total);
+  const next = () => setIdx((i) => (i + 1) % total);
+
+  useEffect(() => {
+    const t = setInterval(next, 5000);
+    return () => clearInterval(t);
+  }, []);
+
+  const visible = [0, 1, 2].map((offset) => reviews[(idx + offset) % total]);
+
+  return (
+    <section className="section-padding bg-white">
+      <div className="container-max">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              What Our Partners Say
+            </h2>
+            <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
+          </div>
+          {/* Arrow controls */}
+          <div className="flex gap-3 self-start md:self-end mb-2">
+            <button onClick={prev}
+              className="h-10 w-10 rounded-full border border-[#CFD9E6] flex items-center justify-center text-[#526880] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-200">
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <button onClick={next}
+              className="h-10 w-10 rounded-full border border-[#CFD9E6] flex items-center justify-center text-[#526880] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-200">
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* Cards — show 3 on desktop, 1 on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {visible.map((r, i) => (
+            <div
+              key={`${r.name}-${i}`}
+              className={`bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm transition-all duration-500 ${i === 0 ? "ring-2 ring-[#001A2E]/10" : "opacity-90"}`}
+            >
+              <div className="px-5 pt-5 pb-3">
+                <p className="font-extrabold text-[#07121A] text-sm leading-tight">{r.name}</p>
+                <p className="text-xs text-[#015D2C] font-semibold mt-0.5">{r.location}</p>
+              </div>
+              <div className="h-48 overflow-hidden">
+                <img src={`${base}${r.img}`} alt={r.name} className="w-full h-full object-cover object-center" />
+              </div>
+              <div className="px-5 py-4">
+                <p className="text-sm text-[#526880] leading-[1.75] italic">"{r.quote}"</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "w-6 h-2 bg-[#001A2E]" : "w-2 h-2 bg-[#CFD9E6]"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; suffix: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -289,51 +365,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== REVIEWS ===== */}
-      <section className="section-padding bg-white">
-        <div className="container-max">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
-            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              What Our Partners Say
-            </h2>
-            <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
-          </div>
-
-          {/* 5-card grid: 3 top + 2 centered bottom */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Llevamos más de 2 años trabajando con Leader Store. La calidad de los productos y la atención al cliente son simplemente excepcionales. Altamente recomendados." },
-              { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "La logística es impecable. Cada contenedor llega a tiempo y con el inventario correcto. Nunca hemos tenido problemas con los envíos." },
-              { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Los precios mayoristas son muy competitivos y la variedad de tecnología es enorme. Leader Store nos ayuda a mantener nuestro negocio creciendo." },
-              { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Excelente variedad de productos de tecnología a precios justos. Siempre encuentro lo que mis clientes necesitan y el servicio post-venta es muy bueno." },
-              { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "El equipo de Leader Store es muy profesional. Siempre están disponibles para responder dudas y el proceso de importación es muy claro y sin complicaciones." },
-            ].map((r) => (
-              <div key={r.name} className="bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                {/* Name header */}
-                <div className="px-5 pt-5 pb-3">
-                  <p className="font-extrabold text-[#07121A] text-sm leading-tight">{r.name}</p>
-                  <p className="text-xs text-[#015D2C] font-semibold mt-0.5">{r.location}</p>
-                </div>
-
-                {/* Image */}
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={`${base}${r.img}`}
-                    alt={r.name}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-
-                {/* Quote */}
-                <div className="px-5 py-4">
-                  <p className="text-sm text-[#526880] leading-[1.75] italic">"{r.quote}"</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== REVIEWS CAROUSEL ===== */}
+      {(() => {
+        const reviews = [
+          { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Llevamos más de 2 años trabajando con Leader Store. La calidad de los productos y la atención al cliente son simplemente excepcionales. Altamente recomendados." },
+          { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "La logística es impecable. Cada contenedor llega a tiempo y con el inventario correcto. Nunca hemos tenido problemas con los envíos." },
+          { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Los precios mayoristas son muy competitivos y la variedad de tecnología es enorme. Leader Store nos ayuda a mantener nuestro negocio creciendo." },
+          { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Excelente variedad de productos de tecnología a precios justos. Siempre encuentro lo que mis clientes necesitan y el servicio post-venta es muy bueno." },
+          { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "El equipo de Leader Store es muy profesional. Siempre están disponibles para responder dudas y el proceso de importación es muy claro y sin complicaciones." },
+        ];
+        return (
+          <ReviewCarousel reviews={reviews} base={base} />
+        );
+      })()}
 
       {/* ===== HOW WE WORK ===== */}
       <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: "linear-gradient(160deg, #001A2E 0%, #012035 60%, #001428 100%)" }}>
