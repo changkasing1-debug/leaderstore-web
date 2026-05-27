@@ -1,0 +1,16 @@
+{
+  "name": "Leader Store LLC",
+  "short_name": "Leader Store",
+  "description": "Wholesale auto parts distributor based in Doral, Miami.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#001A2E",
+  "theme_color": "#001A2E",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

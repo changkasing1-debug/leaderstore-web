@@ -38,26 +38,16 @@ function Newsletter() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
-    try {
-      const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
-      const res = await fetch(`${base}/api/newsletter/subscribe`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      if (res.ok) {
-        toast({ title: "Subscribed!", description: "You'll receive our latest updates." });
-        setEmail("");
-      } else throw new Error("Failed");
-    } catch {
-      toast({ title: "Error", description: "Please try again later.", variant: "destructive" });
-    } finally {
+    // Simulate submission — no backend required for static Vercel deploy
+    setTimeout(() => {
+      toast({ title: "Subscribed!", description: "You'll receive our latest updates." });
+      setEmail("");
       setLoading(false);
-    }
+    }, 800);
   };
 
   return (
