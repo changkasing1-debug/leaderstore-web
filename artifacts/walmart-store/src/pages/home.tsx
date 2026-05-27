@@ -475,35 +475,37 @@ export default function Home() {
       </section>
 
       {/* ===== INDUSTRIES ===== */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#F0F4F8]">
         <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
+          {/* Header */}
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              Industries We Serve
+            </h2>
+            <p className="text-base text-[#526880] mt-4 max-w-lg mx-auto leading-[1.7]">
+              A wide and competitive catalog across every major consumer vertical.
+            </p>
+          </div>
 
-            {/* Left: headline block */}
-            <div className="md:col-span-1">
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#07121A] leading-tight mb-5">
-                Industries<br />We Serve
-              </h2>
-              <div className="w-10 h-[3px] rounded bg-[#015D2C] mb-5" />
-              <p className="text-sm text-[#526880] leading-[1.8]">
-                We source and distribute across every major consumer vertical — giving our wholesale partners a wide, competitive catalog.
-              </p>
-            </div>
-
-            {/* Right: tag grid */}
-            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {industries.map((ind) => (
-                <div
-                  key={ind}
-                  className="group flex items-center gap-3 px-5 py-4 rounded-xl border border-[#CFD9E6] bg-white hover:bg-[#F0F4F8] hover:border-[#001A2E] transition-all duration-200 cursor-default"
-                >
-                  <span className="shrink-0 h-1.5 w-1.5 rounded-full bg-[#526880] group-hover:bg-[#001A2E] transition-colors duration-200" />
-                  <span className="text-sm font-semibold text-[#07121A]">{ind}</span>
+          {/* Numbered list rows */}
+          <div className="divide-y divide-[#CFD9E6] border-t border-b border-[#CFD9E6]">
+            {industries.map((ind, idx) => (
+              <div
+                key={ind}
+                className="group flex items-center justify-between py-5 px-2 hover:px-5 transition-all duration-300 cursor-default"
+              >
+                <div className="flex items-center gap-6">
+                  <span className="text-xs font-bold text-[#CFD9E6] group-hover:text-[#526880] tabular-nums transition-colors duration-300 w-6 shrink-0">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-lg md:text-xl font-extrabold text-[#07121A] tracking-tight">{ind}</span>
                 </div>
-              ))}
-            </div>
-
+                <span className="h-8 w-8 rounded-full border border-[#CFD9E6] group-hover:border-[#001A2E] group-hover:bg-[#001A2E] flex items-center justify-center transition-all duration-300 shrink-0">
+                  <ArrowUpRight className="h-3.5 w-3.5 text-[#CFD9E6] group-hover:text-white transition-colors duration-300" />
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
