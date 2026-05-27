@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "oMqm1dprJjwk9GjG1QulN"
@@ -78,3 +77,9 @@ id = "IZhXK_UO2UCedGhXEPTSf"
 uri = "file://artifacts/walmart-store/public/about-office.png"
 type = "image"
 title = "Miami office interior"
+
+[[outputs]]
+id = "sNiyOUnPGD9-Vj7ejkBSl"
+uri = "file://leader-store-website.tar.gz"
+type = "unspecified"
+title = "Leader Store Website (Export)"
