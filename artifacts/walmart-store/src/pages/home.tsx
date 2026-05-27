@@ -4,13 +4,13 @@ import Layout from "@/components/layout";
 import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, ArrowUpRight, ChevronRight, Users, ShieldCheck, Globe, Headphones } from "lucide-react";
 
 const heroProducts = [
-  { img: "prod-headphones.png", name: "Sony WH-1000XM5" },
-  { img: "prod-smartphone.png", name: "Samsung Galaxy S24 Ultra" },
-  { img: "prod-sneakers.png", name: "Nike Air Max 90" },
-  { img: "prod-watch.png", name: "Apple Watch Series 9" },
-  { img: "prod-skincare.png", name: "L'Oréal Revitalift" },
-  { img: "prod-lighting.png", name: "Philips Hue Starter" },
-  { img: "prod-toy.png", name: "LEGO Millennium Falcon" },
+  { img: "prod-brakes.png", name: "Bosch QuietCast Brake Pads" },
+  { img: "prod-suspension.png", name: "Monroe OESpectrum Shocks" },
+  { img: "prod-filter.png", name: "ACDelco OEM Oil Filter" },
+  { img: "prod-sparkplug.png", name: "DENSO Iridium Spark Plugs" },
+  { img: "prod-belt.png", name: "Gates PowerGrip Timing Belt" },
+  { img: "prod-sensor.png", name: "Bosch Oxygen Sensor" },
+  { img: "prod-steering.png", name: "MOOG Problem Solver Ball Joint" },
 ];
 
 const brandLogos = [
@@ -30,39 +30,39 @@ const brandLogos = [
 ];
 
 const stats = [
-  { value: 60, suffix: "+", label: "Businesses Served" },
-  { value: 150, suffix: "+", label: "Containers to Latin America" },
-  { value: 15, suffix: "", label: "Countries Shipped" },
+  { value: 60, suffix: "+", label: "Partners Served" },
+  { value: 150, suffix: "+", label: "Containers Shipped" },
+  { value: 15, suffix: "", label: "Countries Reached" },
 ];
 
 const howWeWork = [
-  { icon: Phone,    step: "01", title: "Get in Touch",         desc: "Contact us by form, email, or phone. Tell us what products you need and your target market." },
-  { icon: FileText, step: "02", title: "Receive a Quote",      desc: "Within 24 hrs we send a detailed proposal with pricing, MOQs, and shipping options." },
-  { icon: Mail,     step: "03", title: "Confirm Your Order",   desc: "Approve the quote, sign the agreement, and our team verifies inventory and prepares export docs." },
-  { icon: Truck,    step: "04", title: "We Handle Logistics",  desc: "We coordinate freight forwarding, customs clearance, and door-to-door shipping to your location." },
-  { icon: MapPin,   step: "05", title: "Delivered & Supported", desc: "Products arrive ready to sell. Your account manager follows up to ensure everything is perfect." },
+  { icon: Phone,    step: "01", title: "Contáctanos",           desc: "Escríbenos por formulario, email o teléfono. Dinos qué partes necesitas y el volumen estimado." },
+  { icon: FileText, step: "02", title: "Recibe tu Cotización",  desc: "En 24 horas te enviamos una propuesta detallada con precios, MOQ y opciones de envío." },
+  { icon: Mail,     step: "03", title: "Confirma tu Pedido",    desc: "Aprueba la cotización, firma el acuerdo y preparamos la documentación de exportación." },
+  { icon: Truck,    step: "04", title: "Manejamos la Logística", desc: "Coordinamos el flete, despacho aduanero y entrega puerta a puerta hasta tu destino." },
+  { icon: MapPin,   step: "05", title: "Entregado y Listo",     desc: "Las piezas llegan listas para revender. Tu ejecutivo de cuenta hace seguimiento post-entrega." },
 ];
 
 const whyUs = [
-  { icon: Headphones, title: "Personalized Support", desc: "Real people, real support. Our bilingual team provides warm, personalized service in English or Spanish to ensure every client feels understood and guided from start to finish." },
-  { icon: ShieldCheck, title: "Original Brand Products", desc: "We offer wholesale access to original, high-quality consumer goods from trusted brands — so your business always stocks what customers want." },
-  { icon: Globe, title: "Latin America Expertise", desc: "We understand import regulations, consumer preferences, and market demand in every country we serve across the region." },
-  { icon: Users, title: "Dedicated Account Manager", desc: "Every wholesale partner gets a dedicated point of contact who knows your business, your needs, and your markets." },
+  { icon: Headphones, title: "Soporte Bilingüe", desc: "Equipo real, soporte real. Atendemos en español e inglés y te guiamos desde la primera cotización hasta la entrega puerta a puerta." },
+  { icon: ShieldCheck, title: "Piezas 100% Originales", desc: "Solo distribuimos autopartes de marcas certificadas OEM y aftermarket premium — sin copias, sin sustitutos. Calidad garantizada en cada pedido." },
+  { icon: Globe, title: "Expertos en Latinoamérica", desc: "Conocemos las regulaciones de importación, los aranceles y la demanda de mercado en cada país de la región donde operamos." },
+  { icon: Users, title: "Ejecutivo de Cuenta Dedicado", desc: "Cada socio mayorista tiene un punto de contacto exclusivo que conoce tu negocio, tus marcas preferidas y tus mercados." },
 ];
 
 const productCategories = [
-  { img: "prod-headphones.png",  label: "Audio & Headphones",  sub: "Premium sound gear",          accent: "#001A2E" },
-  { img: "prod-smartphone.png",  label: "Mobile Devices",       sub: "Smartphones & tablets",        accent: "#012B1A" },
-  { img: "cat-electronics.png",  label: "Electronics",          sub: "Gadgets & tech accessories",   accent: "#07121A" },
-  { img: "cat-beauty.png",       label: "Beauty & Personal Care",sub: "Cosmetics & wellness",        accent: "#1A0A2E" },
-  { img: "cat-kitchen.png",      label: "Home & Kitchen",       sub: "Appliances & cookware",        accent: "#001A2E" },
-  { img: "cat-pet.png",          label: "Pet Supplies",         sub: "Food, toys & accessories",     accent: "#012B1A" },
+  { img: "cat-brakes.png",       label: "Frenos",               sub: "Pastillas, discos y kits",     accent: "#001A2E" },
+  { img: "cat-suspension.png",   label: "Suspensión",           sub: "Amortiguadores y rótulas",     accent: "#012B1A" },
+  { img: "cat-filters.png",      label: "Filtros",              sub: "Aceite, aire y combustible",   accent: "#07121A" },
+  { img: "cat-ignition.png",     label: "Encendido",            sub: "Bujías, bobinas y sensores",   accent: "#1A0A2E" },
+  { img: "cat-belts.png",        label: "Bandas & Mangueras",   sub: "Distribución y serpentinas",   accent: "#001A2E" },
+  { img: "cat-steering.png",     label: "Dirección",            sub: "Rack, bieletas y terminales",  accent: "#012B1A" },
 ];
 
 const industries = [
-  "Beauty & Cosmetics", "Consumer Electronics", "Home & Kitchen",
-  "Pet Supplies", "Garden & Outdoor", "Accessories & Lifestyle",
-  "Health & Wellness", "Toys & Entertainment", "Sports & Fitness",
+  "Talleres Mecánicos", "Distribuidores de Autopartes", "Concesionarios",
+  "Flotas Comerciales", "Importadores Automotrices", "Tiendas de Repuestos",
+  "Servicios de Mantenimiento", "Transportistas y Logística", "Industria Agrícola",
 ];
 
 type Review = { img: string; name: string; location: string; quote: string };
@@ -211,22 +211,22 @@ export default function Home() {
             {/* LEFT — text content */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] mb-5">
-                Welcome to Leader Store —{" "}
-                <span className="text-[#4ade80]">Wholesale Import & Distribution</span>{" "}
-                in Miami
+                Leader Store —{" "}
+                <span className="text-[#4ade80]">Distribución Mayorista de Autopartes</span>{" "}
+                desde Miami
               </h1>
               <p className="text-white/70 text-base leading-[1.7] mb-8 max-w-md">
-                Bulk supply of consumer goods, electronics, beauty, and more for licensed businesses across Latin America and beyond.
+                Proveemos piezas OEM y aftermarket premium de las mejores marcas del mundo a distribuidores, talleres y comercios en toda Latinoamérica.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href={base + "/request-account"}>
                   <button className="bg-[#07121A] text-white font-bold px-6 py-3 rounded-lg hover:bg-black transition-colors text-sm">
-                    Become a Partner
+                    Ser Distribuidor
                   </button>
                 </Link>
                 <Link href={base + "/about"}>
                   <button className="border border-white/50 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
-                    More About Us
+                    Conócenos
                   </button>
                 </Link>
               </div>
@@ -235,7 +235,7 @@ export default function Home() {
             {/* RIGHT — featured product card */}
             <div className="bg-white/5 border-l border-white/10 flex flex-col">
               <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-white/10">
-                <span className="text-white font-bold text-sm">Featured products</span>
+                <span className="text-white font-bold text-sm">Productos destacados</span>
                 <div className="flex gap-2">
                   <button onClick={prev}
                     className="h-7 w-7 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
@@ -263,10 +263,10 @@ export default function Home() {
                     <p className="text-[#4ade80] font-bold text-sm text-center uppercase tracking-wide">
                       {p.name}
                     </p>
-                    <p className="text-white/50 text-xs mt-1 text-center">Want to sell our products?</p>
+                    <p className="text-white/50 text-xs mt-1 text-center">¿Quieres distribuir esta pieza?</p>
                     <Link href={base + "/request-account"}>
                       <button className="mt-3 bg-[#07121A] text-white text-xs font-bold px-4 py-2 rounded hover:bg-black transition-colors">
-                        Become a Partner
+                        Ser Distribuidor
                       </button>
                     </Link>
                   </div>
@@ -291,12 +291,12 @@ export default function Home() {
       {/* ===== BRANDS SCROLLING CAROUSEL ===== */}
       <section className="py-16 bg-[#F0F4F8] overflow-hidden border-b border-[#CFD9E6]">
         <div className="container-max text-center mb-10">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Our Portfolio</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Nuestro Portafolio</p>
           <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-            Brands We Carry
+            Marcas que Distribuimos
           </h2>
           <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
-            Authentic products from leading manufacturers, sourced through authorized distributors.
+            Piezas originales y aftermarket premium de los fabricantes más reconocidos del sector automotriz mundial.
           </p>
         </div>
 
@@ -338,14 +338,14 @@ export default function Home() {
           {/* eyebrow */}
           <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-2">By the numbers</p>
           <h2 className="text-center text-2xl md:text-3xl font-extrabold text-white mb-14 leading-tight">
-            Trusted by growing businesses<br className="hidden md:block" /> across the Americas
+            Confianza que se mide<br className="hidden md:block" /> en resultados reales
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
-              { value: 60, suffix: "+", label: "Businesses Served", sub: "Active wholesale partners", icon: Users },
-              { value: 150, suffix: "+", label: "Containers Shipped", sub: "To Latin America & beyond", icon: Truck },
-              { value: 15, suffix: "", label: "Countries Reached", sub: "International distribution", icon: Globe },
+              { value: 60, suffix: "+", label: "Socios Mayoristas", sub: "Distribuidores activos", icon: Users },
+              { value: 150, suffix: "+", label: "Contenedores Enviados", sub: "A Latinoamérica y más", icon: Truck },
+              { value: 15, suffix: "", label: "Países Alcanzados", sub: "Distribución internacional", icon: Globe },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">
                 <div className="h-14 w-14 rounded-2xl flex items-center justify-center mb-1"
@@ -435,12 +435,12 @@ export default function Home() {
         <div className="container-max">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">What We Distribute</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Lo Que Distribuimos</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              Product Categories
+              Categorías de Autopartes
             </h2>
             <p className="text-base text-[#526880] max-w-xl mx-auto leading-[1.7] mt-4">
-              Original, brand-name merchandise across the most in-demand consumer categories — ready for wholesale distribution.
+              Cobertura completa del vehículo — desde frenos y suspensión hasta encendido, bandas y dirección.
             </p>
           </div>
 
@@ -489,7 +489,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href={base + "/catalog"}>
               <button className="inline-flex items-center gap-2 bg-[#001A2E] text-white font-bold px-8 py-3.5 rounded-xl text-sm hover:bg-[#015D2C] transition-colors duration-300 shadow-md">
-                Browse Full Catalog
+                Ver Catálogo Completo
                 <ArrowRight className="h-4 w-4" />
               </button>
             </Link>
@@ -556,12 +556,12 @@ export default function Home() {
         <div className="container-max">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Cobertura</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              Industries We Serve
+              A Quién Servimos
             </h2>
             <p className="text-base text-[#526880] mt-4 max-w-lg mx-auto leading-[1.7]">
-              A wide and competitive catalog across every major consumer vertical.
+              Atendemos a todo el ecosistema automotriz — desde el taller independiente hasta la distribuidora nacional.
             </p>
           </div>
 
@@ -582,19 +582,19 @@ export default function Home() {
       {/* ===== READY TO PARTNER ===== */}
       <section className="py-20 md:py-24 text-center" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
         <div className="container-max">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">Ready to Partner?</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">¿Listo para ser Distribuidor?</h2>
           <p className="text-lg text-white/60 mb-10 max-w-lg mx-auto leading-[1.7]">
-            Apply for a wholesale account and get access to our full catalog, pricing tiers, and a dedicated account manager.
+            Solicita tu cuenta mayorista y accede a nuestro catálogo completo, precios por volumen y un ejecutivo de cuenta dedicado.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href={base + "/request-account"}>
               <button className="btn-primary text-base flex items-center gap-2">
-                Apply for Wholesale <ArrowRight className="h-5 w-5" />
+                Aplicar para Mayoreo <ArrowRight className="h-5 w-5" />
               </button>
             </Link>
             <Link href={base + "/contact"}>
               <button className="btn-secondary text-base flex items-center gap-2">
-                Contact Us <ChevronRight className="h-5 w-5" />
+                Contáctanos <ChevronRight className="h-5 w-5" />
               </button>
             </Link>
           </div>

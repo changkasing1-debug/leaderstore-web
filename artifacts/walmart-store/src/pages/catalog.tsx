@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/data";
 
-const categories = ["All", "Electronics", "Tools & Equipment", "Beauty & Grooming"];
+const categories = ["All", "Frenos", "Suspensión", "Filtros", "Encendido", "Sensores & Electrónica", "Bandas & Mangueras", "Dirección & Suspensión", "Rodamientos & Hubs"];
 
 const brandColor: Record<string, string> = {
   ACER: "#83B81A",
@@ -42,9 +42,9 @@ export default function Catalog() {
           style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Our Portfolio</p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Product Catalog</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Catálogo de Autopartes</h1>
           <p className="text-base md:text-lg text-[#8aa8c0] max-w-xl mx-auto">
-            Wholesale pricing for licensed distributors across Latin America. Contact us to get your quote.
+            Precios mayoristas para distribuidores autorizados en toda Latinoamérica. Contáctanos para tu cotización.
           </p>
         </div>
       </div>
@@ -173,9 +173,9 @@ export default function Catalog() {
           <div className="mt-14 rounded-2xl p-8 md:p-12 text-center"
             style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B1E 100%)" }}>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Get Pricing</p>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">Ready to place an order?</h3>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">¿Listo para hacer un pedido?</h3>
             <p className="text-[#8aa8c0] mb-6 max-w-md mx-auto text-sm">
-              Contact our wholesale team for volume pricing, MOQ discounts, and logistics quotes.
+              Contáctanos para precios por volumen, descuentos por MOQ y cotizaciones de logística.
             </p>
             <Link
               href={`${base}/contact`}
