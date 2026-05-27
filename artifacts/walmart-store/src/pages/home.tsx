@@ -13,11 +13,20 @@ const heroProducts = [
   { img: "prod-toy.png", name: "LEGO Millennium Falcon" },
 ];
 
-const brands = [
-  "BLACK+DECKER", "KitchenAid", "Hamilton Beach", "Cuisinart",
-  "Purina", "Pedigree", "Friskies", "Anker",
-  "Revlon", "L'Oréal", "Maybelline", "NIVEA",
-  "Sony", "Samsung", "Apple", "Philips",
+const brandLogos = [
+  { src: "/brands/brand-01.jpeg", alt: "Brand 1" },
+  { src: "/brands/brand-02.png",  alt: "Brand 2" },
+  { src: "/brands/brand-03.jpeg", alt: "Brand 3" },
+  { src: "/brands/brand-04.jpeg", alt: "Brand 4" },
+  { src: "/brands/brand-05.jpeg", alt: "Brand 5" },
+  { src: "/brands/brand-06.jpeg", alt: "Brand 6" },
+  { src: "/brands/brand-07.jpeg", alt: "Brand 7" },
+  { src: "/brands/brand-08.jpeg", alt: "Brand 8" },
+  { src: "/brands/brand-09.jpeg", alt: "Brand 9" },
+  { src: "/brands/brand-10.jpeg", alt: "Brand 10" },
+  { src: "/brands/brand-11.jpeg", alt: "Brand 11" },
+  { src: "/brands/brand-12.png",  alt: "Brand 12" },
+  { src: "/brands/brand-13.jpeg", alt: "Brand 13" },
 ];
 
 const stats = [
@@ -194,8 +203,9 @@ export default function Home() {
       </section>
 
       {/* ===== BRANDS SCROLLING CAROUSEL ===== */}
-      <section className="py-14 border-b bg-white overflow-hidden">
+      <section className="py-16 bg-[#F0F4F8] overflow-hidden border-b border-[#CFD9E6]">
         <div className="container-max text-center mb-10">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Our Portfolio</p>
           <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
             Brands We Carry
           </h2>
@@ -203,12 +213,30 @@ export default function Home() {
             Authentic products from leading manufacturers, sourced through authorized distributors.
           </p>
         </div>
+
+        {/* Carousel track with fade edges */}
         <div className="relative">
-          <div className="flex animate-brand-scroll whitespace-nowrap gap-16">
-            {[...brands, ...brands].map((b, i) => (
-              <span key={`${b}-${i}`} className="text-lg font-bold text-[#CFD9E6] tracking-wide shrink-0">
-                {b}
-              </span>
+          {/* Left fade */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
+            style={{ background: "linear-gradient(to right, #F0F4F8, transparent)" }} />
+          {/* Right fade */}
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
+            style={{ background: "linear-gradient(to left, #F0F4F8, transparent)" }} />
+
+          <div className="flex animate-brand-scroll gap-6" style={{ width: "max-content" }}>
+            {[...brandLogos, ...brandLogos].map((b, i) => (
+              <div
+                key={`${b.src}-${i}`}
+                className="shrink-0 flex items-center justify-center bg-white rounded-2xl border border-[#CFD9E6] shadow-sm"
+                style={{ width: 160, height: 96, padding: "12px 20px" }}
+              >
+                <img
+                  src={b.src}
+                  alt={b.alt}
+                  className="max-h-full max-w-full object-contain"
+                  style={{ filter: "grayscale(20%)" }}
+                />
+              </div>
             ))}
           </div>
         </div>
