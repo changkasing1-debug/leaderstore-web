@@ -366,11 +366,11 @@ export default function Home() {
       {/* ===== REVIEWS CAROUSEL ===== */}
       {(() => {
         const reviews = [
-          { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Llevamos más de 2 años trabajando con Leader Store. La calidad de los productos y la atención al cliente son simplemente excepcionales. Altamente recomendados." },
-          { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "La logística es impecable. Cada contenedor llega a tiempo y con el inventario correcto. Nunca hemos tenido problemas con los envíos." },
-          { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Los precios mayoristas son muy competitivos y la variedad de tecnología es enorme. Leader Store nos ayuda a mantener nuestro negocio creciendo." },
-          { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Excelente variedad de productos de tecnología a precios justos. Siempre encuentro lo que mis clientes necesitan y el servicio post-venta es muy bueno." },
-          { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "El equipo de Leader Store es muy profesional. Siempre están disponibles para responder dudas y el proceso de importación es muy claro y sin complicaciones." },
+          { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Siempre llegan a tiempo." },
+          { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "Logística sin fallas, siempre." },
+          { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Precios imbatibles en tecnología." },
+          { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Variedad y calidad garantizada." },
+          { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "Proceso claro, sin complicaciones." },
         ];
         return (
           <ReviewCarousel reviews={reviews} base={base} />
