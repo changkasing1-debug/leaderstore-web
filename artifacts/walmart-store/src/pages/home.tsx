@@ -477,22 +477,33 @@ export default function Home() {
       {/* ===== INDUSTRIES ===== */}
       <section className="section-padding bg-white">
         <div className="container-max">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
-            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              Industries We Serve
-            </h2>
-            <p className="text-base text-[#526880] mt-4 max-w-md mx-auto leading-[1.7]">We import across every major consumer category</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {industries.map((ind) => (
-              <div key={ind} className="group flex items-center gap-4 p-5 rounded-2xl border border-[#CFD9E6] bg-white hover:border-[#015D2C] hover:bg-[#F0F4F8] transition-all duration-300 cursor-default">
-                <div className="shrink-0 h-9 w-9 rounded-xl bg-[#F0F4F8] group-hover:bg-[#015D2C] flex items-center justify-center transition-colors duration-300">
-                  <ArrowUpRight className="h-4 w-4 text-[#015D2C] group-hover:text-white transition-colors duration-300" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 items-start">
+
+            {/* Left: headline block */}
+            <div className="md:col-span-1">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#07121A] leading-tight mb-5">
+                Industries<br />We Serve
+              </h2>
+              <div className="w-10 h-[3px] rounded bg-[#015D2C] mb-5" />
+              <p className="text-sm text-[#526880] leading-[1.8]">
+                We source and distribute across every major consumer vertical — giving our wholesale partners a wide, competitive catalog.
+              </p>
+            </div>
+
+            {/* Right: tag grid */}
+            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {industries.map((ind) => (
+                <div
+                  key={ind}
+                  className="group flex items-center gap-3 px-5 py-4 rounded-xl border border-[#CFD9E6] bg-white hover:bg-[#F0F4F8] hover:border-[#001A2E] transition-all duration-200 cursor-default"
+                >
+                  <span className="shrink-0 h-1.5 w-1.5 rounded-full bg-[#526880] group-hover:bg-[#001A2E] transition-colors duration-200" />
+                  <span className="text-sm font-semibold text-[#07121A]">{ind}</span>
                 </div>
-                <span className="text-sm font-semibold text-[#07121A] leading-snug">{ind}</span>
-              </div>
-            ))}
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
