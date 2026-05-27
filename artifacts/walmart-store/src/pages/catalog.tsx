@@ -2,7 +2,70 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
-import { products } from "@/lib/data";
+import { products, type Product } from "@/lib/data";
+
+function ProductCard({ product: p, base }: { product: Product; base: string }) {
+  const [, setLocation] = useLocation();
+
+  return (
+    <div className="group bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden hover:shadow-xl hover:border-[#001A2E]/30 transition-all duration-300 flex flex-col">
+      {/* Brand stripe */}
+      <div className="h-1 w-full" style={{ background: brandColor[p.brand] ?? "#001A2E" }} />
+
+      {/* Image — clickable to product */}
+      <Link href={`${base}/product/${p.id}`} className="block">
+        <div className="h-44 bg-[#F0F4F8] flex items-center justify-center overflow-hidden px-4 py-3">
+          <img
+            src={`${base}/${p.image}`}
+            alt={p.name}
+            className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => { (e.target as HTMLImageElement).src = `${base}/cat-electronics.png`; }}
+          />
+        </div>
+      </Link>
+
+      <div className="p-4 flex-1 flex flex-col">
+        {/* Brand + category */}
+        <div className="flex items-center justify-between mb-2">
+          <span
+            className="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded"
+            style={{ background: (brandColor[p.brand] ?? "#001A2E") + "18", color: brandColor[p.brand] ?? "#001A2E" }}
+          >
+            {p.brand}
+          </span>
+          <span className="text-[10px] text-[#526880] font-medium">{p.category}</span>
+        </div>
+
+        {/* Name — clickable to product */}
+        <Link href={`${base}/product/${p.id}`} className="block mb-2">
+          <h3 className="font-extrabold text-[#07121A] text-sm leading-snug line-clamp-2 group-hover:text-[#001A2E]">
+            {p.name}
+          </h3>
+        </Link>
+
+        {/* SKU / UPC */}
+        <div className="space-y-0.5 mb-3">
+          <p className="text-[10px] text-[#526880]">
+            <span className="font-semibold text-[#07121A]">SKU:</span> {p.sku}
+          </p>
+          <p className="text-[10px] text-[#526880]">
+            <span className="font-semibold text-[#07121A]">UPC:</span> {p.upc}
+          </p>
+        </div>
+
+        {/* Apply for Wholesale — independent button */}
+        <div className="pt-3 border-t border-[#CFD9E6] mt-auto">
+          <button
+            onClick={() => setLocation(`${base}/request-account`)}
+            className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-[#015D2C] text-white text-[11px] font-bold uppercase tracking-wider hover:bg-[#001A2E] transition-colors duration-200"
+          >
+            Apply for Wholesale
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits", "Exterior Protection", "Engine Components", "Sensors & Electrical"];
 
@@ -111,65 +174,7 @@ export default function Catalog() {
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((p) => (
-              <Link
-                key={p.id}
-                href={`${base}/product/${p.id}`}
-                className="group block bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden hover:shadow-xl hover:border-[#001A2E]/30 transition-all duration-300"
-              >
-                {/* Brand stripe */}
-                <div
-                  className="h-1 w-full"
-                  style={{ background: brandColor[p.brand] ?? "#001A2E" }}
-                />
-
-                {/* Image area */}
-                <div className="h-44 bg-[#F0F4F8] flex items-center justify-center overflow-hidden px-4 py-3">
-                  <img
-                    src={`${base}/${p.image}`}
-                    alt={p.name}
-                    className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `${base}/cat-electronics.png`;
-                    }}
-                  />
-                </div>
-
-                <div className="p-4">
-                  {/* Brand + category */}
-                  <div className="flex items-center justify-between mb-2">
-                    <span
-                      className="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded"
-                      style={{
-                        background: (brandColor[p.brand] ?? "#001A2E") + "18",
-                        color: brandColor[p.brand] ?? "#001A2E",
-                      }}
-                    >
-                      {p.brand}
-                    </span>
-                    <span className="text-[10px] text-[#526880] font-medium">{p.category}</span>
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="font-extrabold text-[#07121A] text-sm leading-snug mb-2 line-clamp-2 group-hover:text-[#001A2E]">
-                    {p.name}
-                  </h3>
-
-                  {/* SKU / UPC */}
-                  <div className="space-y-0.5 mb-3">
-                    <p className="text-[10px] text-[#526880]">
-                      <span className="font-semibold text-[#07121A]">SKU:</span> {p.sku}
-                    </p>
-                    <p className="text-[10px] text-[#526880]">
-                      <span className="font-semibold text-[#07121A]">UPC:</span> {p.upc}
-                    </p>
-                  </div>
-
-                  {/* Apply for Wholesale CTA */}
-                  <div className="pt-3 border-t border-[#CFD9E6]" onClick={(e) => e.stopPropagation()}>
-                    <ApplyWholesaleButton base={base} />
-                  </div>
-                </div>
-              </Link>
+              <ProductCard key={p.id} product={p} base={base} />
             ))}
           </div>
 
