@@ -84,16 +84,14 @@ function ReviewCarousel({ reviews, base }: { reviews: Review[]; base: string }) 
     <section className="section-padding bg-white">
       <div className="container-max">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
-            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              What Our Partners Say
-            </h2>
-            <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
-          </div>
+        <div className="text-center mb-12">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
+          <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+            What Our Partners Say
+          </h2>
+          <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
           {/* Arrow controls */}
-          <div className="flex gap-3 self-start md:self-end mb-2">
+          <div className="flex gap-3 justify-center mt-6">
             <button onClick={prev}
               className="h-10 w-10 rounded-full border border-[#CFD9E6] flex items-center justify-center text-[#526880] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-200">
               <ArrowLeft className="h-4 w-4" />
