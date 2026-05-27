@@ -22,7 +22,11 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
   return (
     <li>
-      <Link href={base + href} className="text-sm text-white/60 hover:text-white transition-colors">
+      <Link
+        href={base + href}
+        className="text-sm text-white/60 hover:text-white transition-colors"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
         {children}
       </Link>
     </li>
@@ -250,7 +254,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Products</h4>
               <ul className="space-y-2.5">
                 <FooterLink href="/catalog">Product Catalog</FooterLink>
-                <FooterLink href="/catalog">Product Categories</FooterLink>
               </ul>
             </div>
             <div>
@@ -264,21 +267,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Contact Info</h4>
-              <p className="font-bold text-sm text-white mb-3">Leader Store LLC</p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2 text-sm text-white/60">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                  <span>4805 NW 79TH AVE, Suite 10-03<br />Doral, FL 33166</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-white/60">
-                  <Phone className="h-4 w-4 flex-shrink-0" />
-                  <a href="tel:+17869401456" className="hover:text-white transition-colors">+1 (786) 940-1456</a>
-                </li>
-                <li className="flex items-center gap-2 text-sm text-white/60">
-                  <Mail className="h-4 w-4 flex-shrink-0" />
-                  <a href="mailto:info@leaderstore.us" className="hover:text-white transition-colors">info@leaderstore.us</a>
-                </li>
-              </ul>
+              <p className="font-bold text-sm text-white mb-4">Leader Store LLC</p>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="h-3.5 w-3.5 text-[#4ade80]" />
+                  </div>
+                  <span className="text-sm text-white/60 leading-snug">4805 NW 79TH AVE, Suite 10-03<br />Doral, FL 33166</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-3.5 w-3.5 text-[#4ade80]" />
+                  </div>
+                  <a href="tel:+17869401456" className="text-sm text-white/60 hover:text-white transition-colors">+1 (786) 940-1456</a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-3.5 w-3.5 text-[#4ade80]" />
+                  </div>
+                  <a href="mailto:info@leaderstore.us" className="text-sm text-white/60 hover:text-white transition-colors">info@leaderstore.us</a>
+                </div>
+              </div>
             </div>
           </div>
 
