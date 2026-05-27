@@ -488,23 +488,15 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Numbered list rows */}
-          <div className="divide-y divide-[#CFD9E6] border-t border-b border-[#CFD9E6]">
-            {industries.map((ind, idx) => (
-              <div
+          {/* Badge cloud */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {industries.map((ind) => (
+              <span
                 key={ind}
-                className="group flex items-center justify-between py-5 px-2 hover:px-5 transition-all duration-300 cursor-default"
+                className="px-6 py-3 rounded-full border border-[#CFD9E6] bg-white text-sm font-semibold text-[#07121A] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-300 cursor-default select-none"
               >
-                <div className="flex items-center gap-6">
-                  <span className="text-xs font-bold text-[#CFD9E6] group-hover:text-[#526880] tabular-nums transition-colors duration-300 w-6 shrink-0">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-lg md:text-xl font-extrabold text-[#07121A] tracking-tight">{ind}</span>
-                </div>
-                <span className="h-8 w-8 rounded-full border border-[#CFD9E6] group-hover:border-[#001A2E] group-hover:bg-[#001A2E] flex items-center justify-center transition-all duration-300 shrink-0">
-                  <ArrowUpRight className="h-3.5 w-3.5 text-[#CFD9E6] group-hover:text-white transition-colors duration-300" />
-                </span>
-              </div>
+                {ind}
+              </span>
             ))}
           </div>
         </div>
