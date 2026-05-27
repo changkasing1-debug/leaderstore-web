@@ -4,13 +4,13 @@ import Layout from "@/components/layout";
 import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, ArrowUpRight, ChevronRight, Users, ShieldCheck, Globe, Headphones } from "lucide-react";
 
 const heroProducts = [
+  { img: "products/old-man-emu-mt64-lift-kit.jpg", name: "Old Man Emu MT64 Lift Kit" },
   { img: "products/awning-truck.webp", name: "OVS Overland Truck Awning" },
   { img: "products/roam-cooler.webp", name: "ROAM 20L Rugged Cooler" },
   { img: "products/kn-intake-system.webp", name: "K&N Performance Intake System" },
   { img: "products/stedi-driving-lights.png", name: "STEDI Type-X Pro LED Lights" },
   { img: "products/rugged-ridge-mats.png", name: "Rugged Ridge All-Terrain Mats" },
   { img: "products/race-ramps-wheel-stands.png", name: "Race Ramps Wheel Stands" },
-  { img: "products/kn-air-filter.png", name: "K&N High-Flow Air Filter" },
 ];
 
 const brandLogos = [
@@ -30,8 +30,8 @@ const brandLogos = [
 ];
 
 const stats = [
-  { value: 17, suffix: "+", label: "Part Numbers in Stock" },
-  { value: 10, suffix: "+", label: "Top Brands Carried" },
+  { value: 18, suffix: "+", label: "Part Numbers in Stock" },
+  { value: 11, suffix: "+", label: "Top Brands Carried" },
   { value: 24, suffix: "h", label: "Order Turnaround" },
 ];
 
@@ -51,12 +51,12 @@ const whyUs = [
 ];
 
 const productCategories = [
-  { img: "products/weathertech-liner.jpg", label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#001A2E" },
-  { img: "products/kn-air-filter.png",     label: "Filters & Intake",      sub: "Air filters, intakes & cleaners", accent: "#012B1A" },
-  { img: "products/stedi-driving-lights.png", label: "Lighting",             sub: "LED lights, bars & assemblies",   accent: "#07121A" },
-  { img: "products/awning-truck.webp",     label: "Roof Racks & Cargo",    sub: "Awnings, carriers & overland",  accent: "#1A0A2E" },
-  { img: "products/race-ramps-wheel-stands.png", label: "Tools & Accessories", sub: "Ramps, stands & garage gear", accent: "#001A2E" },
-  { img: "products/kn-recharger-kit.png",  label: "Fluids & Lubricants",   sub: "Filter oils, cleaners & kits",    accent: "#012B1A" },
+  { img: "products/old-man-emu-mt64-lift-kit.jpg", label: "Suspension & Lift Kits", sub: "Lift kits, shocks & control arms", accent: "#001A2E" },
+  { img: "products/weathertech-liner.jpg", label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#012B1A" },
+  { img: "products/kn-air-filter.png",     label: "Filters & Intake",      sub: "Air filters, intakes & cleaners", accent: "#07121A" },
+  { img: "products/stedi-driving-lights.png", label: "Lighting",             sub: "LED lights, bars & assemblies",   accent: "#1A0A2E" },
+  { img: "products/awning-truck.webp",     label: "Roof Racks & Cargo",    sub: "Awnings, carriers & overland",  accent: "#001A2E" },
+  { img: "products/race-ramps-wheel-stands.png", label: "Tools & Accessories", sub: "Ramps, stands & garage gear", accent: "#012B1A" },
 ];
 
 const industries = [
@@ -343,8 +343,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
-              { value: 17, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
-              { value: 10, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
+              { value: 18, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
+              { value: 11, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
               { value: 24, suffix: "h", label: "Order Turnaround", sub: "Same-week fulfillment", icon: Globe },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">

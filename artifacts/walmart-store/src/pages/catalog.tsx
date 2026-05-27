@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/data";
 
-const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants"];
+const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits"];
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",
@@ -17,6 +17,7 @@ const brandColor: Record<string, string> = {
   "Spectre": "#111111",
   "Injen": "#D40000",
   "OVS": "#1A2B3C",
+  "Old Man Emu": "#C4956A",
 };
 
 export default function Catalog() {

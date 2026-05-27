@@ -14,6 +14,7 @@ const brandColor: Record<string, string> = {
   "Spectre": "#111111",
   "Injen": "#D40000",
   "OVS": "#1A2B3C",
+  "Old Man Emu": "#C4956A",
 };
 
 export default function ProductDetail() {

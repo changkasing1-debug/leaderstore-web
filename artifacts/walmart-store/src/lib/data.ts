@@ -34,6 +34,7 @@ export const brands: Brand[] = [
   { id: "spectre", name: "Spectre", category: "Fluids & Lubricants", logo: "SP", description: "Performance air filter maintenance kits and cleaning solutions for reusable filters" },
   { id: "injen", name: "Injen", category: "Filters & Intake", logo: "IN", description: "High-performance cold air intake systems and cone filters for sport and muscle cars" },
   { id: "ovs", name: "OVS", category: "Roof Racks & Cargo", logo: "OV", description: "Overland Vehicle Systems — awnings, roof racks, and camping gear for trucks and SUVs" },
+  { id: "ome", name: "Old Man Emu", category: "Suspension & Lift Kits", logo: "OM", description: "Premium suspension systems, lift kits, and shock absorbers for off-road and overland vehicles" },
 ];
 
 export const products: Product[] = [
@@ -427,6 +428,29 @@ export const products: Product[] = [
     features: ["Digital Laser Fit", "Advanced Channel Design", "High-Density TPO", "Made in USA", "All-Weather Protection"],
     certifications: ["ISO 9001", "OE Spec"],
     availability: "In Stock — Ships within 5 days",
+  },
+  {
+    id: "ome-mt64-tacoma-3in-1119k",
+    name: "Old Man Emu MT64 3\" Lift Kit w/UCA for Tacoma (2024+)",
+    brand: "Old Man Emu",
+    category: "Suspension & Lift Kits",
+    description: "Complete 3-inch suspension lift kit for 2024+ Toyota Tacoma featuring MT64 monotube shocks with 64mm bore, front upper control arms (UCA), and matched coil springs. Front rated 220-330 lbs / Rear 0 lbs. Delivers exceptional off-road articulation and on-road comfort with consistent damping across temperature extremes.",
+    moq: "4 kits",
+    priceRange: "Contact for pricing",
+    image: "products/old-man-emu-mt64-lift-kit.jpg",
+    upc: "931714401119",
+    sku: "MT64-1119K",
+    specs: [
+      { label: "Lift Height", value: "3 inches (front) / 2 inches (rear)" },
+      { label: "Front Rate", value: "220-330 lbs constant load" },
+      { label: "Rear Rate", value: "0 lbs (no additional load)" },
+      { label: "Shock Type", value: "MT64 monotube, 64mm bore" },
+      { label: "Includes", value: "4 shocks + 2 UCA + front/rear springs" },
+      { label: "Fitment", value: "Toyota Tacoma 2024+ (3rd gen facelift)" },
+    ],
+    features: ["MT64 Monotube Shocks", "Upper Control Arms", "64mm Bore", "Constant Load Tuned", "Bolt-On Install"],
+    certifications: ["ISO 9001", "TUV"],
+    availability: "In Stock — Ships within 7 days",
   },
 ];
 
