@@ -27,11 +27,11 @@ const stats = [
 ];
 
 const howWeWork = [
-  { icon: Phone, step: "01", title: "Contact", desc: "Reach out via form, email, or phone. Tell us what you need." },
-  { icon: Mail, step: "02", title: "Quote", desc: "We send a detailed quote with MOQs, pricing, and shipping costs." },
-  { icon: FileText, step: "03", title: "Order", desc: "Confirm your order. We verify stock and prepare export documentation." },
-  { icon: Truck, step: "04", title: "Ship", desc: "We coordinate freight, customs clearance, and door-to-door delivery." },
-  { icon: MapPin, step: "05", title: "Deliver", desc: "Your products arrive ready to sell. We follow up to ensure satisfaction." },
+  { icon: Phone,    step: "01", title: "Get in Touch",         desc: "Contact us by form, email, or phone. Tell us what products you need and your target market." },
+  { icon: FileText, step: "02", title: "Receive a Quote",      desc: "Within 24 hrs we send a detailed proposal with pricing, MOQs, and shipping options." },
+  { icon: Mail,     step: "03", title: "Confirm Your Order",   desc: "Approve the quote, sign the agreement, and our team verifies inventory and prepares export docs." },
+  { icon: Truck,    step: "04", title: "We Handle Logistics",  desc: "We coordinate freight forwarding, customs clearance, and door-to-door shipping to your location." },
+  { icon: MapPin,   step: "05", title: "Delivered & Supported", desc: "Products arrive ready to sell. Your account manager follows up to ensure everything is perfect." },
 ];
 
 const whyUs = [
@@ -273,26 +273,54 @@ export default function Home() {
       </section>
 
       {/* ===== HOW WE WORK ===== */}
-      <section className="section-padding bg-[#F0F4F8]">
-        <div className="container-max">
-          <div className="text-center mb-14">
-            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              How We Work
-            </h2>
-            <p className="text-base text-[#526880] mt-4">From first contact to final delivery</p>
+      <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: "linear-gradient(160deg, #001A2E 0%, #012035 60%, #001428 100%)" }}>
+        {/* subtle grid texture */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "40px 40px" }} />
+        {/* glow accent */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] opacity-20 blur-3xl rounded-full" style={{ background: "radial-gradient(ellipse, #015D2C, transparent)" }} />
+
+        <div className="container-max relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Simple & transparent</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">How We Work</h2>
+            <p className="text-base text-white/50 max-w-xl mx-auto">From your first message to products arriving at your door — a clear, reliable process every step of the way.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-5">
+
+          {/* Steps */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
             {howWeWork.map((item, idx) => (
-              <div key={item.step} className="card-modern p-7 text-center relative">
-                <span className="text-4xl font-extrabold text-[#CFD9E6] block mb-4">{item.step}</span>
-                <item.icon className="h-5 w-5 text-[#015D2C] mx-auto mb-4" />
-                <h3 className="font-bold text-base mb-3 text-[#07121A]">{item.title}</h3>
-                <p className="text-sm text-[#526880] leading-[1.7]">{item.desc}</p>
+              <div key={item.step} className="relative flex flex-col items-center text-center">
+                {/* connector line */}
                 {idx < 4 && (
-                  <div className="hidden sm:block absolute top-1/2 -right-2.5 w-5 h-0.5 bg-[#CFD9E6]" />
+                  <div className="hidden md:block absolute top-10 left-[58%] w-full h-px" style={{ background: "linear-gradient(90deg, rgba(74,222,128,0.4), rgba(74,222,128,0.1))" }} />
                 )}
+
+                {/* icon circle */}
+                <div className="relative mb-5">
+                  <div className="h-20 w-20 rounded-full flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, rgba(1,93,44,0.5), rgba(1,93,44,0.15))", border: "1px solid rgba(74,222,128,0.25)", boxShadow: "0 0 24px rgba(74,222,128,0.08)" }}>
+                    <item.icon className="h-8 w-8 text-[#4ade80]" />
+                  </div>
+                  {/* step badge */}
+                  <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-[#015D2C] text-white text-[10px] font-extrabold flex items-center justify-center shadow-md">
+                    {item.step}
+                  </span>
+                </div>
+
+                <h3 className="font-extrabold text-base text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed px-1">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-16 text-center">
+            <Link href={base + "/request-account"}>
+              <button className="inline-flex items-center gap-2 bg-[#015D2C] hover:bg-[#014a23] text-white font-bold px-8 py-3.5 rounded-lg text-sm transition-all shadow-lg shadow-green-900/30">
+                Start the Process <ArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
           </div>
         </div>
       </section>
