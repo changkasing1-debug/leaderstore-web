@@ -16,7 +16,7 @@ const faqs = [
       },
       {
         q: "Is there a minimum order quantity (MOQ)?",
-        a: "Yes, MOQs vary by product category and brand. Kitchen & Home starts at 50 units, Electronics at 25 units, Pet Supplies at 100 units, and Beauty & Personal Care at 75 units. Contact us for specific product minimums.",
+        a: "MOQs vary by product and brand. Once you apply for a wholesale account, your dedicated account manager will share specific minimums, volume pricing tiers, and available stock for each product category.",
       },
     ],
   },

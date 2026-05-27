@@ -133,7 +133,7 @@ function ReviewCarousel({ reviews, base }: { reviews: Review[]; base: string }) 
   );
 }
 
-function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; suffix: string; duration?: number }) {
+function AnimatedCounter({ target, suffix, duration = 1200 }: { target: number; suffix: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -150,21 +150,27 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; 
   useEffect(() => {
     if (!visible || hasAnimated.current) return;
     hasAnimated.current = true;
-    const steps = Math.max(1, Math.floor(duration / 16));
-    const stepValue = target / steps;
-    let current = 0;
-    let frame = 0;
 
-    const interval = setInterval(() => {
-      frame++;
-      current = Math.min(target, Math.round(frame * stepValue));
+    const startTime = performance.now();
+    let rafId: number;
+
+    // ease-out cubic: fast start, smooth landing
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(progress);
+      const current = Math.round(eased * target);
       setCount(current);
-      if (current >= target) {
-        clearInterval(interval);
-      }
-    }, 16);
 
-    return () => clearInterval(interval);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, [visible, target, duration]);
 
   return (

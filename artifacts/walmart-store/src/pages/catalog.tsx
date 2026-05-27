@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/data";
@@ -22,6 +22,21 @@ const brandColor: Record<string, string> = {
   "Toyota": "#EB0A1E",
   "Aftermarket": "#333333",
 };
+
+function ApplyWholesaleButton({ base }: { base: string }) {
+  const [, setLocation] = useLocation();
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        setLocation(`${base}/apply-wholesale`);
+      }}
+      className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-[#015D2C] text-white text-[11px] font-bold uppercase tracking-wider hover:bg-[#001A2E] transition-colors duration-200"
+    >
+      Apply for Wholesale
+    </button>
+  );
+}
 
 export default function Catalog() {
   const [search, setSearch] = useState("");
@@ -149,14 +164,9 @@ export default function Catalog() {
                     </p>
                   </div>
 
-                  {/* MOQ + CTA */}
-                  <div className="flex items-center justify-between pt-3 border-t border-[#CFD9E6]">
-                    <span className="text-[10px] text-[#526880]">
-                      MOQ: <span className="font-bold text-[#07121A]">{p.moq}</span>
-                    </span>
-                    <span className="flex items-center gap-1 text-[11px] font-bold text-[#015D2C] group-hover:text-[#001A2E]">
-                      View specs <ArrowUpRight className="h-3 w-3" />
-                    </span>
+                  {/* Apply for Wholesale CTA */}
+                  <div className="pt-3 border-t border-[#CFD9E6]" onClick={(e) => e.stopPropagation()}>
+                    <ApplyWholesaleButton base={base} />
                   </div>
                 </div>
               </Link>

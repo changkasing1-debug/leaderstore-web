@@ -130,8 +130,8 @@ export default function ProductDetail() {
                   <p className="font-mono font-bold text-[#07121A] text-sm tracking-wider">{product.sku}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#526880] mb-1">MOQ</p>
-                  <p className="font-bold text-[#07121A] text-sm">{product.moq}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#526880] mb-1">Availability</p>
+                  <p className="font-bold text-[#07121A] text-sm">In Stock</p>
                 </div>
               </div>
 
