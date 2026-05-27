@@ -92,24 +92,6 @@ export default function RequestAccount() {
           </p>
         </div>
 
-        {/* Security badges */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Lock className="h-3 w-3" />
-            <span>256-bit SSL</span>
-          </div>
-          <div className="w-px h-3 bg-border" />
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Shield className="h-3 w-3" />
-            <span>Encrypted</span>
-          </div>
-          <div className="w-px h-3 bg-border" />
-          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <BadgeCheck className="h-3 w-3" />
-            <span>Verified Business</span>
-          </div>
-        </div>
-
         {/* Form */}
         <Card>
           <CardContent className="pt-6">

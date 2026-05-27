@@ -199,7 +199,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Apply button */}
             <div className="flex-shrink-0">
               <Link href={base + "/request-account"}>
-                <button className="border border-white text-white text-xs font-bold tracking-wide px-5 py-2 rounded hover:bg-white hover:text-[#001A2E] transition-all">
+                <button className="bg-[#015D2C] text-white text-xs font-bold tracking-wide px-5 py-2 rounded hover:bg-[#014a23] transition-all">
                   APPLY FOR WHOLESALE
                 </button>
               </Link>
@@ -228,7 +228,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Newsletter bar */}
           <div className="border border-white/15 rounded-lg px-8 py-6 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#3b82f6] mb-1">Newsletter</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#015D2C] mb-1">Newsletter</p>
               <h4 className="font-bold text-base text-white mb-1">Subscribe to Our Wholesale Newsletter</h4>
               <p className="text-sm text-white/50">Trade updates, new arrivals, and distribution news — delivered to your inbox.</p>
             </div>
