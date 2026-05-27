@@ -30,39 +30,39 @@ const brandLogos = [
 ];
 
 const stats = [
-  { value: 60, suffix: "+", label: "Partners Served" },
-  { value: 150, suffix: "+", label: "Containers Shipped" },
-  { value: 15, suffix: "", label: "Countries Reached" },
+  { value: 500, suffix: "+", label: "Part Numbers in Stock" },
+  { value: 10, suffix: "+", label: "Top Brands Carried" },
+  { value: 24, suffix: "h", label: "Order Turnaround" },
 ];
 
 const howWeWork = [
-  { icon: Phone,    step: "01", title: "Contáctanos",           desc: "Escríbenos por formulario, email o teléfono. Dinos qué partes necesitas y el volumen estimado." },
-  { icon: FileText, step: "02", title: "Recibe tu Cotización",  desc: "En 24 horas te enviamos una propuesta detallada con precios, MOQ y opciones de envío." },
-  { icon: Mail,     step: "03", title: "Confirma tu Pedido",    desc: "Aprueba la cotización, firma el acuerdo y preparamos la documentación de exportación." },
-  { icon: Truck,    step: "04", title: "Manejamos la Logística", desc: "Coordinamos el flete, despacho aduanero y entrega puerta a puerta hasta tu destino." },
-  { icon: MapPin,   step: "05", title: "Entregado y Listo",     desc: "Las piezas llegan listas para revender. Tu ejecutivo de cuenta hace seguimiento post-entrega." },
+  { icon: Phone,    step: "01", title: "Get in Touch",          desc: "Contact us by phone, email, or form. Tell us which parts you need and your estimated volume." },
+  { icon: FileText, step: "02", title: "Receive a Quote",       desc: "Within 24 hours we send a detailed proposal with pricing, MOQs, and available stock." },
+  { icon: Mail,     step: "03", title: "Confirm Your Order",    desc: "Approve the quote, sign the agreement, and our team prepares your order for fulfillment." },
+  { icon: Truck,    step: "04", title: "Fast Local Fulfillment", desc: "Orders ship from our Miami warehouse. Local pickup also available at our Doral location." },
+  { icon: MapPin,   step: "05", title: "Delivered & Supported", desc: "Parts arrive ready to resell. Your account manager follows up to keep your stock moving." },
 ];
 
 const whyUs = [
-  { icon: Headphones, title: "Soporte Bilingüe", desc: "Equipo real, soporte real. Atendemos en español e inglés y te guiamos desde la primera cotización hasta la entrega puerta a puerta." },
-  { icon: ShieldCheck, title: "Piezas 100% Originales", desc: "Solo distribuimos autopartes de marcas certificadas OEM y aftermarket premium — sin copias, sin sustitutos. Calidad garantizada en cada pedido." },
-  { icon: Globe, title: "Expertos en Latinoamérica", desc: "Conocemos las regulaciones de importación, los aranceles y la demanda de mercado en cada país de la región donde operamos." },
-  { icon: Users, title: "Ejecutivo de Cuenta Dedicado", desc: "Cada socio mayorista tiene un punto de contacto exclusivo que conoce tu negocio, tus marcas preferidas y tus mercados." },
+  { icon: Headphones, title: "Bilingual Support", desc: "Real people, real answers. Our bilingual team — English and Spanish — is available to help you from your first quote to your final delivery." },
+  { icon: ShieldCheck, title: "100% Genuine Parts", desc: "We stock only certified OEM and premium aftermarket brands — no counterfeits, no substitutions. Every part is authentic and quality-guaranteed." },
+  { icon: Globe, title: "Miami-Based, Always Ready", desc: "Our warehouse is in Doral, Miami. Fast turnaround, local pickup available, and same-week shipping across the U.S. and beyond." },
+  { icon: Users, title: "Dedicated Account Manager", desc: "Every wholesale account gets a dedicated contact who knows your business, your preferred brands, and your restocking schedule." },
 ];
 
 const productCategories = [
-  { img: "cat-brakes.png",       label: "Frenos",               sub: "Pastillas, discos y kits",     accent: "#001A2E" },
-  { img: "cat-suspension.png",   label: "Suspensión",           sub: "Amortiguadores y rótulas",     accent: "#012B1A" },
-  { img: "cat-filters.png",      label: "Filtros",              sub: "Aceite, aire y combustible",   accent: "#07121A" },
-  { img: "cat-ignition.png",     label: "Encendido",            sub: "Bujías, bobinas y sensores",   accent: "#1A0A2E" },
-  { img: "cat-belts.png",        label: "Bandas & Mangueras",   sub: "Distribución y serpentinas",   accent: "#001A2E" },
-  { img: "cat-steering.png",     label: "Dirección",            sub: "Rack, bieletas y terminales",  accent: "#012B1A" },
+  { img: "cat-brakes.png",       label: "Brakes",               sub: "Pads, rotors & kits",          accent: "#001A2E" },
+  { img: "cat-suspension.png",   label: "Suspension",           sub: "Shocks, struts & ball joints",  accent: "#012B1A" },
+  { img: "cat-filters.png",      label: "Filters",              sub: "Oil, air & fuel",               accent: "#07121A" },
+  { img: "cat-ignition.png",     label: "Ignition",             sub: "Spark plugs, coils & sensors",  accent: "#1A0A2E" },
+  { img: "cat-belts.png",        label: "Belts & Hoses",        sub: "Timing & serpentine",           accent: "#001A2E" },
+  { img: "cat-steering.png",     label: "Steering",             sub: "Racks, tie rods & ends",        accent: "#012B1A" },
 ];
 
 const industries = [
-  "Talleres Mecánicos", "Distribuidores de Autopartes", "Concesionarios",
-  "Flotas Comerciales", "Importadores Automotrices", "Tiendas de Repuestos",
-  "Servicios de Mantenimiento", "Transportistas y Logística", "Industria Agrícola",
+  "Independent Repair Shops", "Auto Parts Retailers", "Dealerships",
+  "Commercial Fleets", "Body Shops", "Tire & Service Centers",
+  "Fleet Maintenance Companies", "Trucking & Logistics", "Agricultural Equipment",
 ];
 
 type Review = { img: string; name: string; location: string; quote: string };
@@ -212,21 +212,21 @@ export default function Home() {
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] mb-5">
                 Leader Store —{" "}
-                <span className="text-[#4ade80]">Distribución Mayorista de Autopartes</span>{" "}
-                desde Miami
+                <span className="text-[#4ade80]">Wholesale Auto Parts</span>{" "}
+                Distributor in Miami
               </h1>
               <p className="text-white/70 text-base leading-[1.7] mb-8 max-w-md">
-                Proveemos piezas OEM y aftermarket premium de las mejores marcas del mundo a distribuidores, talleres y comercios en toda Latinoamérica.
+                OEM and premium aftermarket parts from the world's top brands — stocked in our Miami warehouse and ready for wholesale buyers, repair shops, and fleets.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href={base + "/request-account"}>
                   <button className="bg-[#07121A] text-white font-bold px-6 py-3 rounded-lg hover:bg-black transition-colors text-sm">
-                    Ser Distribuidor
+                    Open Wholesale Account
                   </button>
                 </Link>
                 <Link href={base + "/about"}>
                   <button className="border border-white/50 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
-                    Conócenos
+                    About Us
                   </button>
                 </Link>
               </div>
@@ -235,7 +235,7 @@ export default function Home() {
             {/* RIGHT — featured product card */}
             <div className="bg-white/5 border-l border-white/10 flex flex-col">
               <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-white/10">
-                <span className="text-white font-bold text-sm">Productos destacados</span>
+                <span className="text-white font-bold text-sm">Featured Parts</span>
                 <div className="flex gap-2">
                   <button onClick={prev}
                     className="h-7 w-7 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
@@ -263,10 +263,10 @@ export default function Home() {
                     <p className="text-[#4ade80] font-bold text-sm text-center uppercase tracking-wide">
                       {p.name}
                     </p>
-                    <p className="text-white/50 text-xs mt-1 text-center">¿Quieres distribuir esta pieza?</p>
+                    <p className="text-white/50 text-xs mt-1 text-center">Want to stock this part?</p>
                     <Link href={base + "/request-account"}>
                       <button className="mt-3 bg-[#07121A] text-white text-xs font-bold px-4 py-2 rounded hover:bg-black transition-colors">
-                        Ser Distribuidor
+                        Get Wholesale Access
                       </button>
                     </Link>
                   </div>
@@ -291,12 +291,12 @@ export default function Home() {
       {/* ===== BRANDS SCROLLING CAROUSEL ===== */}
       <section className="py-16 bg-[#F0F4F8] overflow-hidden border-b border-[#CFD9E6]">
         <div className="container-max text-center mb-10">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Nuestro Portafolio</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Our Portfolio</p>
           <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-            Marcas que Distribuimos
+            Brands We Carry
           </h2>
           <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
-            Piezas originales y aftermarket premium de los fabricantes más reconocidos del sector automotriz mundial.
+            OEM and premium aftermarket parts from the world's most trusted automotive manufacturers.
           </p>
         </div>
 
@@ -338,14 +338,14 @@ export default function Home() {
           {/* eyebrow */}
           <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-2">By the numbers</p>
           <h2 className="text-center text-2xl md:text-3xl font-extrabold text-white mb-14 leading-tight">
-            Confianza que se mide<br className="hidden md:block" /> en resultados reales
+            Trusted Numbers That<br className="hidden md:block" /> Speak for Themselves
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
-              { value: 60, suffix: "+", label: "Socios Mayoristas", sub: "Distribuidores activos", icon: Users },
-              { value: 150, suffix: "+", label: "Contenedores Enviados", sub: "A Latinoamérica y más", icon: Truck },
-              { value: 15, suffix: "", label: "Países Alcanzados", sub: "Distribución internacional", icon: Globe },
+              { value: 500, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
+              { value: 10, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
+              { value: 24, suffix: "h", label: "Order Turnaround", sub: "Same-week fulfillment", icon: Globe },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">
                 <div className="h-14 w-14 rounded-2xl flex items-center justify-center mb-1"
@@ -366,11 +366,11 @@ export default function Home() {
       {/* ===== REVIEWS CAROUSEL ===== */}
       {(() => {
         const reviews = [
-          { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Siempre llegan a tiempo." },
-          { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "Logística sin fallas, siempre." },
-          { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Precios imbatibles en tecnología." },
-          { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Variedad y calidad garantizada." },
-          { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "Proceso claro, sin complicaciones." },
+          { img: "reviews/rev-01.jpg", name: "Miami Auto Group", location: "Miami, FL", quote: "Parts always arrive on time. Great stock." },
+          { img: "reviews/rev-02.jpg", name: "Pro Fleet Services", location: "Hialeah, FL", quote: "Best wholesale pricing in South Florida." },
+          { img: "reviews/rev-03.jpg", name: "Sunshine Auto Repair", location: "Doral, FL", quote: "Genuine parts, fast turnaround every time." },
+          { img: "reviews/rev-04.jpg", name: "Rodriguez Auto Parts", location: "Homestead, FL", quote: "Great variety and quality guaranteed." },
+          { img: "reviews/rev-05.jpg", name: "Tropical Tire & Service", location: "Kendall, FL", quote: "Simple process, no complications." },
         ];
         return (
           <ReviewCarousel reviews={reviews} base={base} />
@@ -435,12 +435,12 @@ export default function Home() {
         <div className="container-max">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Lo Que Distribuimos</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">What We Carry</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              Categorías de Autopartes
+              Auto Parts Categories
             </h2>
             <p className="text-base text-[#526880] max-w-xl mx-auto leading-[1.7] mt-4">
-              Cobertura completa del vehículo — desde frenos y suspensión hasta encendido, bandas y dirección.
+              Full vehicle coverage — brakes, suspension, filters, ignition, belts, and steering all in one place.
             </p>
           </div>
 
@@ -489,7 +489,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href={base + "/catalog"}>
               <button className="inline-flex items-center gap-2 bg-[#001A2E] text-white font-bold px-8 py-3.5 rounded-xl text-sm hover:bg-[#015D2C] transition-colors duration-300 shadow-md">
-                Ver Catálogo Completo
+                Browse Full Catalog
                 <ArrowRight className="h-4 w-4" />
               </button>
             </Link>
@@ -556,12 +556,12 @@ export default function Home() {
         <div className="container-max">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Cobertura</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              A Quién Servimos
+              Who We Serve
             </h2>
             <p className="text-base text-[#526880] mt-4 max-w-lg mx-auto leading-[1.7]">
-              Atendemos a todo el ecosistema automotriz — desde el taller independiente hasta la distribuidora nacional.
+              We serve the full automotive ecosystem — from the independent shop to the national fleet operator.
             </p>
           </div>
 
@@ -582,19 +582,19 @@ export default function Home() {
       {/* ===== READY TO PARTNER ===== */}
       <section className="py-20 md:py-24 text-center" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
         <div className="container-max">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">¿Listo para ser Distribuidor?</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">Ready to Open a Wholesale Account?</h2>
           <p className="text-lg text-white/60 mb-10 max-w-lg mx-auto leading-[1.7]">
-            Solicita tu cuenta mayorista y accede a nuestro catálogo completo, precios por volumen y un ejecutivo de cuenta dedicado.
+            Apply today and get access to our full catalog, volume pricing, and a dedicated account manager based in Miami.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href={base + "/request-account"}>
               <button className="btn-primary text-base flex items-center gap-2">
-                Aplicar para Mayoreo <ArrowRight className="h-5 w-5" />
+                Apply for Wholesale <ArrowRight className="h-5 w-5" />
               </button>
             </Link>
             <Link href={base + "/contact"}>
               <button className="btn-secondary text-base flex items-center gap-2">
-                Contáctanos <ChevronRight className="h-5 w-5" />
+                Contact Us <ChevronRight className="h-5 w-5" />
               </button>
             </Link>
           </div>

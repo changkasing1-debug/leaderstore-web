@@ -187,7 +187,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 { label: "HOME", href: "/" },
                 { label: "PRODUCTS", href: "/catalog" },
                 { label: "ABOUT US", href: "/about" },
-                { label: "SER DISTRIBUIDOR", href: "/request-account" },
+                { label: "BECOME A PARTNER", href: "/request-account" },
                 { label: "CONTACT US", href: "/contact" },
               ].map((link) => (
                 <Link
@@ -204,7 +204,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex-shrink-0">
               <Link href={base + "/request-account"}>
                 <button className="bg-[#015D2C] text-white text-xs font-bold tracking-wide px-5 py-2 rounded hover:bg-[#014a23] transition-all">
-                  APLICAR MAYOREO
+                  APPLY FOR WHOLESALE
                 </button>
               </Link>
             </div>
@@ -216,7 +216,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Link href={base + "/"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Home</Link>
               <Link href={base + "/catalog"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Products</Link>
               <Link href={base + "/about"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>About Us</Link>
-              <Link href={base + "/request-account"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Ser Distribuidor</Link>
+              <Link href={base + "/request-account"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Become a Partner</Link>
               <Link href={base + "/contact"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Contact Us</Link>
             </div>
           )}
@@ -233,8 +233,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="border border-white/15 rounded-lg px-8 py-6 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-[#015D2C] mb-1">Newsletter</p>
-              <h4 className="font-bold text-base text-white mb-1">Suscríbete a Nuestro Boletín Mayorista</h4>
-              <p className="text-sm text-white/50">Novedades, nuevas marcas y actualizaciones del mercado automotriz — directo a tu correo.</p>
+              <h4 className="font-bold text-base text-white mb-1">Subscribe to Our Wholesale Newsletter</h4>
+              <p className="text-sm text-white/50">New arrivals, restocked brands, and trade updates — delivered to your inbox.</p>
             </div>
             <Newsletter />
           </div>

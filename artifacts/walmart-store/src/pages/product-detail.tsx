@@ -23,13 +23,13 @@ export default function ProductDetail() {
     return (
       <Layout>
         <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-          <h1 className="text-xl font-bold mb-2 text-[#07121A]">Producto no encontrado</h1>
-          <p className="text-[#526880] mb-6">El producto que buscas no existe en nuestro catálogo.</p>
+          <h1 className="text-xl font-bold mb-2 text-[#07121A]">Product Not Found</h1>
+          <p className="text-[#526880] mb-6">The product you're looking for doesn't exist in our catalog.</p>
           <Link
             href={`${base}/catalog`}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#001A2E] text-white rounded-lg font-bold text-sm"
           >
-            <ArrowLeft className="h-4 w-4" /> Volver al Catálogo
+            <ArrowLeft className="h-4 w-4" /> Back to Catalog
           </Link>
         </div>
       </Layout>
