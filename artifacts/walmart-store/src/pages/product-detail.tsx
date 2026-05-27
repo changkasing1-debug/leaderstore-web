@@ -16,6 +16,7 @@ const brandColor: Record<string, string> = {
   "OVS": "#1A2B3C",
   "Old Man Emu": "#C4956A",
   "ARB": "#D40000",
+  "Toyota": "#EB0A1E",
 };
 
 export default function ProductDetail() {

@@ -36,6 +36,7 @@ export const brands: Brand[] = [
   { id: "ovs", name: "OVS", category: "Roof Racks & Cargo", logo: "OV", description: "Overland Vehicle Systems — awnings, roof racks, and camping gear for trucks and SUVs" },
   { id: "ome", name: "Old Man Emu", category: "Suspension & Lift Kits", logo: "OM", description: "Premium suspension systems, lift kits, and shock absorbers for off-road and overland vehicles" },
   { id: "arb", name: "ARB", category: "Exterior Protection", logo: "AR", description: "Australian-built off-road protection, recovery gear, and vehicle accessories for overlanding" },
+  { id: "toyota", name: "Toyota", category: "Engine Components", logo: "TY", description: "Genuine Toyota OEM parts and accessories engineered to exact factory specifications for fit and durability" },
 ];
 
 export const products: Product[] = [
@@ -476,11 +477,34 @@ export const products: Product[] = [
     certifications: ["ISO 9001"],
     availability: "In Stock — Ships within 7 days",
   },
+  {
+    id: "toyota-timing-belt-13568yzz03",
+    name: "Genuine OEM Engine Timing Belt For Toyota Tacoma, 4Runner, Tundra",
+    brand: "Toyota",
+    category: "Engine Components",
+    description: "Genuine Toyota OEM engine timing belt (camshaft drive belt) for select Tacoma, 4Runner, and Tundra models. Manufactured by Toyota's OEM supplier to exact factory specifications for precise timing, long service life, and reliable performance. Made in Japan.",
+    moq: "10 belts",
+    priceRange: "Contact for pricing",
+    image: "products/toyota-timing-belt.webp",
+    upc: "TOY-13568YZZ03",
+    sku: "13568-YZZ03",
+    specs: [
+      { label: "OEM Number", value: "13568-YZZ03" },
+      { label: "Application", value: "Toyota Tacoma, 4Runner, Tundra" },
+      { label: "Type", value: "Engine timing belt / camshaft drive belt" },
+      { label: "Material", value: "Reinforced rubber with high-strength fiber cords" },
+      { label: "Origin", value: "Made in Japan" },
+      { label: "Condition", value: "New, genuine OEM" },
+    ],
+    features: ["Genuine Toyota OEM", "Exact Factory Specs", "Made in Japan", "Long Service Life", "Precision Timing"],
+    certifications: ["ISO 9001", "TS 16949"],
+    availability: "In Stock — Ships within 3 days",
+  },
 ];
 
 export const stats = [
   { label: "Part Numbers in Stock", value: "500+" },
-  { label: "Top Brands Carried", value: "10+" },
+  { label: "Top Brands Carried", value: "13+" },
   { label: "Order Turnaround", value: "24h" },
   { label: "Years in Business", value: "10+" },
 ];

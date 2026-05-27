@@ -30,8 +30,8 @@ const brandLogos = [
 ];
 
 const stats = [
-  { value: 19, suffix: "+", label: "Part Numbers in Stock" },
-  { value: 12, suffix: "+", label: "Top Brands Carried" },
+  { value: 20, suffix: "+", label: "Part Numbers in Stock" },
+  { value: 13, suffix: "+", label: "Top Brands Carried" },
   { value: 24, suffix: "h", label: "Order Turnaround" },
 ];
 
@@ -343,8 +343,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
-              { value: 19, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
-              { value: 12, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
+              { value: 20, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
+              { value: 13, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
               { value: 24, suffix: "h", label: "Order Turnaround", sub: "Same-week fulfillment", icon: Globe },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">
