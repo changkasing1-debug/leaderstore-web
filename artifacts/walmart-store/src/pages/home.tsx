@@ -421,41 +421,81 @@ export default function Home() {
       </section>
 
       {/* ===== WHY CHOOSE LEADER STORE ===== */}
-      <section className="section-padding bg-[#F0F4F8]">
-        <div className="container-max">
-          <div className="text-center mb-14">
-            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
-              Why Choose Leader Store
-            </h2>
+      <section className="section-padding relative overflow-hidden" style={{ background: "linear-gradient(150deg, #001A2E 0%, #012030 60%, #01301A 100%)" }}>
+        {/* Decorative blobs */}
+        <div className="pointer-events-none absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, #4ade80, transparent)" }} />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, #015D2C, transparent)" }} />
+
+        <div className="container-max relative z-10">
+          {/* Header row */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Our Advantage</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                Why Choose<br className="hidden md:block" /> Leader Store
+              </h2>
+            </div>
+            <p className="text-sm text-white/50 max-w-sm leading-[1.8] md:text-right">
+              We're not just a supplier — we're a growth partner built for businesses that import, distribute, and scale across Latin America.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyUs.map((item) => (
-              <div key={item.title} className="card-modern p-8 text-center flex flex-col items-center">
-                <div className="h-16 w-16 rounded-full bg-[#001A2E] flex items-center justify-center mb-5">
-                  <item.icon className="h-7 w-7 text-white" />
+
+          {/* 2×2 feature grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.08]">
+            {whyUs.map((item, idx) => (
+              <div
+                key={item.title}
+                className="group relative p-8 md:p-10 flex gap-6 hover:bg-white/[0.04] transition-colors duration-300"
+              >
+                {/* Subtle top-border accent on hover */}
+                <div className="absolute top-0 left-8 right-8 h-px bg-[#4ade80] opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+
+                {/* Icon */}
+                <div className="shrink-0 h-14 w-14 rounded-2xl flex items-center justify-center"
+                  style={{ background: "rgba(1,93,44,0.30)", border: "1px solid rgba(74,222,128,0.20)" }}>
+                  <item.icon className="h-6 w-6 text-[#4ade80]" />
                 </div>
-                <h3 className="font-bold text-base mb-3 text-[#07121A]">{item.title}</h3>
-                <p className="text-sm text-[#526880] leading-[1.7]">{item.desc}</p>
+
+                {/* Text */}
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#4ade80] mb-1">0{idx + 1}</p>
+                  <h3 className="font-extrabold text-white text-base mb-2 leading-snug">{item.title}</h3>
+                  <p className="text-sm text-white/50 leading-[1.8]">{item.desc}</p>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA strip */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-10">
+            <p className="text-white/60 text-sm">Ready to experience the difference?</p>
+            <Link href={base + "/request-account"}>
+              <button className="inline-flex items-center gap-2 bg-[#015D2C] hover:bg-[#017a3a] text-white font-bold px-7 py-3 rounded-xl text-sm transition-colors duration-300 shadow-lg">
+                Apply for Wholesale
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ===== INDUSTRIES ===== */}
-      <section className="section-padding bg-[#F0F4F8]">
+      <section className="section-padding bg-white">
         <div className="container-max">
           <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Coverage</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
               Industries We Serve
             </h2>
-            <p className="text-base text-[#526880] mt-4">We import across every major consumer category</p>
+            <p className="text-base text-[#526880] mt-4 max-w-md mx-auto leading-[1.7]">We import across every major consumer category</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {industries.map((ind) => (
-              <div key={ind} className="card-modern p-6 text-center flex flex-col items-center justify-center gap-3">
-                <ArrowUpRight className="h-5 w-5 text-[#015D2C]" />
-                <span className="text-base font-semibold text-[#07121A]">{ind}</span>
+              <div key={ind} className="group flex items-center gap-4 p-5 rounded-2xl border border-[#CFD9E6] bg-white hover:border-[#015D2C] hover:bg-[#F0F4F8] transition-all duration-300 cursor-default">
+                <div className="shrink-0 h-9 w-9 rounded-xl bg-[#F0F4F8] group-hover:bg-[#015D2C] flex items-center justify-center transition-colors duration-300">
+                  <ArrowUpRight className="h-4 w-4 text-[#015D2C] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <span className="text-sm font-semibold text-[#07121A] leading-snug">{ind}</span>
               </div>
             ))}
           </div>
