@@ -21,12 +21,6 @@ const brandLogos = [
   { src: "/brands/nitto.png",      alt: "Nitto" },
   { src: "/brands/weathertech.png", alt: "WeatherTech" },
   { src: "/brands/mitsubishi.png", alt: "Mitsubishi" },
-  { src: "/brands/logitech.png",   alt: "Logitech" },
-  { src: "/brands/acer.png",       alt: "Acer" },
-  { src: "/brands/hp.png",         alt: "HP" },
-  { src: "/brands/hamilton-beach.png", alt: "Hamilton Beach" },
-  { src: "/brands/anker.png",      alt: "Anker" },
-  { src: "/brands/ugreen.png",     alt: "UGREEN" },
 ];
 
 const stats = [
