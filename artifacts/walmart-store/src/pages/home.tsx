@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/layout";
-import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, CheckCircle2, ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, ArrowUpRight, ChevronRight, Users, ShieldCheck, Globe, Headphones } from "lucide-react";
 
 const heroProducts = [
   { img: "prod-headphones.png", name: "Sony WH-1000XM5" },
@@ -35,10 +35,19 @@ const howWeWork = [
 ];
 
 const whyUs = [
-  { title: "Direct U.S. Sourcing", desc: "No intermediaries. We buy directly from manufacturers and authorized distributors." },
-  { title: "Full Export Handling", desc: "Documentation, customs, freight coordination — we manage every step." },
-  { title: "Latin America Expertise", desc: "We understand import regulations, consumer preferences, and market demand across every country we serve." },
-  { title: "Competitive Wholesale Pricing", desc: "Volume-based tiers designed for growing businesses, not just the big players." },
+  { icon: Headphones, title: "Personalized Support", desc: "Real people, real support. Our bilingual team provides warm, personalized service in English or Spanish to ensure every client feels understood and guided from start to finish." },
+  { icon: ShieldCheck, title: "Original Brand Products", desc: "We offer wholesale access to original, high-quality consumer goods from trusted brands — so your business always stocks what customers want." },
+  { icon: Globe, title: "Latin America Expertise", desc: "We understand import regulations, consumer preferences, and market demand in every country we serve across the region." },
+  { icon: Users, title: "Dedicated Account Manager", desc: "Every wholesale partner gets a dedicated point of contact who knows your business, your needs, and your markets." },
+];
+
+const productCategories = [
+  { img: "prod-headphones.png", label: "AUDIO" },
+  { img: "prod-smartphone.png", label: "MOBILE DEVICES" },
+  { img: "cat-electronics.png", label: "ELECTRONICS" },
+  { img: "cat-beauty.png", label: "BEAUTY & CARE" },
+  { img: "cat-kitchen.png", label: "HOME & KITCHEN" },
+  { img: "cat-pet.png", label: "PET SUPPLIES" },
 ];
 
 const industries = [
@@ -267,20 +276,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE LEADER STORE ===== */}
+      {/* ===== OUR PRODUCTS ===== */}
       <section className="section-padding bg-white">
+        <div className="container-max">
+          <div
+            className="rounded-2xl overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #EBF4FF 0%, #F0F7FF 100%)" }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-5">
+              {/* Left panel */}
+              <div className="md:col-span-1 p-8 md:p-10 flex flex-col justify-center border-r border-[#D0E4F7]">
+                <h2 className="text-2xl font-extrabold text-[#001A2E] mb-3">Our products</h2>
+                <p className="text-sm font-semibold text-[#526880] mb-2 leading-snug">
+                  Discover our growing selection of wholesale goods and consumer products.
+                </p>
+                <p className="text-sm text-[#526880] leading-[1.7] mb-6">
+                  We supply only original products from top brands — trusted merchandise to keep your business competitive and your customers satisfied.
+                </p>
+                <Link href={base + "/catalog"}>
+                  <button className="bg-[#07121A] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#001A2E] transition-colors self-start">
+                    Explore
+                  </button>
+                </Link>
+              </div>
+
+              {/* Right — category cards */}
+              <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-px bg-[#D0E4F7]">
+                {productCategories.map((cat) => (
+                  <Link key={cat.label} href={base + "/catalog"}>
+                    <div className="bg-white hover:bg-[#F8FBFF] transition-colors p-6 flex flex-col items-center justify-center gap-4 cursor-pointer group">
+                      <div className="h-28 w-28 flex items-center justify-center">
+                        <img
+                          src={`${base}${cat.img}`}
+                          alt={cat.label}
+                          className="max-h-[110px] max-w-[110px] object-contain group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-[#07121A] tracking-widest text-center">
+                        {cat.label}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WHY CHOOSE LEADER STORE ===== */}
+      <section className="section-padding bg-[#F0F4F8]">
         <div className="container-max">
           <div className="text-center mb-14">
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
               Why Choose Leader Store
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyUs.map((item) => (
-              <div key={item.title} className="card-modern p-8">
-                <CheckCircle2 className="h-6 w-6 text-[#015D2C] mb-4" />
-                <h3 className="font-bold text-lg mb-3 text-[#07121A]">{item.title}</h3>
-                <p className="text-base text-[#526880] leading-[1.7]">{item.desc}</p>
+              <div key={item.title} className="card-modern p-8 text-center flex flex-col items-center">
+                <div className="h-16 w-16 rounded-full bg-[#001A2E] flex items-center justify-center mb-5">
+                  <item.icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="font-bold text-base mb-3 text-[#07121A]">{item.title}</h3>
+                <p className="text-sm text-[#526880] leading-[1.7]">{item.desc}</p>
               </div>
             ))}
           </div>
