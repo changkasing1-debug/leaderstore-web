@@ -37,6 +37,7 @@ export const brands: Brand[] = [
   { id: "ome", name: "Old Man Emu", category: "Suspension & Lift Kits", logo: "OM", description: "Premium suspension systems, lift kits, and shock absorbers for off-road and overland vehicles" },
   { id: "arb", name: "ARB", category: "Exterior Protection", logo: "AR", description: "Australian-built off-road protection, recovery gear, and vehicle accessories for overlanding" },
   { id: "toyota", name: "Toyota", category: "Engine Components", logo: "TY", description: "Genuine Toyota OEM parts and accessories engineered to exact factory specifications for fit and durability" },
+  { id: "aftermarket", name: "Aftermarket", category: "Sensors & Electrical", logo: "AF", description: "High-quality compatible replacement sensors and electrical components meeting or exceeding OEM specifications" },
 ];
 
 export const products: Product[] = [
@@ -500,11 +501,34 @@ export const products: Product[] = [
     certifications: ["ISO 9001", "TS 16949"],
     availability: "In Stock — Ships within 3 days",
   },
+  {
+    id: "nissan-maf-sensor-murano",
+    name: "Mass Air Flow Sensor \u2014 Compatible with Nissan Murano (2003\u20132007, 2009\u20132014)",
+    brand: "Aftermarket",
+    category: "Sensors & Electrical",
+    description: "Direct-fit replacement mass air flow (MAF) sensor compatible with 2003\u20132007 and 2009\u20132014 Nissan Murano models. Measures intake air volume and temperature to optimize fuel injection and ignition timing. Precise OEM-style connector and calibration for reliable engine performance and emissions compliance.",
+    moq: "12 sensors",
+    priceRange: "Contact for pricing",
+    image: "products/nissan-maf-sensor.webp",
+    upc: "NIS-MAF-MURANO-03-14",
+    sku: "AF-MAF-NIS-MUR",
+    specs: [
+      { label: "Application", value: "Nissan Murano 2003\u20132007, 2009\u20132014" },
+      { label: "Type", value: "Mass Air Flow (MAF) Sensor" },
+      { label: "Connector", value: "OEM-style 5-pin plug" },
+      { label: "Housing", value: "Molded polymer with brass sensing element" },
+      { label: "Calibration", value: "Pre-calibrated for direct replacement" },
+      { label: "Warranty", value: "2-year limited warranty" },
+    ],
+    features: ["Direct OEM Replacement", "Plug-and-Play Install", "Pre-Calibrated", "Brass Sensing Element", "Emissions Compliant"],
+    certifications: ["ISO 9001", "TS 16949"],
+    availability: "In Stock \u2014 Ships within 5 days",
+  },
 ];
 
 export const stats = [
   { label: "Part Numbers in Stock", value: "500+" },
-  { label: "Top Brands Carried", value: "13+" },
+  { label: "Top Brands Carried", value: "14+" },
   { label: "Order Turnaround", value: "24h" },
   { label: "Years in Business", value: "10+" },
 ];
