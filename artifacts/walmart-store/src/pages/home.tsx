@@ -14,19 +14,19 @@ const heroProducts = [
 ];
 
 const brandLogos = [
-  { src: "/brands/brand-01.jpeg", alt: "Brand 1" },
-  { src: "/brands/brand-02.png",  alt: "Brand 2" },
-  { src: "/brands/brand-03.jpeg", alt: "Brand 3" },
-  { src: "/brands/brand-04.jpeg", alt: "Brand 4" },
-  { src: "/brands/brand-05.jpeg", alt: "Brand 5" },
-  { src: "/brands/brand-06.jpeg", alt: "Brand 6" },
-  { src: "/brands/brand-07.jpeg", alt: "Brand 7" },
-  { src: "/brands/brand-08.jpeg", alt: "Brand 8" },
-  { src: "/brands/brand-09.jpeg", alt: "Brand 9" },
-  { src: "/brands/brand-10.jpeg", alt: "Brand 10" },
-  { src: "/brands/brand-11.jpeg", alt: "Brand 11" },
-  { src: "/brands/brand-12.png",  alt: "Brand 12" },
-  { src: "/brands/brand-13.jpeg", alt: "Brand 13" },
+  { src: "/brands/toyota-logo.png", alt: "Toyota" },
+  { src: "/brands/jeep.png",       alt: "Jeep" },
+  { src: "/brands/mopar.png",      alt: "Mopar" },
+  { src: "/brands/amsoil.png",     alt: "AMSOIL" },
+  { src: "/brands/nitto.png",      alt: "Nitto" },
+  { src: "/brands/weathertech.png", alt: "WeatherTech" },
+  { src: "/brands/mitsubishi.png", alt: "Mitsubishi" },
+  { src: "/brands/logitech.png",   alt: "Logitech" },
+  { src: "/brands/acer.png",       alt: "Acer" },
+  { src: "/brands/hp.png",         alt: "HP" },
+  { src: "/brands/hamilton-beach.png", alt: "Hamilton Beach" },
+  { src: "/brands/anker.png",      alt: "Anker" },
+  { src: "/brands/ugreen.png",     alt: "UGREEN" },
 ];
 
 const stats = [
