@@ -24,9 +24,9 @@ const brandLogos = [
 ];
 
 const stats = [
-  { value: 21, suffix: "+", label: "Part Numbers in Stock" },
-  { value: 14, suffix: "+", label: "Top Brands Carried" },
-  { value: 24, suffix: "h", label: "Order Turnaround" },
+  { value: 10, suffix: "+", label: "Years in the Market" },
+  { value: 50, suffix: "+", label: "Brands We Work With" },
+  { value: 10000, suffix: "+", label: "Satisfied Clients" },
 ];
 
 const howWeWork = [
@@ -137,30 +137,39 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; 
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) setVisible(true);
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!visible) return;
-    let start = 0;
-    const step = Math.ceil(target / (duration / 16));
+    if (!visible || hasAnimated.current) return;
+    hasAnimated.current = true;
+    const steps = Math.max(1, Math.floor(duration / 16));
+    const stepValue = target / steps;
+    let current = 0;
+    let frame = 0;
+
     const interval = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(interval); }
-      else setCount(start);
+      frame++;
+      current = Math.min(target, Math.round(frame * stepValue));
+      setCount(current);
+      if (current >= target) {
+        clearInterval(interval);
+      }
     }, 16);
+
     return () => clearInterval(interval);
   }, [visible, target, duration]);
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">{count}{suffix}</div>
+      <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">{count.toLocaleString()}{suffix}</div>
     </div>
   );
 }
@@ -337,9 +346,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
-              { value: 21, suffix: "+", label: "Part Numbers in Stock", sub: "Ready to ship from Miami", icon: Users },
-              { value: 14, suffix: "+", label: "Top Brands Carried", sub: "OEM & premium aftermarket", icon: Truck },
-              { value: 24, suffix: "h", label: "Order Turnaround", sub: "Same-week fulfillment", icon: Globe },
+              { value: 10, suffix: "+", label: "Years in the Market", sub: "A decade of wholesale expertise", icon: Users },
+              { value: 50, suffix: "+", label: "Brands We Work With", sub: "OEM & premium aftermarket", icon: Truck },
+              { value: 10000, suffix: "+", label: "Satisfied Clients", sub: "Trusted by shops & fleets across the Americas", icon: Globe },
             ].map((s) => (
               <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">
                 <div className="h-14 w-14 rounded-2xl flex items-center justify-center mb-1"
