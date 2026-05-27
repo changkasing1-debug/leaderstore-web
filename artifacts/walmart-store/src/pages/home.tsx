@@ -29,8 +29,8 @@ const stats = [
 
 const howWeWork = [
   { icon: Phone, step: "01", title: "Contact", desc: "Reach out via form, email, or phone. Tell us what you need." },
-  { icon: FileText, step: "02", title: "Quote", desc: "We send a detailed quote with MOQs, pricing, and shipping costs." },
-  { icon: Package, step: "03", title: "Order", desc: "Confirm your order. We verify stock and prepare export documentation." },
+  { icon: Mail, step: "02", title: "Quote", desc: "We send a detailed quote with MOQs, pricing, and shipping costs." },
+  { icon: FileText, step: "03", title: "Order", desc: "Confirm your order. We verify stock and prepare export documentation." },
   { icon: Truck, step: "04", title: "Ship", desc: "We coordinate freight, customs clearance, and door-to-door delivery." },
   { icon: MapPin, step: "05", title: "Deliver", desc: "Your products arrive ready to sell. We follow up to ensure satisfaction." },
 ];
@@ -79,7 +79,7 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; 
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-primary-foreground mb-1">
+      <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">
         {count}{suffix}
       </div>
     </div>
@@ -103,46 +103,48 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* ===== HERO: Split popup-style ===== */}
-      <section className="relative min-h-[90vh] flex items-center bg-primary overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
+      {/* ===== HERO: Full redesign ===== */}
+      <section
+        className="relative min-h-[90vh] flex items-center overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}
+      >
+        <div className="absolute inset-0 opacity-[0.04]">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
-              <pattern id="heroGrid" width="6" height="6" patternUnits="userSpaceOnUse">
-                <path d="M 6 0 L 0 0 0 6" fill="none" stroke="white" strokeWidth="0.2" />
+              <pattern id="heroGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" strokeWidth="0.2" />
               </pattern>
             </defs>
             <rect width="100" height="100" fill="url(#heroGrid)" />
           </svg>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 w-full">
+        <div className="relative container-max w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text */}
             <div className="animate-fade-in-up">
-              <p className="text-accent font-medium text-xs uppercase tracking-[0.2em] mb-4">
+              <p className="text-[#015D2C] font-semibold text-xs uppercase tracking-[0.25em] mb-5">
                 Miami, Florida — Wholesale Import & Distribution
               </p>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-[1.1]">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-[1.05]">
                 U.S. Brands.<br />
-                <span className="text-accent">Latin American</span><br />
+                <span className="text-[#015D2C]">Latin American</span><br />
                 Markets.
               </h1>
-              <p className="text-base text-primary-foreground/60 mb-8 max-w-md leading-relaxed">
+              <p className="text-lg text-white/60 mb-10 max-w-lg leading-[1.7] font-normal">
                 Direct sourcing from U.S. manufacturers. End-to-end logistics. Bilingual support for retailers and distributors across Latin America.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold" asChild>
-                  <Link href={base + "/request-account"}>
-                    Become a Partner <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                  <Link href={base + "/catalog"}>
-                    See Catalog <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
+              <div className="flex flex-wrap gap-4">
+                <Link href={base + "/request-account"}>
+                  <button className="btn-primary text-base flex items-center gap-2">
+                    Become a Partner <ArrowRight className="h-5 w-5" />
+                  </button>
+                </Link>
+                <Link href={base + "/catalog"}>
+                  <button className="btn-secondary text-base flex items-center gap-2">
+                    See Catalog <ChevronRight className="h-5 w-5" />
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -161,20 +163,19 @@ export default function Home() {
                       alt={p.name}
                       className="w-full max-w-[320px] md:max-w-[380px] h-auto object-contain drop-shadow-2xl"
                     />
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-background/95 backdrop-blur-sm px-4 py-2 rounded-full border shadow-sm">
-                      <p className="text-xs font-medium text-foreground whitespace-nowrap">{p.name}</p>
+                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-5 py-2.5 rounded-full border shadow-md">
+                      <p className="text-sm font-semibold text-[#07121A] whitespace-nowrap">{p.name}</p>
                     </div>
                   </div>
                 </div>
               ))}
-              {/* Dots */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
                 {heroProducts.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setHeroIndex(i)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === heroIndex ? "w-6 bg-accent" : "w-1.5 bg-primary-foreground/30"
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === heroIndex ? "w-8 bg-[#015D2C]" : "w-2 bg-white/30"
                     }`}
                   />
                 ))}
@@ -185,17 +186,19 @@ export default function Home() {
       </section>
 
       {/* ===== BRANDS SCROLLING CAROUSEL ===== */}
-      <section className="py-16 border-y bg-background overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center px-4 mb-10">
-          <h2 className="text-2xl font-bold mb-3">Brands We Carry</h2>
-          <p className="text-sm text-muted-foreground max-w-lg mx-auto">
+      <section className="py-16 border-y bg-white overflow-hidden">
+        <div className="container-max text-center mb-12">
+          <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+            Brands We Carry
+          </h2>
+          <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
             Authentic products from leading manufacturers, sourced through authorized distributors and verified wholesale suppliers.
           </p>
         </div>
         <div className="relative">
-          <div className="flex animate-brand-scroll whitespace-nowrap gap-12">
+          <div className="flex animate-brand-scroll whitespace-nowrap gap-16">
             {[...brands, ...brands].map((b, i) => (
-              <span key={`${b}-${i}`} className="text-lg font-semibold text-muted-foreground/40 tracking-wide shrink-0">
+              <span key={`${b}-${i}`} className="text-xl font-bold text-[#CFD9E6] tracking-wide shrink-0">
                 {b}
               </span>
             ))}
@@ -204,13 +207,13 @@ export default function Home() {
       </section>
 
       {/* ===== STATS BANNER ===== */}
-      <section className="bg-primary py-16 md:py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <section className="py-20 md:py-24" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
+        <div className="container-max">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <AnimatedCounter target={s.value} suffix={s.suffix} />
-                <p className="text-sm text-primary-foreground/60 mt-2">{s.label}</p>
+                <p className="text-base text-white/60 mt-3 font-medium">{s.label}</p>
               </div>
             ))}
           </div>
@@ -218,107 +221,116 @@ export default function Home() {
       </section>
 
       {/* ===== REVIEWS ===== */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-3">What Our Partners Say</h2>
-          <p className="text-sm text-muted-foreground">Real businesses. Real results.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="border border-dashed border-border rounded-lg p-8 text-center bg-muted/30">
-              <div className="h-16 w-16 bg-border rounded-full mx-auto mb-4 flex items-center justify-center">
-                <Package className="h-6 w-6 text-muted-foreground" />
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-14">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              What Our Partners Say
+            </h2>
+            <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="card-modern p-8 text-center">
+                <div className="h-16 w-16 bg-[#F0F4F8] rounded-full mx-auto mb-5 flex items-center justify-center">
+                  <Package className="h-7 w-7 text-[#526880]" />
+                </div>
+                <p className="text-base text-[#526880] mb-2">Customer review photo</p>
+                <p className="text-sm text-[#526880]/60">Upload your photo to replace this placeholder</p>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">Customer review photo</p>
-              <p className="text-xs text-muted-foreground/60">Upload your photo to replace this placeholder</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
-
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t" />
-      </div>
 
       {/* ===== HOW WE WORK ===== */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-3">How We Work</h2>
-          <p className="text-sm text-muted-foreground">From first contact to final delivery</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-px bg-border">
-          {howWeWork.map((item) => (
-            <div key={item.step} className="bg-background p-6 text-center group hover:bg-muted/30 transition-colors">
-              <span className="text-2xl font-bold text-primary/10 group-hover:text-accent/20 transition-colors block mb-3">
-                {item.step}
-              </span>
-              <item.icon className="h-4 w-4 text-accent mx-auto mb-3" />
-              <h3 className="font-semibold text-sm mb-2">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+      <section className="section-padding bg-[#F0F4F8]">
+        <div className="container-max">
+          <div className="text-center mb-14">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              How We Work
+            </h2>
+            <p className="text-base text-[#526880] mt-4">From first contact to final delivery</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-5">
+            {howWeWork.map((item, idx) => (
+              <div key={item.step} className="card-modern p-7 text-center relative">
+                <span className="text-4xl font-extrabold text-[#CFD9E6] block mb-4">
+                  {item.step}
+                </span>
+                <item.icon className="h-5 w-5 text-[#015D2C] mx-auto mb-4" />
+                <h3 className="font-bold text-base mb-3 text-[#07121A]">{item.title}</h3>
+                <p className="text-sm text-[#526880] leading-[1.7]">{item.desc}</p>
+                {idx < 4 && (
+                  <div className="hidden sm:block absolute top-1/2 -right-2.5 w-5 h-0.5 bg-[#CFD9E6]" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t" />
-      </div>
 
       {/* ===== WHY CHOOSE LEADER STORE ===== */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-3">Why Choose Leader Store</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border">
-          {whyUs.map((item) => (
-            <div key={item.title} className="bg-background p-8">
-              <CheckCircle2 className="h-4 w-4 text-accent mb-3" />
-              <h3 className="font-semibold text-sm mb-2">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+      <section className="section-padding bg-white">
+        <div className="container-max">
+          <div className="text-center mb-14">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              Why Choose Leader Store
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {whyUs.map((item) => (
+              <div key={item.title} className="card-modern p-8">
+                <CheckCircle2 className="h-6 w-6 text-[#015D2C] mb-4" />
+                <h3 className="font-bold text-lg mb-3 text-[#07121A]">{item.title}</h3>
+                <p className="text-base text-[#526880] leading-[1.7]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t" />
-      </div>
 
       {/* ===== INDUSTRIES ===== */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl font-bold mb-3">Industries We Serve</h2>
-          <p className="text-sm text-muted-foreground">We import across every major consumer category</p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
-          {industries.map((ind) => (
-            <div key={ind} className="border border-border p-5 text-center hover:border-accent/40 transition-colors group">
-              <ArrowUpRight className="h-4 w-4 text-primary/10 group-hover:text-accent/30 transition-colors mx-auto mb-2" />
-              <span className="text-sm font-medium">{ind}</span>
-            </div>
-          ))}
+      <section className="section-padding bg-[#F0F4F8]">
+        <div className="container-max">
+          <div className="text-center mb-14">
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              Industries We Serve
+            </h2>
+            <p className="text-base text-[#526880] mt-4">We import across every major consumer category</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+            {industries.map((ind) => (
+              <div key={ind} className="card-modern p-6 text-center flex flex-col items-center justify-center gap-3">
+                <ArrowUpRight className="h-5 w-5 text-[#015D2C]" />
+                <span className="text-base font-semibold text-[#07121A]">{ind}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="border-t" />
-      </div>
-
       {/* ===== READY TO PARTNER ===== */}
-      <section className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h2 className="text-2xl font-bold mb-4">Ready to Partner?</h2>
-        <p className="text-muted-foreground mb-8 max-w-md mx-auto text-sm">
-          Apply for a wholesale account and get access to our full catalog, pricing tiers, and a dedicated account manager.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold" asChild>
+      <section className="py-20 md:py-24 text-center" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
+        <div className="container-max">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">
+            Ready to Partner?
+          </h2>
+          <p className="text-lg text-white/60 mb-10 max-w-lg mx-auto leading-[1.7]">
+            Apply for a wholesale account and get access to our full catalog, pricing tiers, and a dedicated account manager.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link href={base + "/request-account"}>
-              Apply for Wholesale <ArrowRight className="ml-2 h-4 w-4" />
+              <button className="btn-primary text-base flex items-center gap-2">
+                Apply for Wholesale <ArrowRight className="h-5 w-5" />
+              </button>
             </Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href={base + "/contact"}>Contact Us</Link>
-          </Button>
+            <Link href={base + "/contact"}>
+              <button className="btn-secondary text-base">
+                Contact Us
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
     </Layout>
