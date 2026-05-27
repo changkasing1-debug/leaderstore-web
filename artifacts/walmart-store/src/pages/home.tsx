@@ -115,12 +115,21 @@ export default function Home() {
     <Layout>
       {/* ===== HERO: Split card layout ===== */}
       <section
-        className="py-6 px-4 md:px-8"
-        style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}
+        className="py-6 px-4 md:px-8 relative overflow-hidden"
+        style={{ background: "#001A2E" }}
       >
-        <div className="max-w-7xl mx-auto">
+        {/* Background convention photo */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${base}hero-convention.jpeg`}
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,26,46,0.92) 0%, rgba(1,43,71,0.88) 100%)" }} />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[420px]"
-            style={{ background: "linear-gradient(135deg, #001F3D 0%, #013352 100%)" }}>
+            style={{ background: "linear-gradient(135deg, rgba(0,31,61,0.75) 0%, rgba(1,51,82,0.75) 100%)", backdropFilter: "blur(2px)" }}>
 
             {/* LEFT — text content */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -198,18 +207,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
-
-          {/* Convention photo strip */}
-          <div className="relative mt-4 rounded-2xl overflow-hidden" style={{ height: 260 }}>
-            <img
-              src={`${base}hero-convention.jpeg`}
-              alt="Leader Store trade convention"
-              className="w-full h-full object-cover object-center"
-            />
-            {/* top fade to match hero bg */}
-            <div className="absolute inset-0 pointer-events-none"
-              style={{ background: "linear-gradient(to bottom, #012B47 0%, transparent 35%, transparent 65%, #012B47 100%)" }} />
           </div>
         </div>
       </section>
