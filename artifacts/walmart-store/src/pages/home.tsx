@@ -427,17 +427,12 @@ export default function Home() {
         <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-[0.07]" style={{ background: "radial-gradient(circle, #015D2C, transparent)" }} />
 
         <div className="container-max relative z-10">
-          {/* Header row */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Our Advantage</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
-                Why Choose<br className="hidden md:block" /> Leader Store
-              </h2>
-            </div>
-            <p className="text-sm text-white/50 max-w-sm leading-[1.8] md:text-right">
-              We're not just a supplier — we're a growth partner built for businesses that import, distribute, and scale across Latin America.
-            </p>
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Our Advantage</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+              Why Choose Leader Store
+            </h2>
           </div>
 
           {/* 2×2 feature grid */}
