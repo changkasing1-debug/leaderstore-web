@@ -467,7 +467,7 @@ export default function Home() {
           </div>
 
           {/* Bottom CTA strip */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-10">
+          <div className="mt-12 border-t border-white/10 pt-10 flex flex-col items-center gap-5 text-center">
             <p className="text-white/60 text-sm">Ready to experience the difference?</p>
             <Link href={base + "/request-account"}>
               <button className="inline-flex items-center gap-2 bg-[#015D2C] hover:bg-[#017a3a] text-white font-bold px-7 py-3 rounded-xl text-sm transition-colors duration-300 shadow-lg">
