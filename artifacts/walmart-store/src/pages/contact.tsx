@@ -71,7 +71,7 @@ export default function Contact() {
             <MapPin className="h-4 w-4 text-accent mx-auto mb-1.5" />
             <div className="text-xs text-muted-foreground">Address</div>
             <div className="text-sm font-medium leading-tight">
-              4805 NW 79TH AVE, STE 10 A101<br />Miami, FL 33166
+              4805 NW 79TH AVE<br />Miami, FL 33166
             </div>
           </div>
           <div className="bg-background p-4 text-center">

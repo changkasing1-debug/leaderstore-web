@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
           <p className="text-muted-foreground leading-relaxed">
             For questions about this Privacy Policy, contact:<br />
             Leader Store LLC<br />
-            4805 NW 79TH AVE, STE 10 A101, Miami, FL 33166<br />
+            4805 NW 79TH AVE, Miami, FL 33166<br />
             Email: info@leaderstore.us<br />
             Phone: (786) 940-1456
           </p>
