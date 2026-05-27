@@ -369,11 +369,11 @@ export default function Home() {
       {/* ===== REVIEWS CAROUSEL ===== */}
       {(() => {
         const reviews = [
-          { img: "reviews/rev-01.jpg", name: "Miami Auto Group", location: "Miami, FL", quote: "Parts always arrive on time. Great stock." },
-          { img: "reviews/rev-02.jpg", name: "Pro Fleet Services", location: "Hialeah, FL", quote: "Best wholesale pricing in South Florida." },
-          { img: "reviews/rev-03.jpg", name: "Sunshine Auto Repair", location: "Doral, FL", quote: "Genuine parts, fast turnaround every time." },
-          { img: "reviews/rev-04.jpg", name: "Rodriguez Auto Parts", location: "Homestead, FL", quote: "Great variety and quality guaranteed." },
-          { img: "reviews/rev-05.jpg", name: "Tropical Tire & Service", location: "Kendall, FL", quote: "Simple process, no complications." },
+          { img: "reviews/warehouse-aisle-2.jpg", name: "Miami Auto Group", location: "Miami, FL", quote: "Parts always arrive on time. Great stock." },
+          { img: "reviews/warehouse-aisle-1.jpg", name: "Pro Fleet Services", location: "Hialeah, FL", quote: "Best wholesale pricing in South Florida." },
+          { img: "reviews/weathertech-floor-liner.jpg", name: "Sunshine Auto Repair", location: "Doral, FL", quote: "Genuine parts, fast turnaround every time." },
+          { img: "reviews/old-man-emu-display.jpg", name: "Rodriguez Auto Parts", location: "Homestead, FL", quote: "Great variety and quality guaranteed." },
+          { img: "reviews/weathertech-box.jpg", name: "Tropical Tire & Service", location: "Kendall, FL", quote: "Simple process, no complications." },
         ];
         return (
           <ReviewCarousel reviews={reviews} base={base} />
