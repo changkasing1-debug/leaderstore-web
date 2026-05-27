@@ -199,6 +199,18 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Convention photo strip */}
+          <div className="relative mt-4 rounded-2xl overflow-hidden" style={{ height: 260 }}>
+            <img
+              src={`${base}hero-convention.jpeg`}
+              alt="Leader Store trade convention"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* top fade to match hero bg */}
+            <div className="absolute inset-0 pointer-events-none"
+              style={{ background: "linear-gradient(to bottom, #012B47 0%, transparent 35%, transparent 65%, #012B47 100%)" }} />
+          </div>
         </div>
       </section>
 
