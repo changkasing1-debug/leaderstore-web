@@ -7,12 +7,12 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Twitter,
   Send,
   Search,
   Menu,
   X,
   ArrowUp,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,7 +22,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
   return (
     <li>
-      <Link href={base + href} className="text-sm text-primary-foreground/65 hover:text-primary-foreground transition-colors">
+      <Link href={base + href} className="text-sm text-white/60 hover:text-white transition-colors">
         {children}
       </Link>
     </li>
@@ -46,11 +46,9 @@ function Newsletter() {
         body: JSON.stringify({ email }),
       });
       if (res.ok) {
-        toast({ title: "Subscribed!", description: "You'll receive our latest updates and product news." });
+        toast({ title: "Subscribed!", description: "You'll receive our latest updates." });
         setEmail("");
-      } else {
-        throw new Error("Failed");
-      }
+      } else throw new Error("Failed");
     } catch {
       toast({ title: "Error", description: "Please try again later.", variant: "destructive" });
     } finally {
@@ -59,23 +57,33 @@ function Newsletter() {
   };
 
   return (
-    <div>
-      <h4 className="font-semibold mb-1 text-sm">Newsletter</h4>
-      <p className="text-xs text-primary-foreground/65 mb-3">Subscribe to receive product updates and wholesale offers.</p>
-      <form onSubmit={handleSubmit} className="flex gap-2">
-        <Input type="email" placeholder="your@email.com" value={email} onChange={(e) => setEmail(e.target.value)} required
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 text-sm h-9" />
-        <Button type="submit" size="sm" disabled={loading} className="bg-accent text-accent-foreground hover:bg-accent/90 px-3 h-9 flex-shrink-0">
-          <Send className="h-4 w-4" />
-        </Button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="flex gap-2 mt-3">
+      <Input
+        type="email"
+        placeholder="your@email.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        className="bg-white/10 border-white/20 text-white placeholder:text-white/40 text-sm h-9"
+      />
+      <Button type="submit" size="sm" disabled={loading}
+        className="bg-[#015D2C] text-white hover:bg-[#014a23] px-3 h-9 flex-shrink-0">
+        <Send className="h-4 w-4" />
+      </Button>
+    </form>
   );
 }
 
+const categories = [
+  "Consumer Electronics", "Home & Kitchen", "Beauty & Cosmetics",
+  "Pet Supplies", "Toys & Entertainment", "Sports & Fitness",
+  "Health & Wellness", "Garden & Outdoor", "Accessories",
+];
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [catOpen, setCatOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [, setLocation] = useLocation();
@@ -86,131 +94,163 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
+      setSearchQuery("");
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Sticky header: logo | search | nav */}
-      <div className="bg-background border-b sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Desktop — symmetric: logo left | search center | nav right */}
-          <div className="hidden md:flex items-center h-16">
-            {/* Logo — left */}
-            <div className="flex-1 flex justify-start">
-              <Link href={base + "/"} className="flex-shrink-0">
-                <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded" />
-              </Link>
-            </div>
+      {/* ===== ROW 1: White — Logo | Search | Social ===== */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+          {/* Logo */}
+          <Link href={base + "/"} className="flex-shrink-0 flex items-center gap-2">
+            <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-11 w-auto rounded" />
+          </Link>
 
-            {/* Search — centered */}
-            <div className="flex-1 flex justify-center">
-              <div className="w-full max-w-lg relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search products, brands, categories..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      if (searchQuery.trim()) {
-                        setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
-                        setSearchQuery("");
-                      }
-                    }
-                  }}
-                  className="pl-9 w-full bg-muted border-0 rounded-lg"
-                />
-              </div>
-            </div>
-
-            {/* Nav — right */}
-            <div className="flex-1 flex justify-end items-center gap-5">
-              <Link href={base + "/catalog"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Catalog</Link>
-              <Link href={base + "/about"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">About</Link>
-              <Link href={base + "/contact"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Contact</Link>
-              <Button size="sm" className="btn-primary h-9 px-5" asChild>
-                <Link href={base + "/request-account"}>Apply for Wholesale</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="md:hidden">
-            <div className="flex items-center h-14 justify-between">
-              <Link href={base + "/"} className="flex-shrink-0">
-                <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-9 w-auto rounded" />
-              </Link>
-              <button className="p-2" onClick={() => setSearchOpen(!searchOpen)}>
-                {searchOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {/* Search — center */}
+          <form onSubmit={handleSearch} className="flex-1 flex justify-center">
+            <div className="w-full max-w-xl relative">
+              <Input
+                placeholder="Search for products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pr-10 h-10 border border-[#CFD9E6] bg-white rounded-lg text-sm text-[#07121A] placeholder:text-[#526880]"
+              />
+              <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-[#526880] hover:text-[#015D2C] transition-colors">
+                <Search className="h-4 w-4" />
               </button>
             </div>
-            <div className="pb-3">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search products, brands, categories..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      if (searchQuery.trim()) {
-                        setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
-                        setSearchQuery("");
-                      }
-                    }
-                  }}
-                  className="pl-9 w-full bg-muted border-0 rounded-lg"
-                />
-              </div>
-            </div>
-            {/* Mobile menu */}
-            {searchOpen && (
-              <div className="border-t bg-background py-3 space-y-2">
-                <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Catalog</Link>
-                <Link href={base + "/about"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>About</Link>
-                <Link href={base + "/contact"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Contact</Link>
-                <Link href={base + "/request-account"} className="block text-sm py-2 text-[#015D2C] font-bold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
-              </div>
-            )}
+          </form>
+
+          {/* Social icons — right */}
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full border border-[#CFD9E6] text-[#526880] hover:text-[#015D2C] hover:border-[#015D2C] transition-colors">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full border border-[#CFD9E6] text-[#526880] hover:text-[#015D2C] hover:border-[#015D2C] transition-colors">
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full border border-[#CFD9E6] text-[#526880] hover:text-[#015D2C] hover:border-[#015D2C] transition-colors">
+              <Linkedin className="h-4 w-4" />
+            </a>
           </div>
+
+          {/* Mobile hamburger */}
+          <button className="md:hidden p-2 ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* ===== ROW 2: Navy — Categories | Nav | Apply ===== */}
+      <div className="bg-[#001A2E] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="hidden md:flex items-center h-12">
+            {/* Browse Categories */}
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={() => setCatOpen(!catOpen)}
+                className="flex items-center gap-2 text-white text-sm font-semibold h-12 px-4 hover:bg-white/10 transition-colors"
+              >
+                <Menu className="h-4 w-4" />
+                Browse Categories
+                <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
+              </button>
+              {catOpen && (
+                <div className="absolute top-full left-0 bg-white shadow-xl rounded-b-lg z-50 min-w-[220px] py-2 border border-[#CFD9E6]">
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat}
+                      href={base + "/catalog"}
+                      onClick={() => setCatOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-[#07121A] hover:bg-[#F0F4F8] hover:text-[#015D2C] transition-colors font-medium"
+                    >
+                      {cat}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Nav links — center */}
+            <div className="flex-1 flex items-center justify-center gap-1">
+              {[
+                { label: "HOME", href: "/" },
+                { label: "PRODUCTS", href: "/catalog" },
+                { label: "ABOUT US", href: "/about" },
+                { label: "BECOME A PARTNER", href: "/request-account" },
+                { label: "CONTACT US", href: "/contact" },
+              ].map((link) => (
+                <Link
+                  key={link.label}
+                  href={base + link.href}
+                  className="text-white/80 hover:text-white text-xs font-bold tracking-wide px-3 py-3 hover:bg-white/10 transition-colors whitespace-nowrap"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Apply button */}
+            <div className="flex-shrink-0">
+              <Link href={base + "/request-account"}>
+                <button className="border border-white text-white text-xs font-bold tracking-wide px-5 py-2 rounded hover:bg-white hover:text-[#001A2E] transition-all">
+                  APPLY FOR WHOLESALE
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile nav */}
+          {mobileOpen && (
+            <div className="md:hidden py-3 space-y-1 border-t border-white/10">
+              <Link href={base + "/"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Home</Link>
+              <Link href={base + "/catalog"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Products</Link>
+              <Link href={base + "/about"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>About Us</Link>
+              <Link href={base + "/request-account"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Become a Partner</Link>
+              <Link href={base + "/contact"} className="block text-white/80 hover:text-white text-sm py-2 px-2 font-semibold" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+            </div>
+          )}
         </div>
       </div>
 
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground">
+      <footer className="bg-[#001A2E] text-white">
         <div className="max-w-7xl mx-auto px-4 pt-14 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
             <div className="lg:col-span-2">
               <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded mb-4" />
-              <p className="text-sm text-primary-foreground/65 leading-relaxed mb-5 max-w-xs">
+              <p className="text-sm text-white/60 leading-relaxed mb-5 max-w-xs">
                 Miami-based import and distribution company connecting Latin American markets with top U.S. brands.
               </p>
               <div className="flex items-center gap-3 mb-6">
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Facebook className="h-4 w-4" /></a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Instagram className="h-4 w-4" /></a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Linkedin className="h-4 w-4" /></a>
-                <a href="#" className="h-8 w-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"><Twitter className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Facebook className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Instagram className="h-4 w-4" /></a>
+                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Linkedin className="h-4 w-4" /></a>
               </div>
+              <p className="text-xs text-white/50 mb-1 font-semibold uppercase tracking-wider">Newsletter</p>
+              <p className="text-xs text-white/50 mb-1">Subscribe for product updates and wholesale offers.</p>
               <Newsletter />
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-sm">Company</h4>
+              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Company</h4>
               <ul className="space-y-2.5">
                 <FooterLink href="/">Home</FooterLink>
                 <FooterLink href="/about">About Us</FooterLink>
-                <FooterLink href="/become-a-partner">Become a Partner</FooterLink>
+                <FooterLink href="/request-account">Become a Partner</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>
                 <FooterLink href="/faq">FAQ</FooterLink>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-sm">Products</h4>
+              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Products</h4>
               <ul className="space-y-2.5">
                 <FooterLink href="/catalog">Product Catalog</FooterLink>
                 <FooterLink href="/catalog">Kitchen &amp; Home</FooterLink>
@@ -220,45 +260,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4 text-sm">Support</h4>
-              <ul className="space-y-2.5 mb-6">
-                <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
-                <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
-                <FooterLink href="/return-policy">Return Policy</FooterLink>
-                <FooterLink href="/authenticity-guarantee">Authenticity Guarantee</FooterLink>
-              </ul>
-              <h4 className="font-semibold mb-3 text-sm">Contact</h4>
-              <ul className="space-y-2 text-sm text-primary-foreground/65">
+              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Contact</h4>
+              <ul className="space-y-3 text-sm text-white/60">
                 <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#015D2C]" />
                   <span>4805 NW 79TH AVE, STE 10 A101<br />Miami, FL 33166</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 flex-shrink-0" />
-                  <a href="tel:+17869401456" className="hover:text-primary-foreground transition-colors">(786) 940-1456</a>
+                  <Phone className="h-4 w-4 flex-shrink-0 text-[#015D2C]" />
+                  <a href="tel:+17869401456" className="hover:text-white transition-colors">(786) 940-1456</a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 flex-shrink-0" />
-                  <a href="mailto:info@leaderstore.us" className="hover:text-primary-foreground transition-colors">info@leaderstore.us</a>
+                  <Mail className="h-4 w-4 flex-shrink-0 text-[#015D2C]" />
+                  <a href="mailto:info@leaderstore.us" className="hover:text-white transition-colors">info@leaderstore.us</a>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
             <span>&copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.</span>
             <div className="flex items-center gap-4">
-              <Link href={base + "/privacy-policy"} className="hover:text-primary-foreground/70 transition-colors">Privacy</Link>
-              <Link href={base + "/terms-of-service"} className="hover:text-primary-foreground/70 transition-colors">Terms</Link>
-              <Link href={base + "/return-policy"} className="hover:text-primary-foreground/70 transition-colors">Returns</Link>
+              <Link href={base + "/privacy-policy"} className="hover:text-white/60 transition-colors">Privacy</Link>
+              <Link href={base + "/terms-of-service"} className="hover:text-white/60 transition-colors">Terms</Link>
+              <Link href={base + "/return-policy"} className="hover:text-white/60 transition-colors">Returns</Link>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* Scroll to top button */}
+      {/* Scroll to top */}
       <button
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 h-10 w-10 bg-accent text-accent-foreground rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-accent/90 ${
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`fixed bottom-6 right-6 z-50 h-10 w-10 bg-[#015D2C] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-[#014a23] ${
           showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >

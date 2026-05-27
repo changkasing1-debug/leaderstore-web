@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/layout";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronRight, Phone, Mail, FileText, Package, Truck, MapPin, CheckCircle2, Star, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, CheckCircle2, ArrowUpRight, ChevronRight } from "lucide-react";
 
 const heroProducts = [
   { img: "prod-headphones.png", name: "Sony WH-1000XM5" },
@@ -38,7 +37,7 @@ const howWeWork = [
 const whyUs = [
   { title: "Direct U.S. Sourcing", desc: "No intermediaries. We buy directly from manufacturers and authorized distributors." },
   { title: "Full Export Handling", desc: "Documentation, customs, freight coordination — we manage every step." },
-  { title: "Latin America Expertise", desc: "We understand import regulations, consumer preferences, and market demand in every country we serve." },
+  { title: "Latin America Expertise", desc: "We understand import regulations, consumer preferences, and market demand across every country we serve." },
   { title: "Competitive Wholesale Pricing", desc: "Volume-based tiers designed for growing businesses, not just the big players." },
 ];
 
@@ -67,21 +66,15 @@ function AnimatedCounter({ target, suffix, duration = 2000 }: { target: number; 
     const step = Math.ceil(target / (duration / 16));
     const interval = setInterval(() => {
       start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(interval);
-      } else {
-        setCount(start);
-      }
+      if (start >= target) { setCount(target); clearInterval(interval); }
+      else setCount(start);
     }, 16);
     return () => clearInterval(interval);
   }, [visible, target, duration]);
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">
-        {count}{suffix}
-      </div>
+      <div className="text-5xl md:text-6xl font-extrabold text-white mb-2">{count}{suffix}</div>
     </div>
   );
 }
@@ -91,119 +84,120 @@ export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroIndex((i) => (i + 1) % heroProducts.length);
-    }, 4000);
+    const interval = setInterval(() => setHeroIndex((i) => (i + 1) % heroProducts.length), 4000);
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, []);
+
+  const prev = () => setHeroIndex((i) => (i - 1 + heroProducts.length) % heroProducts.length);
+  const next = () => setHeroIndex((i) => (i + 1) % heroProducts.length);
 
   return (
     <Layout>
-      {/* ===== HERO: Centered, symmetric ===== */}
+      {/* ===== HERO: Split card layout ===== */}
       <section
-        className="relative flex flex-col items-center overflow-hidden text-center"
+        className="py-6 px-4 md:px-8"
         style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}
       >
-        {/* Subtle grid texture */}
-        <div className="absolute inset-0 opacity-[0.04]">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="heroGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="white" strokeWidth="0.2" />
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#heroGrid)" />
-          </svg>
-        </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[420px]"
+            style={{ background: "linear-gradient(135deg, #001F3D 0%, #013352 100%)" }}>
 
-        {/* Centered content */}
-        <div className="relative container-max w-full py-24 md:py-32">
-          <div className="max-w-3xl mx-auto animate-fade-in-up">
-            {/* Tagline */}
-            <p className="text-[#015D2C] font-semibold text-sm uppercase tracking-[0.3em] mb-6">
-              Miami, Florida — Wholesale Import & Distribution
-            </p>
-
-            {/* Headline */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-[1.05]">
-              U.S. Brands.<br />
-              <span className="text-[#015D2C]">Latin American</span> Markets.
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-[1.7] font-normal">
-              Direct sourcing from U.S. manufacturers. End-to-end logistics. Bilingual support for retailers and distributors across Latin America.
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-4 mb-20">
-              <Link href={base + "/request-account"}>
-                <button className="btn-primary text-base flex items-center gap-2">
-                  Become a Partner <ArrowRight className="h-5 w-5" />
-                </button>
-              </Link>
-              <Link href={base + "/catalog"}>
-                <button className="btn-secondary text-base flex items-center gap-2">
-                  See Catalog <ChevronRight className="h-5 w-5" />
-                </button>
-              </Link>
+            {/* LEFT — text content */}
+            <div className="p-8 md:p-12 flex flex-col justify-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] mb-5">
+                Welcome to Leader Store —{" "}
+                <span className="text-[#4ade80]">Wholesale Import & Distribution</span>{" "}
+                in Miami
+              </h1>
+              <p className="text-white/70 text-base leading-[1.7] mb-8 max-w-md">
+                Bulk supply of consumer goods, electronics, beauty, and more for licensed businesses across Latin America and beyond.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href={base + "/request-account"}>
+                  <button className="bg-[#07121A] text-white font-bold px-6 py-3 rounded-lg hover:bg-black transition-colors text-sm">
+                    Become a Partner
+                  </button>
+                </Link>
+                <Link href={base + "/about"}>
+                  <button className="border border-white/50 text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-colors text-sm">
+                    More About Us
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
 
-          {/* Product carousel — centered horizontal strip */}
-          <div className="relative h-[300px] md:h-[340px] max-w-4xl mx-auto">
-            {heroProducts.map((p, i) => (
-              <div
-                key={p.img}
-                className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
-                  i === heroIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                }`}
-              >
-                <div className="relative">
-                  <img
-                    src={`${base}${p.img}`}
-                    alt={p.name}
-                    className="w-full max-w-[260px] md:max-w-[300px] h-auto object-contain drop-shadow-2xl"
-                  />
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-5 py-2.5 rounded-full border shadow-md">
-                    <p className="text-sm font-semibold text-[#07121A] whitespace-nowrap">{p.name}</p>
-                  </div>
+            {/* RIGHT — featured product card */}
+            <div className="bg-white/5 border-l border-white/10 flex flex-col">
+              <div className="flex items-center justify-between px-6 pt-5 pb-3 border-b border-white/10">
+                <span className="text-white font-bold text-sm">Featured products</span>
+                <div className="flex gap-2">
+                  <button onClick={prev}
+                    className="h-7 w-7 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                    <ArrowLeft className="h-3.5 w-3.5" />
+                  </button>
+                  <button onClick={next}
+                    className="h-7 w-7 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
                 </div>
               </div>
-            ))}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-              {heroProducts.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setHeroIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === heroIndex ? "w-8 bg-[#015D2C]" : "w-2 bg-white/30"
-                  }`}
-                />
-              ))}
+              <div className="flex-1 relative overflow-hidden min-h-[280px]">
+                {heroProducts.map((p, i) => (
+                  <div
+                    key={p.img}
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-700 ${
+                      i === heroIndex ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+                    }`}
+                  >
+                    <img
+                      src={`${base}${p.img}`}
+                      alt={p.name}
+                      className="max-h-[200px] max-w-[220px] object-contain drop-shadow-2xl mb-4"
+                    />
+                    <p className="text-[#4ade80] font-bold text-sm text-center uppercase tracking-wide">
+                      {p.name}
+                    </p>
+                    <p className="text-white/50 text-xs mt-1 text-center">Want to sell our products?</p>
+                    <Link href={base + "/request-account"}>
+                      <button className="mt-3 bg-[#07121A] text-white text-xs font-bold px-4 py-2 rounded hover:bg-black transition-colors">
+                        Become a Partner
+                      </button>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center gap-1.5 pb-4">
+                {heroProducts.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setHeroIndex(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === heroIndex ? "w-6 bg-[#4ade80]" : "w-1.5 bg-white/30"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ===== BRANDS SCROLLING CAROUSEL ===== */}
-      <section className="py-16 border-y bg-white overflow-hidden">
-        <div className="container-max text-center mb-12">
+      <section className="py-14 border-b bg-white overflow-hidden">
+        <div className="container-max text-center mb-10">
           <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
             Brands We Carry
           </h2>
           <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
-            Authentic products from leading manufacturers, sourced through authorized distributors and verified wholesale suppliers.
+            Authentic products from leading manufacturers, sourced through authorized distributors.
           </p>
         </div>
         <div className="relative">
           <div className="flex animate-brand-scroll whitespace-nowrap gap-16">
             {[...brands, ...brands].map((b, i) => (
-              <span key={`${b}-${i}`} className="text-xl font-bold text-[#CFD9E6] tracking-wide shrink-0">
+              <span key={`${b}-${i}`} className="text-lg font-bold text-[#CFD9E6] tracking-wide shrink-0">
                 {b}
               </span>
             ))}
@@ -238,7 +232,7 @@ export default function Home() {
             {[1, 2, 3].map((i) => (
               <div key={i} className="card-modern p-8 text-center">
                 <div className="h-16 w-16 bg-[#F0F4F8] rounded-full mx-auto mb-5 flex items-center justify-center">
-                  <Package className="h-7 w-7 text-[#526880]" />
+                  <span className="text-2xl text-[#526880]">★</span>
                 </div>
                 <p className="text-base text-[#526880] mb-2">Customer review photo</p>
                 <p className="text-sm text-[#526880]/60">Upload your photo to replace this placeholder</p>
@@ -260,9 +254,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-5">
             {howWeWork.map((item, idx) => (
               <div key={item.step} className="card-modern p-7 text-center relative">
-                <span className="text-4xl font-extrabold text-[#CFD9E6] block mb-4">
-                  {item.step}
-                </span>
+                <span className="text-4xl font-extrabold text-[#CFD9E6] block mb-4">{item.step}</span>
                 <item.icon className="h-5 w-5 text-[#015D2C] mx-auto mb-4" />
                 <h3 className="font-bold text-base mb-3 text-[#07121A]">{item.title}</h3>
                 <p className="text-sm text-[#526880] leading-[1.7]">{item.desc}</p>
@@ -318,9 +310,7 @@ export default function Home() {
       {/* ===== READY TO PARTNER ===== */}
       <section className="py-20 md:py-24 text-center" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
         <div className="container-max">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">
-            Ready to Partner?
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-5">Ready to Partner?</h2>
           <p className="text-lg text-white/60 mb-10 max-w-lg mx-auto leading-[1.7]">
             Apply for a wholesale account and get access to our full catalog, pricing tiers, and a dedicated account manager.
           </p>
@@ -331,8 +321,8 @@ export default function Home() {
               </button>
             </Link>
             <Link href={base + "/contact"}>
-              <button className="btn-secondary text-base">
-                Contact Us
+              <button className="btn-secondary text-base flex items-center gap-2">
+                Contact Us <ChevronRight className="h-5 w-5" />
               </button>
             </Link>
           </div>
