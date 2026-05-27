@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import Layout from "@/components/layout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Package, Search, SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/data";
 
-const categories = [
-  "All",
-  "Electronics",
-  "Kitchen & Home",
-  "Pet Supplies",
-  "Beauty",
-];
+const categories = ["All", "Electronics", "Tools & Equipment", "Beauty & Grooming"];
+
+const brandColor: Record<string, string> = {
+  ACER: "#83B81A",
+  SAMSUNG: "#1428A0",
+  STIHL: "#F26522",
+  JBL: "#E8001B",
+  VIZIO: "#007DC6",
+  BABYLISS: "#2C2C2C",
+  GILLETTE: "#003399",
+  DEWALT: "#FEBD17",
+};
 
 export default function Catalog() {
   const [search, setSearch] = useState("");
@@ -32,105 +33,158 @@ export default function Catalog() {
 
   return (
     <Layout>
-      <div className="border-b">
-        <div className="max-w-7xl mx-auto px-4 py-12 text-center">
-          <h1 className="text-3xl font-bold mb-2">Our Products</h1>
-          <p className="text-muted-foreground">
-            Wholesale catalog with MOQs and pricing for Latin American partners
+      {/* Page header */}
+      <div
+        className="relative py-16 md:py-20 overflow-hidden"
+        style={{ background: "linear-gradient(160deg, #001A2E 0%, #012035 60%, #001428 100%)" }}
+      >
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+        <div className="relative max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Our Portfolio</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Product Catalog</h1>
+          <p className="text-base md:text-lg text-[#8aa8c0] max-w-xl mx-auto">
+            Wholesale pricing for licensed distributors across Latin America. Contact us to get your quote.
           </p>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-10">
-        {/* Filters */}
-        <div className="flex flex-col items-center gap-4 mb-8">
-          <div className="relative w-full max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search products or brands..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 w-full"
-            />
-          </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 justify-center">
-            <SlidersHorizontal className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-            {categories.map((c) => (
-              <Badge
-                key={c}
-                variant={activeCategory === c ? "default" : "outline"}
-                className="cursor-pointer flex-shrink-0"
-                onClick={() => setActiveCategory(c)}
-              >
-                {c}
-              </Badge>
-            ))}
-          </div>
-        </div>
+      <div className="bg-[#F0F4F8] min-h-screen">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filtered.map((p) => (
-            <Link
-              key={p.id}
-              href={base + `/product/${p.id}`}
-              className="group"
-            >
-              <Card className="h-full transition-colors group-hover:border-accent/30 overflow-hidden">
-                <div className="h-48 overflow-hidden bg-muted">
+          {/* Search + Filters */}
+          <div className="flex flex-col md:flex-row gap-4 mb-8">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#526880]" />
+              <input
+                type="text"
+                placeholder="Search products or brands..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-[#CFD9E6] bg-white text-sm text-[#07121A] placeholder:text-[#526880] focus:outline-none focus:ring-2 focus:ring-[#001A2E]/20 focus:border-[#001A2E]"
+              />
+            </div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <SlidersHorizontal className="h-4 w-4 text-[#526880] flex-shrink-0" />
+              {categories.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setActiveCategory(c)}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 border ${
+                    activeCategory === c
+                      ? "bg-[#001A2E] text-white border-[#001A2E]"
+                      : "bg-white text-[#526880] border-[#CFD9E6] hover:border-[#001A2E] hover:text-[#001A2E]"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Count */}
+          <p className="text-xs text-[#526880] mb-6 font-medium">
+            {filtered.length} product{filtered.length !== 1 ? "s" : ""} found
+          </p>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {filtered.map((p) => (
+              <Link
+                key={p.id}
+                href={`${base}/product/${p.id}`}
+                className="group block bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden hover:shadow-xl hover:border-[#001A2E]/30 transition-all duration-300"
+              >
+                {/* Brand stripe */}
+                <div
+                  className="h-1 w-full"
+                  style={{ background: brandColor[p.brand] ?? "#001A2E" }}
+                />
+
+                {/* Image area */}
+                <div className="h-44 bg-[#F0F4F8] flex items-center justify-center overflow-hidden px-4 py-3">
                   <img
                     src={`${base}prod-${p.image}.png`}
                     alt={p.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `${base}cat-electronics.png`;
+                    }}
                   />
                 </div>
-                <CardContent className="pt-4">
+
+                <div className="p-4">
+                  {/* Brand + category */}
                   <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-xs">
+                    <span
+                      className="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded"
+                      style={{
+                        background: (brandColor[p.brand] ?? "#001A2E") + "18",
+                        color: brandColor[p.brand] ?? "#001A2E",
+                      }}
+                    >
                       {p.brand}
-                    </Badge>
-                    <span className="text-xs text-muted-foreground">
-                      {p.category}
                     </span>
+                    <span className="text-[10px] text-[#526880] font-medium">{p.category}</span>
                   </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-2">
+
+                  {/* Name */}
+                  <h3 className="font-extrabold text-[#07121A] text-sm leading-snug mb-2 line-clamp-2 group-hover:text-[#001A2E]">
                     {p.name}
                   </h3>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    {p.description.slice(0, 80)}...
-                  </p>
-                  <div className="flex items-center justify-between pt-2 border-t">
-                    <span className="text-sm font-bold text-accent">
-                      {p.priceRange}
+
+                  {/* SKU / UPC */}
+                  <div className="space-y-0.5 mb-3">
+                    <p className="text-[10px] text-[#526880]">
+                      <span className="font-semibold text-[#07121A]">SKU:</span> {p.sku}
+                    </p>
+                    <p className="text-[10px] text-[#526880]">
+                      <span className="font-semibold text-[#07121A]">UPC:</span> {p.upc}
+                    </p>
+                  </div>
+
+                  {/* MOQ + CTA */}
+                  <div className="flex items-center justify-between pt-3 border-t border-[#CFD9E6]">
+                    <span className="text-[10px] text-[#526880]">
+                      MOQ: <span className="font-bold text-[#07121A]">{p.moq}</span>
                     </span>
-                    <span className="text-xs text-muted-foreground">
-                      MOQ: {p.moq}
+                    <span className="flex items-center gap-1 text-[11px] font-bold text-[#015D2C] group-hover:text-[#001A2E]">
+                      Ver specs <ArrowUpRight className="h-3 w-3" />
                     </span>
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-
-        {filtered.length === 0 && (
-          <div className="text-center py-20">
-            <Package className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
-            <p className="text-muted-foreground">
-              No products match your search
-            </p>
-            <Button
-              variant="outline"
-              className="mt-3"
-              onClick={() => {
-                setSearch("");
-                setActiveCategory("All");
-              }}
-            >
-              Clear Filters
-            </Button>
+                </div>
+              </Link>
+            ))}
           </div>
-        )}
+
+          {filtered.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-[#526880] text-lg font-medium mb-2">No products match your search</p>
+              <button
+                onClick={() => { setSearch(""); setActiveCategory("All"); }}
+                className="mt-3 px-5 py-2 rounded-lg border border-[#CFD9E6] text-sm text-[#526880] hover:bg-white transition"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
+
+          {/* CTA strip */}
+          <div className="mt-14 rounded-2xl p-8 md:p-12 text-center"
+            style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B1E 100%)" }}>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-3">Get Pricing</p>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3">Ready to place an order?</h3>
+            <p className="text-[#8aa8c0] mb-6 max-w-md mx-auto text-sm">
+              Contact our wholesale team for volume pricing, MOQ discounts, and logistics quotes.
+            </p>
+            <Link
+              href={`${base}/contact`}
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#015D2C] text-white rounded-lg font-bold text-sm hover:bg-[#014d24] transition-colors"
+            >
+              Request a Quote <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
       </div>
     </Layout>
   );
