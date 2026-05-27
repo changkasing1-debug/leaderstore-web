@@ -222,27 +222,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-[#001A2E] text-white">
-        <div className="max-w-7xl mx-auto px-4 pt-14 pb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-            <div className="lg:col-span-2">
-              <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded mb-4" />
-              <p className="text-sm text-white/60 leading-relaxed mb-5 max-w-xs">
-                Miami-based import and distribution company connecting Latin American markets with top U.S. brands.
-              </p>
-              <div className="flex items-center gap-3 mb-6">
-                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Facebook className="h-4 w-4" /></a>
-                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Instagram className="h-4 w-4" /></a>
-                <a href="#" className="h-8 w-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"><Linkedin className="h-4 w-4" /></a>
-              </div>
-              <p className="text-xs text-white/50 mb-1 font-semibold uppercase tracking-wider">Newsletter</p>
-              <p className="text-xs text-white/50 mb-1">Subscribe for product updates and wholesale offers.</p>
-              <Newsletter />
-            </div>
+      <footer className="bg-[#07121A] text-white">
+        <div className="max-w-7xl mx-auto px-4 pt-12 pb-8">
+
+          {/* Newsletter bar */}
+          <div className="border border-white/15 rounded-lg px-8 py-6 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Company</h4>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#3b82f6] mb-1">Newsletter</p>
+              <h4 className="font-bold text-base text-white mb-1">Subscribe to Our Wholesale Newsletter</h4>
+              <p className="text-sm text-white/50">Trade updates, new arrivals, and distribution news — delivered to your inbox.</p>
+            </div>
+            <Newsletter />
+          </div>
+
+          {/* 4-column links */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Company</h4>
               <ul className="space-y-2.5">
-                <FooterLink href="/">Home</FooterLink>
                 <FooterLink href="/about">About Us</FooterLink>
                 <FooterLink href="/request-account">Become a Partner</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>
@@ -250,33 +247,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Products</h4>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Products</h4>
               <ul className="space-y-2.5">
                 <FooterLink href="/catalog">Product Catalog</FooterLink>
-                <FooterLink href="/catalog">Kitchen &amp; Home</FooterLink>
-                <FooterLink href="/catalog">Pet Supplies</FooterLink>
-                <FooterLink href="/catalog">Electronics</FooterLink>
-                <FooterLink href="/catalog">Beauty &amp; Care</FooterLink>
+                <FooterLink href="/catalog">Product Categories</FooterLink>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-              <ul className="space-y-3 text-sm text-white/60">
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#015D2C]" />
-                  <span>4805 NW 79TH AVE, STE 10 A101<br />Miami, FL 33166</span>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Support</h4>
+              <ul className="space-y-2.5">
+                <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
+                <FooterLink href="/terms-of-service">Terms of Service</FooterLink>
+                <FooterLink href="/return-policy">Return Policy</FooterLink>
+                <FooterLink href="/about">Authenticity Guarantee</FooterLink>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">Contact Info</h4>
+              <p className="font-bold text-sm text-white mb-3">Leader Store LLC</p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2 text-sm text-white/60">
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <span>4805 NW 79TH AVE, Suite 10-03<br />Doral, FL 33166</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 flex-shrink-0 text-[#015D2C]" />
-                  <a href="tel:+17869401456" className="hover:text-white transition-colors">(786) 940-1456</a>
+                <li className="flex items-center gap-2 text-sm text-white/60">
+                  <Phone className="h-4 w-4 flex-shrink-0" />
+                  <a href="tel:+17869401456" className="hover:text-white transition-colors">+1 (786) 940-1456</a>
                 </li>
-                <li className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 flex-shrink-0 text-[#015D2C]" />
+                <li className="flex items-center gap-2 text-sm text-white/60">
+                  <Mail className="h-4 w-4 flex-shrink-0" />
                   <a href="mailto:info@leaderstore.us" className="hover:text-white transition-colors">info@leaderstore.us</a>
                 </li>
               </ul>
             </div>
           </div>
+
           <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
             <span>&copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.</span>
             <div className="flex items-center gap-4">
