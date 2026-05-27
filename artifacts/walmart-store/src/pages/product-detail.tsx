@@ -5,15 +5,15 @@ import { products } from "@/lib/data";
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",
-  "AMSOIL": "#C41E3A",
-  "Meguiar's": "#FFD700",
-  "Thule": "#005EB8",
-  "Brembo": "#E31937",
-  "NOCO": "#00A651",
+  "ROAM": "#E87722",
   "K&N": "#C41E3A",
-  "Bosch": "#009933",
-  "Sparco": "#111111",
-  "Recaro": "#D40000",
+  "Anzo": "#1A73E8",
+  "STEDI": "#F37021",
+  "Rugged Ridge": "#CC0000",
+  "Race Ramps": "#111111",
+  "Spectre": "#111111",
+  "Injen": "#D40000",
+  "OVS": "#1A2B3C",
 };
 
 export default function ProductDetail() {
@@ -63,7 +63,7 @@ export default function ProductDetail() {
             <div className="bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm">
               <div className="h-72 md:h-96 flex items-center justify-center p-8 bg-[#F0F4F8]">
                 <img
-                  src={`${base}prod-${product.image}.png`}
+                  src={`${base}${product.image}`}
                   alt={product.name}
                   className="h-full w-full object-contain"
                   onError={(e) => {
@@ -135,7 +135,7 @@ export default function ProductDetail() {
               <div className="bg-white rounded-xl border border-[#CFD9E6] overflow-hidden">
                 <div className="px-5 py-3 border-b border-[#CFD9E6]" style={{ background: accentLight }}>
                   <p className="text-xs font-extrabold uppercase tracking-widest" style={{ color: accent }}>
-                    Ficha Técnica
+                    Technical Specs
                   </p>
                 </div>
                 <div className="divide-y divide-[#F0F4F8]">
@@ -203,7 +203,7 @@ export default function ProductDetail() {
             if (related.length === 0) return null;
             return (
               <div className="mt-16">
-                <h2 className="text-xl font-extrabold text-[#07121A] mb-6">Productos Relacionados</h2>
+                <h2 className="text-xl font-extrabold text-[#07121A] mb-6">Related Products</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {related.map((p) => (
                     <Link
@@ -214,7 +214,7 @@ export default function ProductDetail() {
                       <div className="h-1" style={{ background: brandColor[p.brand] ?? "#001A2E" }} />
                       <div className="h-28 bg-[#F0F4F8] flex items-center justify-center p-3">
                         <img
-                          src={`${base}prod-${p.image}.png`}
+                          src={`${base}${p.image}`}
                           alt={p.name}
                           className="h-full object-contain group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => { (e.target as HTMLImageElement).src = `${base}cat-electronics.png`; }}

@@ -4,19 +4,19 @@ import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
 import { products } from "@/lib/data";
 
-const categories = ["All", "Interior Accessories", "Fluids & Lubricants", "Detailing & Car Care", "Roof Racks & Cargo", "Brakes", "Tools & Accessories", "Filters", "Wipers", "Racing & Interior", "Seats"];
+const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants"];
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",
-  "AMSOIL": "#C41E3A",
-  "Meguiar's": "#FFD700",
-  "Thule": "#005EB8",
-  "Brembo": "#E31937",
-  "NOCO": "#00A651",
+  "ROAM": "#E87722",
   "K&N": "#C41E3A",
-  "Bosch": "#009933",
-  "Sparco": "#111111",
-  "Recaro": "#D40000",
+  "Anzo": "#1A73E8",
+  "STEDI": "#F37021",
+  "Rugged Ridge": "#CC0000",
+  "Race Ramps": "#111111",
+  "Spectre": "#111111",
+  "Injen": "#D40000",
+  "OVS": "#1A2B3C",
 };
 
 export default function Catalog() {
@@ -106,7 +106,7 @@ export default function Catalog() {
                 {/* Image area */}
                 <div className="h-44 bg-[#F0F4F8] flex items-center justify-center overflow-hidden px-4 py-3">
                   <img
-                    src={`${base}prod-${p.image}.png`}
+                    src={`${base}${p.image}`}
                     alt={p.name}
                     className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
@@ -151,7 +151,7 @@ export default function Catalog() {
                       MOQ: <span className="font-bold text-[#07121A]">{p.moq}</span>
                     </span>
                     <span className="flex items-center gap-1 text-[11px] font-bold text-[#015D2C] group-hover:text-[#001A2E]">
-                      Ver specs <ArrowUpRight className="h-3 w-3" />
+                      View specs <ArrowUpRight className="h-3 w-3" />
                     </span>
                   </div>
                 </div>
