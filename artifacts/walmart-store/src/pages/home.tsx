@@ -293,19 +293,42 @@ export default function Home() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
             <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
               What Our Partners Say
             </h2>
             <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="card-modern p-8 text-center">
-                <div className="h-16 w-16 bg-[#F0F4F8] rounded-full mx-auto mb-5 flex items-center justify-center">
-                  <span className="text-2xl text-[#526880]">★</span>
+
+          {/* 5-card grid: 3 top + 2 centered bottom */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { img: "reviews/rev-01.jpg", name: "Carlos Imports S.A.", location: "Bogotá, Colombia", quote: "Llevamos más de 2 años trabajando con Leader Store. La calidad de los productos y la atención al cliente son simplemente excepcionales. Altamente recomendados." },
+              { img: "reviews/rev-02.jpg", name: "TechDist Panama", location: "Ciudad de Panamá", quote: "La logística es impecable. Cada contenedor llega a tiempo y con el inventario correcto. Nunca hemos tenido problemas con los envíos." },
+              { img: "reviews/rev-03.jpg", name: "Computec Colombia", location: "Medellín, Colombia", quote: "Los precios mayoristas son muy competitivos y la variedad de tecnología es enorme. Leader Store nos ayuda a mantener nuestro negocio creciendo." },
+              { img: "reviews/rev-04.jpg", name: "Distribuidora Rodríguez", location: "Lima, Perú", quote: "Excelente variedad de productos de tecnología a precios justos. Siempre encuentro lo que mis clientes necesitan y el servicio post-venta es muy bueno." },
+              { img: "reviews/rev-05.jpg", name: "Global Supply MX", location: "Ciudad de México", quote: "El equipo de Leader Store es muy profesional. Siempre están disponibles para responder dudas y el proceso de importación es muy claro y sin complicaciones." },
+            ].map((r) => (
+              <div key={r.name} className="bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                {/* Name header */}
+                <div className="px-5 pt-5 pb-3">
+                  <p className="font-extrabold text-[#07121A] text-sm leading-tight">{r.name}</p>
+                  <p className="text-xs text-[#015D2C] font-semibold mt-0.5">{r.location}</p>
                 </div>
-                <p className="text-base text-[#526880] mb-2">Customer review photo</p>
-                <p className="text-sm text-[#526880]/60">Upload your photo to replace this placeholder</p>
+
+                {/* Image */}
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={`${base}${r.img}`}
+                    alt={r.name}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+
+                {/* Quote */}
+                <div className="px-5 py-4">
+                  <p className="text-sm text-[#526880] leading-[1.75] italic">"{r.quote}"</p>
+                </div>
               </div>
             ))}
           </div>
