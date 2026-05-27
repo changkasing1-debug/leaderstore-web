@@ -92,58 +92,92 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Search bar — standalone, top */}
-      <div className="bg-[#001A2E] py-3 px-4 z-50">
-        <div className="max-w-3xl mx-auto relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/40" />
-          <Input
-            placeholder="Search products, brands, categories..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                if (searchQuery.trim()) {
-                  setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
-                  setSearchQuery("");
-                }
-              }
-            }}
-            className="pl-12 w-full h-11 bg-white/10 border-white/20 text-white placeholder:text-white/40 rounded-lg text-base focus-visible:ring-[#015D2C]"
-          />
-        </div>
-      </div>
+      {/* Sticky header: logo | search | nav */}
+      <div className="bg-background border-b sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4">
+          {/* Desktop — symmetric: logo left | search center | nav right */}
+          <div className="hidden md:flex items-center h-16">
+            {/* Logo — left */}
+            <div className="flex-1 flex justify-start">
+              <Link href={base + "/"} className="flex-shrink-0">
+                <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded" />
+              </Link>
+            </div>
 
-      {/* Nav bar — logo + links + button */}
-      <div className="bg-background border-b sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href={base + "/"} className="flex items-center gap-2 flex-shrink-0">
-            <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-10 w-auto rounded" />
-          </Link>
+            {/* Search — centered */}
+            <div className="flex-1 flex justify-center">
+              <div className="w-full max-w-lg relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search products, brands, categories..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      if (searchQuery.trim()) {
+                        setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
+                        setSearchQuery("");
+                      }
+                    }
+                  }}
+                  className="pl-9 w-full bg-muted border-0 rounded-lg"
+                />
+              </div>
+            </div>
 
-          <div className="hidden md:flex items-center gap-6">
-            <Link href={base + "/catalog"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Catalog</Link>
-            <Link href={base + "/about"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">About</Link>
-            <Link href={base + "/contact"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Contact</Link>
-            <Button size="sm" className="btn-primary h-9 px-5" asChild>
-              <Link href={base + "/request-account"}>Apply for Wholesale</Link>
-            </Button>
+            {/* Nav — right */}
+            <div className="flex-1 flex justify-end items-center gap-5">
+              <Link href={base + "/catalog"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Catalog</Link>
+              <Link href={base + "/about"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">About</Link>
+              <Link href={base + "/contact"} className="text-sm font-semibold text-[#07121A] hover:text-[#015D2C] transition-colors">Contact</Link>
+              <Button size="sm" className="btn-primary h-9 px-5" asChild>
+                <Link href={base + "/request-account"}>Apply for Wholesale</Link>
+              </Button>
+            </div>
           </div>
 
-          <button className="md:hidden p-2" onClick={() => setSearchOpen(!searchOpen)}>
-            {searchOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {searchOpen && (
-          <div className="md:hidden border-t bg-background px-4 py-3 space-y-2">
-            <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Catalog</Link>
-            <Link href={base + "/about"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>About</Link>
-            <Link href={base + "/contact"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Contact</Link>
-            <Link href={base + "/request-account"} className="block text-sm py-2 text-[#015D2C] font-bold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
+          {/* Mobile */}
+          <div className="md:hidden">
+            <div className="flex items-center h-14 justify-between">
+              <Link href={base + "/"} className="flex-shrink-0">
+                <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-9 w-auto rounded" />
+              </Link>
+              <button className="p-2" onClick={() => setSearchOpen(!searchOpen)}>
+                {searchOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
+            <div className="pb-3">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search products, brands, categories..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      if (searchQuery.trim()) {
+                        setLocation(base + "/catalog?search=" + encodeURIComponent(searchQuery.trim()));
+                        setSearchQuery("");
+                      }
+                    }
+                  }}
+                  className="pl-9 w-full bg-muted border-0 rounded-lg"
+                />
+              </div>
+            </div>
+            {/* Mobile menu */}
+            {searchOpen && (
+              <div className="border-t bg-background py-3 space-y-2">
+                <Link href={base + "/catalog"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Catalog</Link>
+                <Link href={base + "/about"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>About</Link>
+                <Link href={base + "/contact"} className="block text-sm py-2 hover:text-[#015D2C] font-semibold" onClick={() => setSearchOpen(false)}>Contact</Link>
+                <Link href={base + "/request-account"} className="block text-sm py-2 text-[#015D2C] font-bold" onClick={() => setSearchOpen(false)}>Apply for Wholesale</Link>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
       <main className="flex-1">{children}</main>

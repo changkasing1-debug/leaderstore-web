@@ -103,11 +103,12 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* ===== HERO: Full redesign ===== */}
+      {/* ===== HERO: Centered, symmetric ===== */}
       <section
-        className="relative min-h-[90vh] flex items-center overflow-hidden"
+        className="relative flex flex-col items-center overflow-hidden text-center"
         style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}
       >
+        {/* Subtle grid texture */}
         <div className="absolute inset-0 opacity-[0.04]">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
@@ -119,67 +120,71 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="relative container-max w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Text */}
-            <div className="animate-fade-in-up">
-              <p className="text-[#015D2C] font-semibold text-xs uppercase tracking-[0.25em] mb-5">
-                Miami, Florida — Wholesale Import & Distribution
-              </p>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-[1.05]">
-                U.S. Brands.<br />
-                <span className="text-[#015D2C]">Latin American</span><br />
-                Markets.
-              </h1>
-              <p className="text-lg text-white/60 mb-10 max-w-lg leading-[1.7] font-normal">
-                Direct sourcing from U.S. manufacturers. End-to-end logistics. Bilingual support for retailers and distributors across Latin America.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href={base + "/request-account"}>
-                  <button className="btn-primary text-base flex items-center gap-2">
-                    Become a Partner <ArrowRight className="h-5 w-5" />
-                  </button>
-                </Link>
-                <Link href={base + "/catalog"}>
-                  <button className="btn-secondary text-base flex items-center gap-2">
-                    See Catalog <ChevronRight className="h-5 w-5" />
-                  </button>
-                </Link>
-              </div>
-            </div>
+        {/* Centered content */}
+        <div className="relative container-max w-full py-24 md:py-32">
+          <div className="max-w-3xl mx-auto animate-fade-in-up">
+            {/* Tagline */}
+            <p className="text-[#015D2C] font-semibold text-sm uppercase tracking-[0.3em] mb-6">
+              Miami, Florida — Wholesale Import & Distribution
+            </p>
 
-            {/* Right: Product carousel */}
-            <div className="relative h-[400px] md:h-[500px] animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              {heroProducts.map((p, i) => (
-                <div
-                  key={p.img}
-                  className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
-                    i === heroIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
-                >
-                  <div className="relative">
-                    <img
-                      src={`${base}${p.img}`}
-                      alt={p.name}
-                      className="w-full max-w-[320px] md:max-w-[380px] h-auto object-contain drop-shadow-2xl"
-                    />
-                    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-5 py-2.5 rounded-full border shadow-md">
-                      <p className="text-sm font-semibold text-[#07121A] whitespace-nowrap">{p.name}</p>
-                    </div>
+            {/* Headline */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-[1.05]">
+              U.S. Brands.<br />
+              <span className="text-[#015D2C]">Latin American</span> Markets.
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-[1.7] font-normal">
+              Direct sourcing from U.S. manufacturers. End-to-end logistics. Bilingual support for retailers and distributors across Latin America.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-wrap justify-center gap-4 mb-20">
+              <Link href={base + "/request-account"}>
+                <button className="btn-primary text-base flex items-center gap-2">
+                  Become a Partner <ArrowRight className="h-5 w-5" />
+                </button>
+              </Link>
+              <Link href={base + "/catalog"}>
+                <button className="btn-secondary text-base flex items-center gap-2">
+                  See Catalog <ChevronRight className="h-5 w-5" />
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Product carousel — centered horizontal strip */}
+          <div className="relative h-[300px] md:h-[340px] max-w-4xl mx-auto">
+            {heroProducts.map((p, i) => (
+              <div
+                key={p.img}
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${
+                  i === heroIndex ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                }`}
+              >
+                <div className="relative">
+                  <img
+                    src={`${base}${p.img}`}
+                    alt={p.name}
+                    className="w-full max-w-[260px] md:max-w-[300px] h-auto object-contain drop-shadow-2xl"
+                  />
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white px-5 py-2.5 rounded-full border shadow-md">
+                    <p className="text-sm font-semibold text-[#07121A] whitespace-nowrap">{p.name}</p>
                   </div>
                 </div>
-              ))}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
-                {heroProducts.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setHeroIndex(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === heroIndex ? "w-8 bg-[#015D2C]" : "w-2 bg-white/30"
-                    }`}
-                  />
-                ))}
               </div>
+            ))}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+              {heroProducts.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setHeroIndex(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === heroIndex ? "w-8 bg-[#015D2C]" : "w-2 bg-white/30"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
