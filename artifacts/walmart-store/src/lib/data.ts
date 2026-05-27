@@ -35,6 +35,7 @@ export const brands: Brand[] = [
   { id: "injen", name: "Injen", category: "Filters & Intake", logo: "IN", description: "High-performance cold air intake systems and cone filters for sport and muscle cars" },
   { id: "ovs", name: "OVS", category: "Roof Racks & Cargo", logo: "OV", description: "Overland Vehicle Systems — awnings, roof racks, and camping gear for trucks and SUVs" },
   { id: "ome", name: "Old Man Emu", category: "Suspension & Lift Kits", logo: "OM", description: "Premium suspension systems, lift kits, and shock absorbers for off-road and overland vehicles" },
+  { id: "arb", name: "ARB", category: "Exterior Protection", logo: "AR", description: "Australian-built off-road protection, recovery gear, and vehicle accessories for overlanding" },
 ];
 
 export const products: Product[] = [
@@ -450,6 +451,29 @@ export const products: Product[] = [
     ],
     features: ["MT64 Monotube Shocks", "Upper Control Arms", "64mm Bore", "Constant Load Tuned", "Bolt-On Install"],
     certifications: ["ISO 9001", "TUV"],
+    availability: "In Stock — Ships within 7 days",
+  },
+  {
+    id: "arb-summit-side-step-4421175k1",
+    name: "ARB Summit Side Step and Rail Kit (Black)",
+    brand: "ARB",
+    category: "Exterior Protection",
+    description: "Heavy-duty tubular steel side step and rail protection system designed for off-road and overland vehicles. Provides rocker panel protection and convenient step access. Powder-coated black finish for corrosion resistance. Vehicle-specific mounting brackets included.",
+    moq: "6 kits",
+    priceRange: "Contact for pricing",
+    image: "products/arb-summit-side-step.jpg",
+    upc: "932202800442",
+    sku: "4421175K1",
+    specs: [
+      { label: "Material", value: "Tubular steel with powder-coated black finish" },
+      { label: "Function", value: "Rocker panel protection + step access" },
+      { label: "Finish", value: "Black powder coat, corrosion resistant" },
+      { label: "Mounting", value: "Vehicle-specific bolt-on brackets" },
+      { label: "Design", value: "Summit series — heavy-duty off-road rated" },
+      { label: "Includes", value: "Left + right side steps, rails, mounting hardware" },
+    ],
+    features: ["Rocker Panel Protection", "Step Access", "Powder-Coated Steel", "Bolt-On Install", "Off-Road Rated"],
+    certifications: ["ISO 9001"],
     availability: "In Stock — Ships within 7 days",
   },
 ];
