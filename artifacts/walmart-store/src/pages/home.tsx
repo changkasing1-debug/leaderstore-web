@@ -4,13 +4,13 @@ import Layout from "@/components/layout";
 import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, ArrowUpRight, ChevronRight, Users, ShieldCheck, Globe, Headphones } from "lucide-react";
 
 const heroProducts = [
-  { img: "prod-brakes.png", name: "Bosch QuietCast Brake Pads" },
-  { img: "prod-suspension.png", name: "Monroe OESpectrum Shocks" },
-  { img: "prod-filter.png", name: "ACDelco OEM Oil Filter" },
-  { img: "prod-sparkplug.png", name: "DENSO Iridium Spark Plugs" },
-  { img: "prod-belt.png", name: "Gates PowerGrip Timing Belt" },
-  { img: "prod-sensor.png", name: "Bosch Oxygen Sensor" },
-  { img: "prod-steering.png", name: "MOOG Problem Solver Ball Joint" },
+  { img: "prod-interior.png", name: "WeatherTech FloorLiner DigitalFit" },
+  { img: "prod-fluids.png", name: "AMSOIL Signature Series 5W-30" },
+  { img: "prod-detailing.png", name: "Meguiar's Ultimate Liquid Wax" },
+  { img: "prod-cargo.png", name: "Thule ProRide XT Bike Carrier" },
+  { img: "prod-brakes.png", name: "Brembo Premium Ceramic Brake Pads" },
+  { img: "prod-tools.png", name: "NOCO Genius GB40 Jump Starter" },
+  { img: "prod-filters.png", name: "K&N High-Flow Air Filter" },
 ];
 
 const brandLogos = [
@@ -51,18 +51,18 @@ const whyUs = [
 ];
 
 const productCategories = [
-  { img: "cat-brakes.png",       label: "Brakes",               sub: "Pads, rotors & kits",          accent: "#001A2E" },
-  { img: "cat-suspension.png",   label: "Suspension",           sub: "Shocks, struts & ball joints",  accent: "#012B1A" },
-  { img: "cat-filters.png",      label: "Filters",              sub: "Oil, air & fuel",               accent: "#07121A" },
-  { img: "cat-ignition.png",     label: "Ignition",             sub: "Spark plugs, coils & sensors",  accent: "#1A0A2E" },
-  { img: "cat-belts.png",        label: "Belts & Hoses",        sub: "Timing & serpentine",           accent: "#001A2E" },
-  { img: "cat-steering.png",     label: "Steering",             sub: "Racks, tie rods & ends",        accent: "#012B1A" },
+  { img: "cat-interior.png",      label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#001A2E" },
+  { img: "cat-fluids.png",       label: "Fluids & Lubricants",   sub: "Oils, synthetics & fluids",       accent: "#012B1A" },
+  { img: "cat-detailing.png",    label: "Detailing & Car Care",  sub: "Waxes, polishes & cleaners",      accent: "#07121A" },
+  { img: "cat-cargo.png",        label: "Roof Racks & Cargo",    sub: "Bike carriers, boxes & racks",    accent: "#1A0A2E" },
+  { img: "cat-brakes.png",       label: "Brakes",                sub: "Pads, rotors & kits",            accent: "#001A2E" },
+  { img: "cat-tools.png",        label: "Tools & Accessories",   sub: "Jump starters, chargers & tools", accent: "#012B1A" },
 ];
 
 const industries = [
-  "Independent Repair Shops", "Auto Parts Retailers", "Dealerships",
-  "Commercial Fleets", "Body Shops", "Tire & Service Centers",
-  "Fleet Maintenance Companies", "Trucking & Logistics", "Agricultural Equipment",
+  "Auto Parts Retailers", "Car Detailing Shops", "Repair & Service Centers",
+  "Car Dealerships", "Commercial Fleets", "Off-Road & 4x4 Shops",
+  "Racing & Motorsport Teams", "Tire & Wheel Shops", "Auto Body Shops",
 ];
 
 type Review = { img: string; name: string; location: string; quote: string };

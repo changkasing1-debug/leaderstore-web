@@ -4,14 +4,16 @@ import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, Ta
 import { products } from "@/lib/data";
 
 const brandColor: Record<string, string> = {
-  ACER: "#83B81A",
-  SAMSUNG: "#1428A0",
-  STIHL: "#F26522",
-  JBL: "#E8001B",
-  VIZIO: "#007DC6",
-  BABYLISS: "#2C2C2C",
-  GILLETTE: "#003399",
-  DEWALT: "#FEBD17",
+  "WeatherTech": "#1A2B3C",
+  "AMSOIL": "#C41E3A",
+  "Meguiar's": "#FFD700",
+  "Thule": "#005EB8",
+  "Brembo": "#E31937",
+  "NOCO": "#00A651",
+  "K&N": "#C41E3A",
+  "Bosch": "#009933",
+  "Sparco": "#111111",
+  "Recaro": "#D40000",
 };
 
 export default function ProductDetail() {
