@@ -215,13 +215,34 @@ export default function Home() {
       </section>
 
       {/* ===== STATS BANNER ===== */}
-      <section className="py-20 md:py-24" style={{ background: "linear-gradient(135deg, #001A2E 0%, #012B47 100%)" }}>
-        <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
+      <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "linear-gradient(135deg, #001A2E 0%, #01263F 50%, #012B47 100%)" }}>
+        {/* decorative blobs */}
+        <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #015D2C, transparent)" }} />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #4ade80, transparent)" }} />
+
+        <div className="container-max relative z-10">
+          {/* eyebrow */}
+          <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-[#4ade80] mb-2">By the numbers</p>
+          <h2 className="text-center text-2xl md:text-3xl font-extrabold text-white mb-14 leading-tight">
+            Trusted by growing businesses<br className="hidden md:block" /> across the Americas
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              { value: 60, suffix: "+", label: "Businesses Served", sub: "Active wholesale partners", icon: Users },
+              { value: 150, suffix: "+", label: "Containers Shipped", sub: "To Latin America & beyond", icon: Truck },
+              { value: 15, suffix: "", label: "Countries Reached", sub: "International distribution", icon: Globe },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col items-center text-center py-8 md:py-0 md:px-12 gap-4">
+                <div className="h-14 w-14 rounded-2xl flex items-center justify-center mb-1"
+                  style={{ background: "rgba(1, 93, 44, 0.25)", border: "1px solid rgba(74, 222, 128, 0.2)" }}>
+                  <s.icon className="h-6 w-6 text-[#4ade80]" />
+                </div>
                 <AnimatedCounter target={s.value} suffix={s.suffix} />
-                <p className="text-base text-white/60 mt-3 font-medium">{s.label}</p>
+                <div>
+                  <p className="text-base font-bold text-white">{s.label}</p>
+                  <p className="text-sm text-white/40 mt-0.5">{s.sub}</p>
+                </div>
               </div>
             ))}
           </div>
