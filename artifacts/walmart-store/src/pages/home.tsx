@@ -51,12 +51,12 @@ const whyUs = [
 ];
 
 const productCategories = [
-  { img: "prod-headphones.png", label: "AUDIO" },
-  { img: "prod-smartphone.png", label: "MOBILE DEVICES" },
-  { img: "cat-electronics.png", label: "ELECTRONICS" },
-  { img: "cat-beauty.png", label: "BEAUTY & CARE" },
-  { img: "cat-kitchen.png", label: "HOME & KITCHEN" },
-  { img: "cat-pet.png", label: "PET SUPPLIES" },
+  { img: "prod-headphones.png",  label: "Audio & Headphones",  sub: "Premium sound gear",          accent: "#001A2E" },
+  { img: "prod-smartphone.png",  label: "Mobile Devices",       sub: "Smartphones & tablets",        accent: "#012B1A" },
+  { img: "cat-electronics.png",  label: "Electronics",          sub: "Gadgets & tech accessories",   accent: "#07121A" },
+  { img: "cat-beauty.png",       label: "Beauty & Personal Care",sub: "Cosmetics & wellness",        accent: "#1A0A2E" },
+  { img: "cat-kitchen.png",      label: "Home & Kitchen",       sub: "Appliances & cookware",        accent: "#001A2E" },
+  { img: "cat-pet.png",          label: "Pet Supplies",         sub: "Food, toys & accessories",     accent: "#012B1A" },
 ];
 
 const industries = [
@@ -354,49 +354,68 @@ export default function Home() {
       </section>
 
       {/* ===== OUR PRODUCTS ===== */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#F0F4F8]">
         <div className="container-max">
-          <div
-            className="rounded-2xl overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #EBF4FF 0%, #F0F7FF 100%)" }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-5">
-              {/* Left panel */}
-              <div className="md:col-span-1 p-8 md:p-10 flex flex-col justify-center border-r border-[#D0E4F7]">
-                <h2 className="text-2xl font-extrabold text-[#001A2E] mb-3">Our products</h2>
-                <p className="text-sm font-semibold text-[#526880] mb-2 leading-snug">
-                  Discover our growing selection of wholesale goods and consumer products.
-                </p>
-                <p className="text-sm text-[#526880] leading-[1.7] mb-6">
-                  We supply only original products from top brands — trusted merchandise to keep your business competitive and your customers satisfied.
-                </p>
-                <Link href={base + "/catalog"}>
-                  <button className="bg-[#07121A] text-white font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#001A2E] transition-colors self-start">
-                    Explore
-                  </button>
-                </Link>
-              </div>
+          {/* Header */}
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">What We Distribute</p>
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              Product Categories
+            </h2>
+            <p className="text-base text-[#526880] max-w-xl mx-auto leading-[1.7] mt-4">
+              Original, brand-name merchandise across the most in-demand consumer categories — ready for wholesale distribution.
+            </p>
+          </div>
 
-              {/* Right — category cards */}
-              <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-px bg-[#D0E4F7]">
-                {productCategories.map((cat) => (
-                  <Link key={cat.label} href={base + "/catalog"}>
-                    <div className="bg-white hover:bg-[#F8FBFF] transition-colors p-6 flex flex-col items-center justify-center gap-4 cursor-pointer group">
-                      <div className="h-28 w-28 flex items-center justify-center">
-                        <img
-                          src={`${base}${cat.img}`}
-                          alt={cat.label}
-                          className="max-h-[110px] max-w-[110px] object-contain group-hover:scale-105 transition-transform duration-300"
-                        />
+          {/* Cards grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {productCategories.map((cat) => (
+              <Link key={cat.label} href={base + "/catalog"}>
+                <div className="group relative bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                  {/* Image area */}
+                  <div
+                    className="relative flex items-center justify-center h-52 overflow-hidden"
+                    style={{ background: `linear-gradient(160deg, ${cat.accent}18 0%, ${cat.accent}08 100%)` }}
+                  >
+                    {/* Decorative circle behind image */}
+                    <div
+                      className="absolute w-44 h-44 rounded-full opacity-[0.06]"
+                      style={{ background: cat.accent }}
+                    />
+                    <img
+                      src={`${base}${cat.img}`}
+                      alt={cat.label}
+                      className="relative z-10 max-h-[150px] max-w-[150px] object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg"
+                    />
+                    {/* Hover green overlay badge */}
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="h-8 w-8 rounded-full bg-[#015D2C] flex items-center justify-center shadow-md">
+                        <ArrowRight className="h-4 w-4 text-white" />
                       </div>
-                      <span className="text-xs font-bold text-[#07121A] tracking-widest text-center">
-                        {cat.label}
-                      </span>
                     </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+                  </div>
+
+                  {/* Text area */}
+                  <div className="px-6 py-5 border-t border-[#CFD9E6] flex items-center justify-between">
+                    <div>
+                      <p className="font-bold text-[#07121A] text-sm leading-tight">{cat.label}</p>
+                      <p className="text-xs text-[#526880] mt-0.5">{cat.sub}</p>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-[#CFD9E6] group-hover:text-[#015D2C] group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-12">
+            <Link href={base + "/catalog"}>
+              <button className="inline-flex items-center gap-2 bg-[#001A2E] text-white font-bold px-8 py-3.5 rounded-xl text-sm hover:bg-[#015D2C] transition-colors duration-300 shadow-md">
+                Browse Full Catalog
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
           </div>
         </div>
       </section>
