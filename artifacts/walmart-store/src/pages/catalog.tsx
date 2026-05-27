@@ -29,7 +29,7 @@ function ApplyWholesaleButton({ base }: { base: string }) {
     <button
       onClick={(e) => {
         e.stopPropagation();
-        setLocation(`${base}/apply-wholesale`);
+        setLocation(`${base}/request-account`);
       }}
       className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-[#015D2C] text-white text-[11px] font-bold uppercase tracking-wider hover:bg-[#001A2E] transition-colors duration-200"
     >
