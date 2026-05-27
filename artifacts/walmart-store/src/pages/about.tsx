@@ -17,7 +17,7 @@ export default function About() {
       {/* Hero image */}
       <div className="relative h-[300px] md:h-[400px] overflow-hidden">
         <img
-          src={`${base}about-office.png`}
+          src={`${base}/about-office.png`}
           alt="Leader Store Miami office"
           className="absolute inset-0 w-full h-full object-cover"
         />

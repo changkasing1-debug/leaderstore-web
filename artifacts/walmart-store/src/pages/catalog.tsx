@@ -110,11 +110,11 @@ export default function Catalog() {
                 {/* Image area */}
                 <div className="h-44 bg-[#F0F4F8] flex items-center justify-center overflow-hidden px-4 py-3">
                   <img
-                    src={`${base}${p.image}`}
+                    src={`${base}/${p.image}`}
                     alt={p.name}
                     className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `${base}cat-electronics.png`;
+                      (e.target as HTMLImageElement).src = `${base}/cat-electronics.png`;
                     }}
                   />
                 </div>

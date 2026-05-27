@@ -67,11 +67,11 @@ export default function ProductDetail() {
             <div className="bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm">
               <div className="h-72 md:h-96 flex items-center justify-center p-8 bg-[#F0F4F8]">
                 <img
-                  src={`${base}${product.image}`}
+                  src={`${base}/${product.image}`}
                   alt={product.name}
                   className="h-full w-full object-contain"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = `${base}cat-electronics.png`;
+                    (e.target as HTMLImageElement).src = `${base}/cat-electronics.png`;
                   }}
                 />
               </div>
@@ -218,10 +218,10 @@ export default function ProductDetail() {
                       <div className="h-1" style={{ background: brandColor[p.brand] ?? "#001A2E" }} />
                       <div className="h-28 bg-[#F0F4F8] flex items-center justify-center p-3">
                         <img
-                          src={`${base}${p.image}`}
+                          src={`${base}/${p.image}`}
                           alt={p.name}
                           className="h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => { (e.target as HTMLImageElement).src = `${base}cat-electronics.png`; }}
+                          onError={(e) => { (e.target as HTMLImageElement).src = `${base}/cat-electronics.png`; }}
                         />
                       </div>
                       <div className="p-3">

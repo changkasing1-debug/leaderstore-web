@@ -115,7 +115,7 @@ function ReviewCarousel({ reviews, base }: { reviews: Review[]; base: string }) 
                 <p className="text-xs text-[#015D2C] font-semibold mt-0.5">{r.location}</p>
               </div>
               <div className="h-48 overflow-hidden">
-                <img src={`${base}${r.img}`} alt={r.name} className="w-full h-full object-cover object-center" />
+                <img src={`${base}/${r.img}`} alt={r.name} className="w-full h-full object-cover object-center" />
               </div>
               <div className="px-5 py-4">
                 <p className="text-sm text-[#526880] leading-[1.75] italic">"{r.quote}"</p>
@@ -195,7 +195,7 @@ export default function Home() {
         {/* Background video */}
         <div className="absolute inset-0 z-0">
           <video
-            src={`${base}hero-bg.mp4`}
+            src={`${base}/hero-bg.mp4`}
             autoPlay
             muted
             loop
@@ -256,7 +256,7 @@ export default function Home() {
                     }`}
                   >
                     <img
-                      src={`${base}${p.img}`}
+                      src={`${base}/${p.img}`}
                       alt={p.name}
                       className="max-h-[200px] max-w-[220px] object-contain drop-shadow-2xl mb-4"
                     />
@@ -460,7 +460,7 @@ export default function Home() {
                       style={{ background: cat.accent }}
                     />
                     <img
-                      src={`${base}${cat.img}`}
+                      src={`${base}/${cat.img}`}
                       alt={cat.label}
                       className="relative z-10 max-h-[150px] max-w-[150px] object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-lg"
                     />

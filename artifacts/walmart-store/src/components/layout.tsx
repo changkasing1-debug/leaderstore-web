@@ -113,7 +113,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
           {/* Logo */}
           <Link href={base + "/"} className="flex-shrink-0 flex items-center gap-2">
-            <img src={`${base}logo.jpg`} alt="Leader Store LLC" className="h-11 w-auto rounded" />
+            <img src={`${base}/logo.jpg`} alt="Leader Store LLC" className="h-11 w-auto rounded" />
           </Link>
 
           {/* Search — center */}
