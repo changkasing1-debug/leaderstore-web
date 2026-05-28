@@ -1,9 +1,13 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import * as pinoHttp from "pino-http";
+import { createRequire } from "node:module";
+import type { HttpLogger, Options } from "pino-http";
 import type { IncomingMessage, ServerResponse } from "http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+
+const require = createRequire(import.meta.url);
+const pinoHttp = require("pino-http") as (opts?: Options) => HttpLogger;
 
 const app: Express = express();
 
@@ -12,7 +16,7 @@ interface PinoHttpRequest extends IncomingMessage {
 }
 
 app.use(
-  pinoHttp.default({
+  pinoHttp({
     logger,
     serializers: {
       req(req: PinoHttpRequest) {
