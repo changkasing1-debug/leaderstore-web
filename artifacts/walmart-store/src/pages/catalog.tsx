@@ -60,13 +60,10 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
           ${p.unitPrice.toFixed(2)}
         </p>
 
-        {/* SKU / UPC */}
+        {/* SKU */}
         <div className="space-y-0.5 mb-3">
           <p className="text-[10px] text-[#526880]">
             <span className="font-semibold text-[#07121A]">SKU:</span> {p.sku}
-          </p>
-          <p className="text-[10px] text-[#526880]">
-            <span className="font-semibold text-[#07121A]">UPC:</span> {p.upc}
           </p>
         </div>
 

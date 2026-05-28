@@ -16,7 +16,6 @@ export interface Product {
   priceRange: string;
   unitPrice: number;
   image: string;
-  upc: string;
   sku: string;
   specs: { label: string; value: string }[];
   features: string[];
@@ -58,7 +57,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 149.99,
     image: "products/kn-filter-enclosure.webp",
-    upc: "024844039512",
     sku: "RK-3951",
     specs: [
       { label: "Filter Type", value: "Oiled cotton gauze, 4-6 layers" },
@@ -82,7 +80,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 299.99,
     image: "products/kn-intake-system.webp",
-    upc: "024844631147",
     sku: "63-1147",
     specs: [
       { label: "System Type", value: "Cold air intake with heat shield" },
@@ -106,7 +103,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 2569.36,
     image: "products/1124K.jpg",
-    upc: "931714401124",
     sku: "MT64-1124K",
     specs: [
       { label: "Lift Height", value: "3\" front / 2\" rear" },
@@ -130,7 +126,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 296,
     image: "products/30-9034.jpg",
-    upc: "024844030034",
     sku: "63-9034",
     specs: [
       { label: "System Type", value: "Cold air intake with enclosed air box" },
@@ -154,7 +149,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 19.2,
     image: "products/HP-7011.jpg",
-    upc: "024844070011",
     sku: "HP-7011",
     specs: [
       { label: "Filter Media", value: "Premium synthetic blend" },
@@ -178,7 +172,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 13.6,
     image: "products/KNA-2438.jpg",
-    upc: "024844024380",
     sku: "KNA-2438",
     specs: [
       { label: "Service Life", value: "18,000 miles / 30,000 km" },
@@ -202,7 +195,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 13.6,
     image: "products/790-561.jpg",
-    upc: "024844079056",
     sku: "790-561",
     specs: [
       { label: "Contents", value: "Filter cleaner + filter oil" },
@@ -226,7 +218,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 65.6,
     image: "products/KN798453.jpg",
-    upc: "810028798453",
     sku: "KN798453",
     specs: [
       { label: "Type", value: "Front wheel hub bearing assembly" },
@@ -250,7 +241,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 184,
     image: "products/985-24-173.jpg",
-    upc: "811109852417",
     sku: "985-24-173",
     specs: [
       { label: "Type", value: "IFP monotube steering stabilizer" },
@@ -274,7 +264,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 44.99,
     image: "products/15005.jpg",
-    upc: "071924150050",
     sku: "15005",
     specs: [
       { label: "Viscosity", value: "0W-20" },
@@ -298,7 +287,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 380,
     image: "products/K6258-36.jpg",
-    upc: "810028625836",
     sku: "K6258-36",
     specs: [
       { label: "Rotor Type", value: "Drilled and slotted" },
@@ -322,7 +310,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 303.19,
     image: "products/D342711.jpg",
-    upc: "810028342711",
     sku: "D342711",
     specs: [
       { label: "Type", value: "Electronic distributor with Ignitor II" },
@@ -346,7 +333,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 100.79,
     image: "products/H7812.jpg",
-    upc: "810028078120",
     sku: "H7812",
     specs: [
       { label: "Material", value: "304 stainless steel" },
@@ -370,7 +356,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 163.99,
     image: "products/12-801-1.jpg",
-    upc: "810028128011",
     sku: "12-801-1",
     specs: [
       { label: "Flow Rate", value: "97 GPH" },
@@ -394,7 +379,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 14.39,
     image: "products/OTFQT.jpg",
-    upc: "810028001432",
     sku: "OTFQT",
     specs: [
       { label: "Type", value: "100% synthetic ATF" },
@@ -418,7 +402,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 65.59,
     image: "products/11AVMOTHSG.jpg",
-    upc: "787765408769",
     sku: "11AVMOTHSG",
     specs: [
       { label: "Set Contents", value: "3-piece: front pair + rear liner" },
@@ -442,7 +425,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 11.99,
     image: "products/860122.jpg",
-    upc: "071924860122",
     sku: "860122",
     specs: [
       { label: "Length", value: "22 inches (56 cm)" },
@@ -466,7 +448,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 207.99,
     image: "products/H5-AGM.jpg",
-    upc: "071924000005",
     sku: "H5-AGM",
     specs: [
       { label: "Technology", value: "AGM (Absorbed Glass Mat)" },
@@ -490,7 +471,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 11.19,
     image: "products/CQ-9005.jpg",
-    upc: "071924009005",
     sku: "CQ-9005",
     specs: [
       { label: "Bulb Type", value: "9005 / HB3 halogen" },
@@ -514,7 +494,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 35.19,
     image: "products/W2977.jpg",
-    upc: "071924029770",
     sku: "W2977",
     specs: [
       { label: "Protocol", value: "OBD II CAN" },
@@ -538,7 +517,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 119.99,
     image: "products/SD35.jpg",
-    upc: "810028035000",
     sku: "SD35",
     specs: [
       { label: "Systems", value: "All-system scan (engine, ABS, SRS, transmission, etc.)" },
@@ -562,7 +540,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 3.19,
     image: "products/07480.jpg",
-    upc: "051131074801",
     sku: "07480",
     specs: [
       { label: "Diameter", value: "2 inches (50 mm)" },
@@ -586,7 +563,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 29.59,
     image: "products/08090.jpg",
-    upc: "051131080901",
     sku: "08090",
     specs: [
       { label: "Net Weight", value: "19 oz (539 g)" },
@@ -610,7 +586,6 @@ export const products: Product[] = [
     priceRange: "Contact for pricing",
     unitPrice: 47.19,
     image: "products/19425.jpg",
-    upc: "810028019425",
     sku: "19425",
     specs: [
       { label: "Capacity", value: "32 oz (1 quart)" },

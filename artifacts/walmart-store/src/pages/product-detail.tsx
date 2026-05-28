@@ -1,6 +1,6 @@
 import { Link, useParams } from "wouter";
 import Layout from "@/components/layout";
-import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, Tag, ShoppingCart } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, ShoppingCart } from "lucide-react";
 import { products } from "@/lib/data";
 import { useCart } from "@/context/cart";
 
@@ -118,15 +118,8 @@ export default function ProductDetail() {
               {/* Description */}
               <p className="text-sm text-[#526880] leading-relaxed">{product.description}</p>
 
-              {/* UPC / SKU identifiers */}
+              {/* SKU identifiers */}
               <div className="bg-white rounded-xl border border-[#CFD9E6] p-4 flex flex-wrap gap-6">
-                <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-[#526880] mb-1">UPC / EAN</p>
-                  <p className="font-mono font-bold text-[#07121A] text-sm tracking-wider flex items-center gap-1.5">
-                    <Tag className="h-3.5 w-3.5 text-[#526880]" />
-                    {product.upc}
-                  </p>
-                </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[#526880] mb-1">SKU / MPN</p>
                   <p className="font-mono font-bold text-[#07121A] text-sm tracking-wider">{product.sku}</p>
