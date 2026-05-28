@@ -161,35 +161,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* ===== ROW 2: Navy — Categories | Nav | Apply ===== */}
       <div className="bg-[#001A2E] sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="hidden md:flex items-center h-12">
-            {/* Browse Categories */}
-            <div className="relative flex-shrink-0">
-              <button
-                onClick={() => setCatOpen(!catOpen)}
-                className="flex items-center gap-2 text-white text-sm font-semibold h-12 px-4 hover:bg-white/10 transition-colors"
-              >
-                <Menu className="h-4 w-4" />
-                Browse Categories
-                <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
-              </button>
-              {catOpen && (
-                <div className="absolute top-full left-0 bg-white shadow-xl rounded-b-lg z-50 min-w-[220px] py-2 border border-[#CFD9E6]">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat}
-                      href={base + "/catalog"}
-                      onClick={() => setCatOpen(false)}
-                      className="block px-4 py-2.5 text-sm text-[#07121A] hover:bg-[#F0F4F8] hover:text-[#015D2C] transition-colors font-medium"
-                    >
-                      {cat}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Nav links — center */}
-            <div className="flex-1 flex items-center justify-center gap-1">
+          <div className="hidden md:flex items-center justify-center h-12 gap-1">
               {[
                 { label: "HOME", href: "/" },
                 { label: "PRODUCTS", href: "/catalog" },
@@ -205,8 +177,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {link.label}
                 </Link>
               ))}
-            </div>
-
           </div>
 
           {/* Mobile nav */}
