@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import Layout from "@/components/layout";
-import { Home, Search } from "lucide-react";
+import { ArrowLeft, Home, Search } from "lucide-react";
 
 export default function NotFound() {
   const base = import.meta.env.BASE_URL?.replace(/\/$/, "") || "";

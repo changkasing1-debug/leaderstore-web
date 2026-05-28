@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight, ShoppingCart } from "lucide-react";

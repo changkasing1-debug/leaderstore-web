@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { CartProvider } from "@/context/cart";
 import CartSidebar from "@/components/cart-sidebar";
 import WhatsAppButton from "@/components/whatsapp-button";
+import CookieConsent from "@/components/cookie-consent";
 import Home from "@/pages/home";
 import Catalog from "@/pages/catalog";
 import ProductDetail from "@/pages/product-detail";
@@ -62,6 +63,7 @@ function App() {
             <Router />
             <CartSidebar />
             <WhatsAppButton />
+            <CookieConsent />
           </WouterRouter>
           <Toaster />
         </CartProvider>

@@ -63,7 +63,7 @@ const faqs = [
       },
       {
         q: "What product categories do you carry?",
-        a: "We carry Kitchen & Home, Pet Supplies, Consumer Electronics, and Beauty & Personal Care products. Our catalog is updated regularly as we add new brands and SKUs.",
+        a: "We carry Brakes, Suspension, Filters, Ignition, Sensors & Electronics, Belts & Hoses, Steering & Suspension, Bearings & Hubs, and Lubricants. Our catalog is updated regularly as we add new brands and SKUs.",
       },
       {
         q: "Can you source specific brands or products not in your catalog?",
