@@ -67,23 +67,28 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
   );
 }
 
-const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits", "Exterior Protection", "Engine Components", "Sensors & Electrical", "Brakes", "Wipers & Maintenance", "Batteries & Electrical", "Steering & Stabilizers", "Fuel & Ignition"];
+const categories = ["All", "Interior Accessories", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits", "Engine Components", "Sensors & Electrical", "Brakes", "Wipers & Maintenance", "Batteries & Electrical", "Steering & Stabilizers", "Fuel & Ignition"];
 
 const brandColor: Record<string, string> = {
-  "WeatherTech": "#1A2B3C",
-  "ROAM": "#E87722",
   "K&N": "#C41E3A",
-  "Anzo": "#1A73E8",
-  "STEDI": "#F37021",
-  "Rugged Ridge": "#CC0000",
-  "Race Ramps": "#111111",
+  "WeatherTech": "#1A2B3C",
   "Spectre": "#111111",
-  "Injen": "#D40000",
-  "OVS": "#1A2B3C",
+  "AutoShack": "#1A73E8",
+  "FOX": "#F37021",
+  "Mobil 1": "#C4956A",
+  "PowerStop": "#CC0000",
+  "PerTronix": "#111111",
+  "Patriot": "#D40000",
+  "Holley": "#1A2B3C",
+  "AMSOIL": "#C4956A",
+  "Rain-X": "#1A73E8",
+  "DieHard": "#C41E3A",
+  "Carquest": "#1A73E8",
+  "Performance Tool": "#333333",
+  "Innova": "#F37021",
+  "3M": "#D40000",
+  "VAPER": "#C4956A",
   "Old Man Emu": "#C4956A",
-  "ARB": "#D40000",
-  "Toyota": "#EB0A1E",
-  "Aftermarket": "#333333",
 };
 
 function ApplyWholesaleButton({ base }: { base: string }) {

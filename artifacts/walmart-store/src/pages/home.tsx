@@ -4,29 +4,29 @@ import Layout from "@/components/layout";
 import { ArrowRight, ArrowLeft, Phone, Mail, FileText, Truck, MapPin, ArrowUpRight, ChevronRight, Users, ShieldCheck, Globe, Headphones } from "lucide-react";
 
 const heroProducts = [
-  { img: "products/arb-summit-side-step.jpg", name: "ARB Summit Side Step & Rail Kit" },
-  { img: "products/old-man-emu-mt64-lift-kit.jpg", name: "Old Man Emu MT64 Lift Kit" },
-  { img: "products/awning-truck.webp", name: "OVS Overland Truck Awning" },
-  { img: "products/roam-cooler.webp", name: "ROAM 20L Rugged Cooler" },
-  { img: "products/kn-intake-system.webp", name: "K&N Performance Intake System" },
-  { img: "products/stedi-driving-lights.png", name: "STEDI Type-X Pro LED Lights" },
-  { img: "products/rugged-ridge-mats.png", name: "Rugged Ridge All-Terrain Mats" },
+  { img: "products/1124K.jpg", name: "OME MT64 Lift Kit with Upper Control Arms" },
+  { img: "products/kn-intake-system.webp", name: "K&N Performance Air Intake System" },
+  { img: "products/11AVMOTHSG.jpg", name: "WeatherTech All-Weather Floor Mats" },
+  { img: "products/K6258-36.jpg", name: "PowerStop Z36 Brake Kit" },
+  { img: "products/30-9034.jpg", name: "K&N Cold Air Intake System" },
+  { img: "products/985-24-173.jpg", name: "FOX IFP Stabilizer" },
+  { img: "products/15005.jpg", name: "Mobil 1 Full Synthetic 0W-20" },
 ];
 
 const brandLogos = [
-  { src: "/brands/toyota-logo.png", alt: "Toyota" },
-  { src: "/brands/jeep.png",       alt: "Jeep" },
-  { src: "/brands/mopar.png",      alt: "Mopar" },
   { src: "/brands/amsoil.png",     alt: "AMSOIL" },
-  { src: "/brands/nitto.png",      alt: "Nitto" },
   { src: "/brands/weathertech.png", alt: "WeatherTech" },
   { src: "/brands/kn.png",         alt: "K&N" },
+  { src: "/brands/mopar.png",      alt: "Mopar" },
+  { src: "/brands/jeep.png",       alt: "Jeep" },
+  { src: "/brands/nitto.png",      alt: "Nitto" },
+  { src: "/brands/toyota-logo.png", alt: "Toyota" },
   { src: "/brands/arb.png",        alt: "ARB" },
 ];
 
 const stats = [
   { value: 10, suffix: "+", label: "Years in the Market" },
-  { value: 50, suffix: "+", label: "Brands We Work With" },
+  { value: 20, suffix: "+", label: "Brands We Work With" },
   { value: 10000, suffix: "+", label: "Satisfied Clients" },
 ];
 
@@ -46,11 +46,9 @@ const whyUs = [
 ];
 
 const productCategories = [
-  { img: "products/arb-summit-side-step.jpg", label: "Exterior Protection",    sub: "Side steps, rails & body armor",  accent: "#001A2E" },
   { img: "products/1124K.jpg", label: "Suspension & Lift Kits", sub: "Lift kits, shocks & control arms", accent: "#012B1A" },
   { img: "products/11AVMOTHSG.jpg", label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#07121A" },
   { img: "products/30-9034.jpg",     label: "Filters & Intake",      sub: "Air filters, intakes & cleaners", accent: "#1A0A2E" },
-  { img: "products/stedi-driving-lights.png", label: "Lighting",             sub: "LED lights, bars & assemblies",   accent: "#001A2E" },
   { img: "products/15005.jpg",     label: "Fluids & Lubricants",   sub: "Motor oils, ATF, cleaners & additives",  accent: "#012B1A" },
   { img: "products/K6258-36.jpg",  label: "Brakes",                sub: "Rotors, pads, calipers & kits",     accent: "#07121A" },
   { img: "products/860122.jpg",  label: "Wipers & Maintenance",  sub: "Blades, treatments & care",       accent: "#1A0A2E" },
@@ -58,6 +56,8 @@ const productCategories = [
   { img: "products/SD35.jpg",    label: "Tools & Diagnostics",   sub: "OBD scanners, tools & adhesives",   accent: "#012B1A" },
   { img: "products/985-24-173.jpg", label: "Steering & Stabilizers", sub: "Stabilizers, dampers & components", accent: "#07121A" },
   { img: "products/12-801-1.jpg", label: "Fuel & Ignition",       sub: "Pumps, distributors & injectors", accent: "#1A0A2E" },
+  { img: "products/KN798453.jpg", label: "Sensors & Electrical",  sub: "Hub bearings, sensors & connectors", accent: "#001A2E" },
+  { img: "products/D342711.jpg", label: "Engine Components",     sub: "Distributors, headers & timing",    accent: "#012B1A" },
 ];
 
 const industries = [
