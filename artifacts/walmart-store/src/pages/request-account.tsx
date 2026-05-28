@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,9 +14,89 @@ import {
   X,
   FileText,
   Lock,
-  Shield,
-  BadgeCheck,
+  ArrowLeft,
 } from "lucide-react";
+
+const brandLogos = [
+  { src: "/brands/amsoil.png", alt: "AMSOIL" },
+  { src: "/brands/weathertech.png", alt: "WeatherTech" },
+  { src: "/brands/kn.png", alt: "K&N" },
+  { src: "/brands/mopar.png", alt: "Mopar" },
+  { src: "/brands/jeep.png", alt: "Jeep" },
+  { src: "/brands/nitto.png", alt: "Nitto" },
+  { src: "/brands/toyota-logo.png", alt: "Toyota" },
+  { src: "/brands/arb.png", alt: "ARB" },
+];
+
+type Review = { img: string; name: string; location: string; quote: string };
+
+function ReviewCarousel({ reviews, base }: { reviews: Review[]; base: string }) {
+  const [idx, setIdx] = useState(0);
+  const total = reviews.length;
+  const prev = () => setIdx((i) => (i - 1 + total) % total);
+  const next = () => setIdx((i) => (i + 1) % total);
+
+  useEffect(() => {
+    const t = setInterval(next, 5000);
+    return () => clearInterval(t);
+  }, []);
+
+  const visible = [0, 1, 2].map((offset) => reviews[(idx + offset) % total]);
+
+  return (
+    <section className="section-padding bg-white">
+      <div className="container-max">
+        <div className="text-center mb-12">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Testimonials</p>
+          <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+            What Our Partners Say
+          </h2>
+          <p className="text-base text-[#526880] mt-4">Real businesses. Real results.</p>
+          <div className="flex gap-3 justify-center mt-6">
+            <button onClick={prev}
+              className="h-10 w-10 rounded-full border border-[#CFD9E6] flex items-center justify-center text-[#526880] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-200">
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+            <button onClick={next}
+              className="h-10 w-10 rounded-full border border-[#CFD9E6] flex items-center justify-center text-[#526880] hover:bg-[#001A2E] hover:text-white hover:border-[#001A2E] transition-all duration-200">
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {visible.map((r, i) => (
+            <div
+              key={`${r.name}-${i}`}
+              className={`bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden shadow-sm transition-all duration-500 ${i === 0 ? "ring-2 ring-[#001A2E]/10" : "opacity-90"}`}
+            >
+              <div className="px-5 pt-5 pb-3">
+                <p className="font-extrabold text-[#07121A] text-sm leading-tight">{r.name}</p>
+                <p className="text-xs text-[#015D2C] font-semibold mt-0.5">{r.location}</p>
+              </div>
+              <div className="h-48 overflow-hidden">
+                <img src={`${base}/${r.img}`} alt={r.name} className="w-full h-full object-cover object-center" />
+              </div>
+              <div className="px-5 py-4">
+                <p className="text-sm text-[#526880] leading-[1.75] italic">"{r.quote}"</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-8">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className={`rounded-full transition-all duration-300 ${i === idx ? "w-6 h-2 bg-[#001A2E]" : "w-2 h-2 bg-[#CFD9E6]"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function RequestAccount() {
   const { toast } = useToast();
@@ -33,6 +113,8 @@ export default function RequestAccount() {
     ein: "",
     message: "",
   });
+
+  const base = import.meta.env.BASE_URL?.replace(/\/$/, "") || "";
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -269,6 +351,57 @@ export default function RequestAccount() {
           Your data is transmitted securely via 256-bit SSL encryption. We never share your business information with third parties.
         </p>
       </div>
+
+      {/* ===== BRANDS CAROUSEL ===== */}
+      <section className="py-16 bg-[#F0F4F8] overflow-hidden border-y border-[#CFD9E6]">
+        <div className="container-max text-center mb-10">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Our Portfolio</p>
+          <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+            Brands We Carry
+          </h2>
+          <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
+            OEM and premium aftermarket parts from the world's most trusted automotive manufacturers.
+          </p>
+        </div>
+
+        <div className="relative">
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10"
+            style={{ background: "linear-gradient(to right, #F0F4F8, transparent)" }} />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10"
+            style={{ background: "linear-gradient(to left, #F0F4F8, transparent)" }} />
+
+          <div className="flex animate-brand-scroll gap-6" style={{ width: "max-content" }}>
+            {[...brandLogos, ...brandLogos].map((b, i) => (
+              <div
+                key={`${b.src}-${i}`}
+                className="shrink-0 flex items-center justify-center bg-white rounded-2xl border border-[#CFD9E6] shadow-sm"
+                style={{ width: 160, height: 96, padding: "12px 20px" }}
+              >
+                <img
+                  src={b.src}
+                  alt={b.alt}
+                  className="max-h-full max-w-full object-contain"
+                  style={{ filter: "grayscale(20%)" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== REVIEWS ===== */}
+      {(() => {
+        const reviews = [
+          { img: "reviews/warehouse-aisle-2.jpg", name: "Miami Auto Group", location: "Miami, FL", quote: "Parts always arrive on time. Great stock." },
+          { img: "reviews/warehouse-aisle-1.jpg", name: "Pro Fleet Services", location: "Hialeah, FL", quote: "Best wholesale pricing in South Florida." },
+          { img: "reviews/weathertech-floor-liner.jpg", name: "Sunshine Auto Repair", location: "Doral, FL", quote: "Genuine parts, fast turnaround every time." },
+          { img: "reviews/old-man-emu-display.jpg", name: "Rodriguez Auto Parts", location: "Homestead, FL", quote: "Great variety and quality guaranteed." },
+          { img: "reviews/weathertech-box.jpg", name: "Tropical Tire & Service", location: "Kendall, FL", quote: "Simple process, no complications." },
+        ];
+        return (
+          <ReviewCarousel reviews={reviews} base={base} />
+        );
+      })()}
     </Layout>
   );
 }
