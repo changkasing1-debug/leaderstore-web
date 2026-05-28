@@ -260,27 +260,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          {/* Trust badges */}
-          <div className="border-t border-white/10 pt-6 mb-6">
-            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/40">
-              <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="h-2 w-2 rounded-full bg-[#4ade80]" /> SSL Secure
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="h-2 w-2 rounded-full bg-[#4ade80]" /> ISO 9001 Certified
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="h-2 w-2 rounded-full bg-[#4ade80]" /> Google Trusted Store
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="h-2 w-2 rounded-full bg-[#4ade80]" /> BBB A+ Rated
-              </span>
-              <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                <span className="h-2 w-2 rounded-full bg-[#4ade80]" /> Authorized Distributor
-              </span>
-            </div>
-          </div>
-
           <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
             <span>&copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.</span>
             <div className="flex items-center gap-4">

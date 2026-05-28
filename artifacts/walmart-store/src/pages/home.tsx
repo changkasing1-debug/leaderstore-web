@@ -344,34 +344,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== TRUST & CERTIFICATIONS ===== */}
-      <section className="section-padding bg-white border-t border-[#CFD9E6]">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Verified & Trusted</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#07121A] mb-4">Certifications & Guarantees</h2>
-            <p className="text-base text-[#526880] max-w-xl mx-auto leading-[1.7]">
-              We maintain the highest standards in sourcing, fulfillment, and customer protection.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {[
-              { icon: "🔐", title: "SSL Secure", desc: "256-bit encrypted transactions" },
-              { icon: "✅", title: "ISO 9001", desc: "Quality management certified" },
-              { icon: "🏆", title: "BBB A+ Rated", desc: "Accredited since 2015" },
-              { icon: "📞", title: "Authorized", desc: "Official brand distributor" },
-            ].map((badge) => (
-              <div key={badge.title} className="bg-[#F0F4F8] rounded-xl p-6 text-center border border-[#CFD9E6] hover:border-[#015D2C]/30 hover:shadow-md transition-all duration-300">
-                <div className="text-3xl mb-3">{badge.icon}</div>
-                <p className="font-bold text-sm text-[#07121A] mb-1">{badge.title}</p>
-                <p className="text-xs text-[#526880]">{badge.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ===== STATS BANNER ===== */}
       <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "linear-gradient(135deg, #001A2E 0%, #01263F 50%, #012B47 100%)" }}>
         {/* decorative blobs */}
