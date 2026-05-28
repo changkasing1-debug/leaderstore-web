@@ -207,14 +207,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ))}
             </div>
 
-            {/* Apply button */}
-            <div className="flex-shrink-0">
-              <Link href={base + "/request-account"}>
-                <button className="bg-[#015D2C] text-white text-xs font-bold tracking-wide px-5 py-2 rounded hover:bg-[#014a23] transition-all">
-                  APPLY FOR WHOLESALE
-                </button>
-              </Link>
-            </div>
           </div>
 
           {/* Mobile nav */}
