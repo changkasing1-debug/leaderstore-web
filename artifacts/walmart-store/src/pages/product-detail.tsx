@@ -1,7 +1,8 @@
 import { Link, useParams } from "wouter";
 import Layout from "@/components/layout";
-import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, Tag } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, Tag, ShoppingCart } from "lucide-react";
 import { products } from "@/lib/data";
+import { useCart } from "@/context/cart";
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",
@@ -24,6 +25,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
   const product = products.find((p) => p.id === id);
+  const { addItem } = useCart();
 
   if (!product) {
     return (
@@ -180,20 +182,34 @@ export default function ProductDetail() {
                 ))}
               </div>
 
+              {/* Price */}
+              <p className="text-2xl font-extrabold text-[#015D2C]">
+                ${product.unitPrice.toFixed(2)}
+              </p>
+
               {/* CTA buttons */}
               <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href={`${base}/contact`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-white transition-colors"
+                <button
+                  onClick={() =>
+                    addItem({
+                      id: product.id,
+                      name: product.name,
+                      sku: product.sku,
+                      image: product.image,
+                      brand: product.brand,
+                      unitPrice: product.unitPrice,
+                    })
+                  }
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-white transition-colors hover:opacity-90"
                   style={{ background: accent }}
                 >
-                  Request a Quote <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                  <ShoppingCart className="h-4 w-4" /> Add to Cart
+                </button>
                 <Link
-                  href={`${base}/become-a-partner`}
+                  href={`${base}/contact`}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-[#07121A] bg-white border border-[#CFD9E6] hover:border-[#001A2E] transition-colors"
                 >
-                  Become a Partner
+                  Request a Quote
                 </Link>
               </div>
             </div>

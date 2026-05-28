@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import Layout from "@/components/layout";
-import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
+import { Search, SlidersHorizontal, ArrowUpRight, ShoppingCart } from "lucide-react";
 import { products, type Product } from "@/lib/data";
+import { useCart } from "@/context/cart";
 
 function ProductCard({ product: p, base }: { product: Product; base: string }) {
-  const [, setLocation] = useLocation();
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem({
+      id: p.id,
+      name: p.name,
+      sku: p.sku,
+      image: p.image,
+      brand: p.brand,
+      unitPrice: p.unitPrice,
+    });
+  };
 
   return (
     <div className="group bg-white rounded-2xl border border-[#CFD9E6] overflow-hidden hover:shadow-xl hover:border-[#001A2E]/30 transition-all duration-300 flex flex-col">
@@ -37,11 +49,16 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
         </div>
 
         {/* Name — clickable to product */}
-        <Link href={`${base}/product/${p.id}`} className="block mb-2">
+        <Link href={`${base}/product/${p.id}`} className="block mb-1">
           <h3 className="font-extrabold text-[#07121A] text-sm leading-snug line-clamp-2 group-hover:text-[#001A2E]">
             {p.name}
           </h3>
         </Link>
+
+        {/* Price */}
+        <p className="text-sm font-bold text-[#015D2C] mb-2">
+          ${p.unitPrice.toFixed(2)}
+        </p>
 
         {/* SKU / UPC */}
         <div className="space-y-0.5 mb-3">
@@ -53,13 +70,13 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
           </p>
         </div>
 
-        {/* Apply for Wholesale — independent button */}
+        {/* Add to Cart button */}
         <div className="pt-3 border-t border-[#CFD9E6] mt-auto">
           <button
-            onClick={() => setLocation(`${base}/request-account`)}
+            onClick={handleAddToCart}
             className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-[#015D2C] text-white text-[11px] font-bold uppercase tracking-wider hover:bg-[#001A2E] transition-colors duration-200"
           >
-            Apply for Wholesale
+            <ShoppingCart className="h-3.5 w-3.5" /> Add to Cart
           </button>
         </div>
       </div>

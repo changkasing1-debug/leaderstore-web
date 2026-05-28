@@ -13,10 +13,12 @@ import {
   X,
   ArrowUp,
   ChevronDown,
+  ShoppingCart,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useCart } from "@/context/cart";
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "") || "";
@@ -81,6 +83,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [, setLocation] = useLocation();
+  const { itemCount, toggleCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 400);
@@ -133,6 +136,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Linkedin className="h-4 w-4" />
             </a>
           </div>
+
+          {/* Cart icon */}
+          <button
+            onClick={toggleCart}
+            className="relative p-2 text-[#526880] hover:text-[#015D2C] transition-colors md:mr-2"
+            aria-label="Open cart"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {itemCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 h-4.5 min-w-[18px] px-1 flex items-center justify-center rounded-full bg-[#C41E3A] text-white text-[10px] font-extrabold">
+                {itemCount}
+              </span>
+            )}
+          </button>
 
           {/* Mobile hamburger */}
           <button className="md:hidden p-2 ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
