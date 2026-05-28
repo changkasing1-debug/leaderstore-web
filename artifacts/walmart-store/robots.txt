@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://leaderstore.us/sitemap.xml
