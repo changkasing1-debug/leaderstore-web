@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect } from "react";
 import { CartProvider } from "@/context/cart";
 import CartSidebar from "@/components/cart-sidebar";
+import WhatsAppButton from "@/components/whatsapp-button";
 import Home from "@/pages/home";
 import Catalog from "@/pages/catalog";
 import ProductDetail from "@/pages/product-detail";
@@ -60,6 +61,7 @@ function App() {
             <ScrollToTop />
             <Router />
             <CartSidebar />
+            <WhatsAppButton />
           </WouterRouter>
           <Toaster />
         </CartProvider>
