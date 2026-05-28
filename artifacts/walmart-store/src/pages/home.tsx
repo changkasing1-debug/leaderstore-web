@@ -21,7 +21,7 @@ const brandLogos = [
   { src: "/brands/nitto.png",      alt: "Nitto" },
   { src: "/brands/weathertech.png", alt: "WeatherTech" },
   { src: "/brands/kn.png",         alt: "K&N" },
-  { src: "/brands/mitsubishi.png", alt: "Mitsubishi" },
+  { src: "/brands/arb.png",        alt: "ARB" },
 ];
 
 const stats = [
