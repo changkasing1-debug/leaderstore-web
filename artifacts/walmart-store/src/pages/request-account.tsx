@@ -15,6 +15,9 @@ import {
   FileText,
   Lock,
   ArrowLeft,
+  TrendingDown,
+  BadgeDollarSign,
+  ShieldCheck,
 } from "lucide-react";
 
 const brandLogos = [
@@ -165,6 +168,60 @@ export default function RequestAccount() {
 
   return (
     <Layout>
+      {/* ===== BETTER PRICES INTRO (before form) ===== */}
+      <section className="section-padding bg-[#F0F4F8]">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#015D2C] mb-3">Why Partner Up</p>
+            <h2 className="section-title text-3xl md:text-4xl font-extrabold text-[#07121A]">
+              Better Prices for Partners
+            </h2>
+            <p className="text-base text-[#526880] max-w-lg mx-auto leading-[1.7] mt-4">
+              As an approved partner, you unlock wholesale pricing that regular buyers never see. The more you buy, the more you save.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {/* Card 1 */}
+            <div className="bg-white rounded-2xl border border-[#CFD9E6] p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <div className="h-14 w-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                style={{ background: "rgba(1, 93, 44, 0.10)", border: "1px solid rgba(74, 222, 128, 0.2)" }}>
+                <TrendingDown className="h-6 w-6 text-[#015D2C]" />
+              </div>
+              <h3 className="font-extrabold text-[#07121A] text-lg mb-2">Volume Discounts</h3>
+              <p className="text-sm text-[#526880] leading-[1.7]">
+                Save up to <span className="text-[#015D2C] font-bold">30%</span> below retail when ordering in bulk. The higher the volume, the deeper the discount.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white rounded-2xl border border-[#CFD9E6] p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#015D2C]" />
+              <div className="h-14 w-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                style={{ background: "rgba(1, 93, 44, 0.10)", border: "1px solid rgba(74, 222, 128, 0.2)" }}>
+                <BadgeDollarSign className="h-6 w-6 text-[#015D2C]" />
+              </div>
+              <h3 className="font-extrabold text-[#07121A] text-lg mb-2">Tiered Pricing</h3>
+              <p className="text-sm text-[#526880] leading-[1.7]">
+                Move through pricing tiers as your order volume grows. Loyal partners get the best rates on every shipment.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-2xl border border-[#CFD9E6] p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <div className="h-14 w-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                style={{ background: "rgba(1, 93, 44, 0.10)", border: "1px solid rgba(74, 222, 128, 0.2)" }}>
+                <ShieldCheck className="h-6 w-6 text-[#015D2C]" />
+              </div>
+              <h3 className="font-extrabold text-[#07121A] text-lg mb-2">Price Protection</h3>
+              <p className="text-sm text-[#526880] leading-[1.7]">
+                Lock in your rates for <span className="text-[#015D2C] font-bold">90 days</span> on repeat orders. No surprises, no inflation spikes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="max-w-xl mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-10">
