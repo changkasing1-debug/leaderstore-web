@@ -67,7 +67,7 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
   );
 }
 
-const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits", "Exterior Protection", "Engine Components", "Sensors & Electrical"];
+const categories = ["All", "Interior Accessories", "Roof Racks & Cargo", "Lighting", "Tools & Accessories", "Filters & Intake", "Fluids & Lubricants", "Suspension & Lift Kits", "Exterior Protection", "Engine Components", "Sensors & Electrical", "Brakes", "Wipers & Maintenance", "Batteries & Electrical", "Steering & Stabilizers", "Fuel & Ignition"];
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",

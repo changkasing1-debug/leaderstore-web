@@ -47,11 +47,17 @@ const whyUs = [
 
 const productCategories = [
   { img: "products/arb-summit-side-step.jpg", label: "Exterior Protection",    sub: "Side steps, rails & body armor",  accent: "#001A2E" },
-  { img: "products/old-man-emu-mt64-lift-kit.jpg", label: "Suspension & Lift Kits", sub: "Lift kits, shocks & control arms", accent: "#012B1A" },
-  { img: "products/weathertech-liner.jpg", label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#07121A" },
-  { img: "products/kn-air-filter.png",     label: "Filters & Intake",      sub: "Air filters, intakes & cleaners", accent: "#1A0A2E" },
+  { img: "products/1124K.jpg", label: "Suspension & Lift Kits", sub: "Lift kits, shocks & control arms", accent: "#012B1A" },
+  { img: "products/11AVMOTHSG.jpg", label: "Interior Accessories",  sub: "Floor liners, mats & protection", accent: "#07121A" },
+  { img: "products/30-9034.jpg",     label: "Filters & Intake",      sub: "Air filters, intakes & cleaners", accent: "#1A0A2E" },
   { img: "products/stedi-driving-lights.png", label: "Lighting",             sub: "LED lights, bars & assemblies",   accent: "#001A2E" },
-  { img: "products/awning-truck.webp",     label: "Roof Racks & Cargo",    sub: "Awnings, carriers & overland",  accent: "#012B1A" },
+  { img: "products/15005.jpg",     label: "Fluids & Lubricants",   sub: "Motor oils, ATF, cleaners & additives",  accent: "#012B1A" },
+  { img: "products/K6258-36.jpg",  label: "Brakes",                sub: "Rotors, pads, calipers & kits",     accent: "#07121A" },
+  { img: "products/860122.jpg",  label: "Wipers & Maintenance",  sub: "Blades, treatments & care",       accent: "#1A0A2E" },
+  { img: "products/H5-AGM.jpg",  label: "Batteries & Electrical",sub: "AGM batteries, bulbs & charging",   accent: "#001A2E" },
+  { img: "products/SD35.jpg",    label: "Tools & Diagnostics",   sub: "OBD scanners, tools & adhesives",   accent: "#012B1A" },
+  { img: "products/985-24-173.jpg", label: "Steering & Stabilizers", sub: "Stabilizers, dampers & components", accent: "#07121A" },
+  { img: "products/12-801-1.jpg", label: "Fuel & Ignition",       sub: "Pumps, distributors & injectors", accent: "#1A0A2E" },
 ];
 
 const industries = [
