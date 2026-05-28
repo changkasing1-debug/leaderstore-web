@@ -156,7 +156,7 @@ export default function Catalog() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
 
           {/* Search + Filters */}
-          <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <div className="flex flex-col md:flex-row gap-4 mb-8 items-start">
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#526880]" />
               <input
@@ -167,21 +167,19 @@ export default function Catalog() {
                 className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-[#CFD9E6] bg-white text-sm text-[#07121A] placeholder:text-[#526880] focus:outline-none focus:ring-2 focus:ring-[#001A2E]/20 focus:border-[#001A2E]"
               />
             </div>
-            <div className="flex items-center gap-2 flex-wrap">
-              <SlidersHorizontal className="h-4 w-4 text-[#526880] flex-shrink-0" />
-              {categories.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setActiveCategory(c)}
-                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 border ${
-                    activeCategory === c
-                      ? "bg-[#001A2E] text-white border-[#001A2E]"
-                      : "bg-white text-[#526880] border-[#CFD9E6] hover:border-[#001A2E] hover:text-[#001A2E]"
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
+            <div className="relative min-w-[180px]">
+              <select
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value)}
+                className="w-full appearance-none px-4 py-2.5 rounded-lg border border-[#CFD9E6] bg-white text-sm font-bold text-[#07121A] focus:outline-none focus:ring-2 focus:ring-[#001A2E]/20 focus:border-[#001A2E] cursor-pointer"
+              >
+                {categories.map((c) => (
+                  <option key={c} value={c}>
+                    {c === "All" ? "All Categories" : c}
+                  </option>
+                ))}
+              </select>
+              <SlidersHorizontal className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#526880] pointer-events-none" />
             </div>
           </div>
 
