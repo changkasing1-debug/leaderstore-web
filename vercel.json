@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "outputDirectory": "public",
+  "buildCommand": "pnpm install --frozen-lockfile && pnpm --filter @workspace/walmart-store run build",
+  "outputDirectory": "artifacts/walmart-store/dist/public",
   "routes": [
     {
       "src": "/(assets|brands|products|reviews)/.*",
