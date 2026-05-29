@@ -1,6 +1,4 @@
 {
-  "buildCommand": "cd artifacts/walmart-store && npx vite build",
-  "outputDirectory": "public",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
