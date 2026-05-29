@@ -1,19 +1,15 @@
 {
   "version": 2,
-  "routes": [
+  "builds": [
     {
-      "src": "/(assets|brands|products|reviews|images|styles|scripts)/.*",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
     {
-      "src": "/[^.]+",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
