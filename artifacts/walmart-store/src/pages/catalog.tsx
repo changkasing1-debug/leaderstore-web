@@ -62,9 +62,19 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
         </div>
 
         {/* Price */}
-        <p className="text-sm font-bold text-[#015D2C] mb-2">
-          ${p.unitPrice.toFixed(2)}
-        </p>
+        <div className="mb-2">
+          {p.salePrice ? (
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-bold text-[#015D2C]">${p.salePrice.toFixed(2)}</span>
+              <span className="text-xs text-[#526880] line-through">${p.unitPrice.toFixed(2)}</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-white bg-[#C41E3A] px-1.5 py-0.5 rounded">
+                SALE
+              </span>
+            </div>
+          ) : (
+            <p className="text-sm font-bold text-[#015D2C]">${p.unitPrice.toFixed(2)}</p>
+          )}
+        </div>
 
         {/* SKU */}
         <div className="space-y-0.5 mb-3">

@@ -182,9 +182,25 @@ export default function ProductDetail() {
               </div>
 
               {/* Price */}
-              <p className="text-2xl font-extrabold text-[#015D2C]">
-                ${product.unitPrice.toFixed(2)}
-              </p>
+              <div>
+                {product.salePrice ? (
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl font-extrabold text-[#015D2C]">
+                      ${product.salePrice.toFixed(2)}
+                    </span>
+                    <span className="text-lg text-[#526880] line-through">
+                      ${product.unitPrice.toFixed(2)}
+                    </span>
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-white bg-[#C41E3A] px-2 py-1 rounded">
+                      SALE
+                    </span>
+                  </div>
+                ) : (
+                  <p className="text-2xl font-extrabold text-[#015D2C]">
+                    ${product.unitPrice.toFixed(2)}
+                  </p>
+                )}
+              </div>
 
               {/* CTA buttons */}
               <div className="flex flex-wrap gap-3 pt-2">

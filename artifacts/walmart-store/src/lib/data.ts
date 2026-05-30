@@ -23,6 +23,7 @@ export interface Product {
   availability: string;
   rating: number;
   reviewCount: number;
+  salePrice?: number;
 }
 
 export const brands: Brand[] = [
@@ -648,6 +649,32 @@ availability: "In Stock — Ships within 3 days",
         rating: 4.7,
     reviewCount: 322,
 availability: "In Stock — Ships within 5 days",
+  },
+  {
+    id: "rain-x-rain-repellent-windshield-treatment",
+    name: "Rain-X Original Rain Repellent Windshield Treatment (16oz)",
+    brand: "Rain-X",
+    category: "Wipers & Maintenance",
+    description: "Classic Rain-X glass treatment that creates a hydrophobic coating to improve water beading and visibility in wet conditions. Easy to apply with spray or wipe-on formula. Long-lasting protection for windshields and side windows.",
+    moq: "24 bottles",
+    priceRange: "Contact for pricing",
+    unitPrice: 19.99,
+    salePrice: 12.99,
+    image: "products/860122.jpg",
+    sku: "RAIN-X-16OZ",
+    specs: [
+      { label: "Volume", value: "16 oz (473 mL)" },
+      { label: "Application", value: "Spray or wipe-on" },
+      { label: "Effect", value: "Hydrophobic water beading" },
+      { label: "Duration", value: "Up to 3 months" },
+      { label: "Surfaces", value: "Windshields, side windows, mirrors" },
+      { label: "Formula", value: "Silicone-based polymer" },
+    ],
+    features: ["Hydrophobic Coating", "Improved Visibility", "Easy Apply", "Long-Lasting", "Multi-Surface"],
+    certifications: ["ISO 9001"],
+    rating: 4.7,
+    reviewCount: 287,
+    availability: "In Stock — Ships within 3 days",
   },
 ];
 
