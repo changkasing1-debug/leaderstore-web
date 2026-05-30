@@ -27,7 +27,7 @@ const brandLogos = [
 const stats = [
   { value: 12, suffix: "+", label: "Years in the Market" },
   { value: 50, suffix: "+", label: "Brands We Work With" },
-  { value: 10000, suffix: "+", label: "Satisfied Clients" },
+  { value: 10000, suffix: "+", label: "Happy Clients" },
 ];
 
 const howWeWork = [
