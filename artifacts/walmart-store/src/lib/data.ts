@@ -21,6 +21,8 @@ export interface Product {
   features: string[];
   certifications: string[];
   availability: string;
+  rating: number;
+  reviewCount: number;
 }
 
 export const brands: Brand[] = [
@@ -68,7 +70,9 @@ export const products: Product[] = [
     ],
     features: ["Heat Shield Enclosure", "Oiled Cotton Gauze", "Washable & Reusable", "Bolt-On Install", "Million Mile Warranty"],
     certifications: ["ISO 9001", "SAE"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.8,
+    reviewCount: 150,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "kn-intake-system-631147",
@@ -91,7 +95,9 @@ export const products: Product[] = [
     ],
     features: ["Cold Air Design", "Dyno-Proven Gains", "No Tuning Required", "Bolt-On Install", "10-Year Warranty"],
     certifications: ["CARB EO", "ISO 9001"],
-    availability: "In Stock — Ships within 7 days",
+        rating: 4.5,
+    reviewCount: 152,
+availability: "In Stock — Ships within 7 days",
   },
   {
     id: "ome-mt64-lift-1124k",
@@ -114,7 +120,9 @@ export const products: Product[] = [
     ],
     features: ["MT64 Monotube Shocks", "Upper Control Arms", "64mm Bore", "Constant Load Tuned", "Bolt-On Install"],
     certifications: ["ISO 9001", "TUV"],
-    availability: "In Stock — Ships within 7 days",
+        rating: 4.4,
+    reviewCount: 153,
+availability: "In Stock — Ships within 7 days",
   },
   {
     id: "kn-cold-air-intake-30-9034",
@@ -137,7 +145,9 @@ export const products: Product[] = [
     ],
     features: ["Cold Air Design", "Dyno-Proven Gains", "No Tuning Required", "Bolt-On Install", "10-Year Warranty"],
     certifications: ["CARB EO", "ISO 9001"],
-    availability: "In Stock — Ships within 7 days",
+        rating: 4.6,
+    reviewCount: 420,
+availability: "In Stock — Ships within 7 days",
   },
   {
     id: "kn-oil-filter-hp-7011",
@@ -160,7 +170,9 @@ export const products: Product[] = [
     ],
     features: ["High-Flow Design", "Hex Nut for Easy Removal", "Heavy-Duty Construction", "Premium Media", "Extended Service Life"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.6,
+    reviewCount: 433,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "kn-long-life-air-filter-kna-2438",
@@ -183,7 +195,9 @@ export const products: Product[] = [
     ],
     features: ["18,000 Mile Life", "99% Efficiency", "50% Longer Life", "Drop-In Replacement", "No Maintenance"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.6,
+    reviewCount: 335,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "airaid-filter-cleaning-kit-790-561",
@@ -206,7 +220,9 @@ export const products: Product[] = [
     ],
     features: ["Complete Tune-Up Kit", "Biodegradable Formula", "Spray Applicator", "Restores Performance", "Multiple Uses"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.8,
+    reviewCount: 150,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "autoshack-wheel-hub-kn798453",
@@ -229,7 +245,9 @@ export const products: Product[] = [
     ],
     features: ["Integrated ABS Sensor", "Direct OEM Fit", "Precision Machined", "Pre-Assembled", "10-Year Warranty"],
     certifications: ["ISO 9001", "TS 16949"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.7,
+    reviewCount: 220,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "fox-ifp-stabilizer-985-24-173",
@@ -252,7 +270,9 @@ export const products: Product[] = [
     ],
     features: ["IFP Monotube Design", "Hard-Anodized Body", "Reduces Vibration", "Improves Steering Control", "Bolt-On Install"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 7 days",
+        rating: 4.6,
+    reviewCount: 89,
+availability: "In Stock — Ships within 7 days",
   },
   {
     id: "mobil1-0w20-15005",
@@ -275,7 +295,9 @@ export const products: Product[] = [
     ],
     features: ["20,000 Mile Protection", "Full Synthetic", "Turbo Approved", "OEM Spec", "5-Quart Jug"],
     certifications: ["API SP", "ILSAC GF-6"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.4,
+    reviewCount: 380,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "powerstop-z36-brake-kit-k6258-36",
@@ -298,7 +320,9 @@ export const products: Product[] = [
     ],
     features: ["Drilled & Slotted Rotors", "Carbon-Ceramic Pads", "Truck & Tow Rated", "Complete Kit", "Extreme Load Performance"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 7 days",
+        rating: 4.9,
+    reviewCount: 84,
+availability: "In Stock — Ships within 7 days",
   },
   {
     id: "pertronix-distributor-d342711",
@@ -321,7 +345,9 @@ export const products: Product[] = [
     ],
     features: ["Ignitor II Module", "Aluminum Housing", "Vacuum Advance", "Drop-In Replacement", "Improved Performance"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.8,
+    reviewCount: 123,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "patriot-header-flange-h7812",
@@ -344,7 +370,9 @@ export const products: Product[] = [
     ],
     features: ["304 Stainless Steel", "Laser-Cut Precision", "3/8\" Thick", "Complete Hardware Kit", "OEM Port Match"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.9,
+    reviewCount: 309,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "holley-electric-fuel-pump-12-801-1",
@@ -367,7 +395,9 @@ export const products: Product[] = [
     ],
     features: ["97 GPH Flow", "7 PSI Pressure", "Carbureted Applications", "Die-Cast Aluminum", "Universal Mount"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.3,
+    reviewCount: 240,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "amsoil-transmission-fluid-otfqt",
@@ -390,7 +420,9 @@ export const products: Product[] = [
     ],
     features: ["100% Synthetic", "Multi-Vehicle", "Superior Shift Performance", "Thermal Stability", "Wear Protection"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.7,
+    reviewCount: 395,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "weathertech-floor-mats-11avmothsg",
@@ -413,7 +445,9 @@ export const products: Product[] = [
     ],
     features: ["3-Piece Set", "Deep Tread Pattern", "Anti-Slip Nibs", "Recycled Plastic", "Made in USA"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.5,
+    reviewCount: 490,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "rain-x-wiper-blade-860122",
@@ -436,7 +470,9 @@ export const products: Product[] = [
     ],
     features: ["Rain-X Coating", "Graphite Rubber", "Streak-Free Wiping", "Universal Adapter", "Easy Install"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.8,
+    reviewCount: 128,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "diehard-platinum-battery-h5-agm",
@@ -459,7 +495,9 @@ export const products: Product[] = [
     ],
     features: ["AGM Technology", "650 CCA", "Deep Cycling", "Maintenance-Free", "3-Year Warranty"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.9,
+    reviewCount: 249,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "carquest-halogen-headlight-cq-9005",
@@ -482,7 +520,9 @@ export const products: Product[] = [
     ],
     features: ["OEM Brightness", "DOT Approved", "Plug-and-Play", "Street Legal", "Quality Replacement"],
     certifications: ["DOT", "ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.4,
+    reviewCount: 207,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "performance-tool-obd-scanner-w2977",
@@ -505,7 +545,9 @@ export const products: Product[] = [
     ],
     features: ["CAN Protocol", "Read/Clear Codes", "Live Data", "I/M Readiness", "Plug-and-Play"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.7,
+    reviewCount: 292,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "innova-obd2-scan-tool-sd35",
@@ -528,7 +570,9 @@ export const products: Product[] = [
     ],
     features: ["All-System Scan", "Bi-Directional Controls", "Color Display", "Free Updates", "Guided Repair"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.7,
+    reviewCount: 414,
+availability: "In Stock — Ships within 5 days",
   },
   {
     id: "3m-roloc-surface-disc-07480",
@@ -551,7 +595,9 @@ export const products: Product[] = [
     ],
     features: ["Roloc Quick-Change", "Precision-Shaped Grains", "Paint Stripping", "Rust Removal", "2-Inch Diameter"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.8,
+    reviewCount: 473,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "3m-super-trim-adhesive-08090",
@@ -574,7 +620,9 @@ export const products: Product[] = [
     ],
     features: ["High Bond Strength", "Heat Resistant", "Moisture Resistant", "Fast Tack", "19 oz Can"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 3 days",
+        rating: 4.4,
+    reviewCount: 152,
+availability: "In Stock — Ships within 3 days",
   },
   {
     id: "vaper-non-aerosol-sprayer-19425",
@@ -597,7 +645,9 @@ export const products: Product[] = [
     ],
     features: ["Non-Aerosol", "Refillable", "High-Pressure Pump", "Brass Nozzle", "Multi-Purpose"],
     certifications: ["ISO 9001"],
-    availability: "In Stock — Ships within 5 days",
+        rating: 4.7,
+    reviewCount: 322,
+availability: "In Stock — Ships within 5 days",
   },
 ];
 

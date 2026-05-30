@@ -4,6 +4,7 @@ import Layout from "@/components/layout";
 import { Search, SlidersHorizontal, ArrowUpRight, ShoppingCart } from "lucide-react";
 import { products, type Product } from "@/lib/data";
 import { useCart } from "@/context/cart";
+import { StarRating } from "@/components/star-rating";
 
 function ProductCard({ product: p, base }: { product: Product; base: string }) {
   const { addItem } = useCart();
@@ -54,6 +55,11 @@ function ProductCard({ product: p, base }: { product: Product; base: string }) {
             {p.name}
           </h3>
         </Link>
+
+        {/* Rating */}
+        <div className="mb-2">
+          <StarRating rating={p.rating} reviewCount={p.reviewCount} size="sm" />
+        </div>
 
         {/* Price */}
         <p className="text-sm font-bold text-[#015D2C] mb-2">

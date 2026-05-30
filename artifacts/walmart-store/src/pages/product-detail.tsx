@@ -3,6 +3,7 @@ import Layout from "@/components/layout";
 import { ArrowLeft, CheckCircle2, ShieldCheck, Truck, FileText, ArrowUpRight, ShoppingCart } from "lucide-react";
 import { products } from "@/lib/data";
 import { useCart } from "@/context/cart";
+import { StarRating } from "@/components/star-rating";
 
 const brandColor: Record<string, string> = {
   "WeatherTech": "#1A2B3C",
@@ -114,6 +115,11 @@ export default function ProductDetail() {
               <h1 className="text-2xl md:text-3xl font-extrabold text-[#07121A] leading-tight">
                 {product.name}
               </h1>
+
+              {/* Rating */}
+              <div className="flex items-center gap-2">
+                <StarRating rating={product.rating} reviewCount={product.reviewCount} size="md" />
+              </div>
 
               {/* Description */}
               <p className="text-sm text-[#526880] leading-relaxed">{product.description}</p>
