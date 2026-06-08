@@ -260,6 +260,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
+          {/* Disclaimer */}
+          <div className="border-t border-white/10 pt-4 pb-3 text-center">
+            <p className="text-[10px] text-white/30 leading-relaxed max-w-4xl mx-auto">
+              <strong className="text-white/40">Disclaimer:</strong> All brand names, logos, trademarks, and product images displayed on this website are used solely for representative and illustrative purposes.
+              Leader Store LLC is an independent wholesale distributor and is not affiliated with, endorsed by, or sponsored by any of the brands listed herein.
+              All trademarks remain the property of their respective owners.
+            </p>
+          </div>
+
           <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
             <span>&copy; {new Date().getFullYear()} Leader Store LLC. All rights reserved.</span>
             <div className="flex items-center gap-4">
