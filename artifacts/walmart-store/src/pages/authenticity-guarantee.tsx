@@ -95,11 +95,11 @@ export default function AuthenticityGuarantee() {
           </p>
           <p className="text-sm">
             Email:{" "}
-            <a href="mailto:info@leaderstore.us" className="text-primary underline">
-              info@leaderstore.us
+            <a href="mailto:shop@leaderstore.us" className="text-primary underline">
+              shop@leaderstore.us
             </a>
             <span className="text-muted-foreground mx-2">|</span>
-            Phone: (786) 940-1456
+            Phone: (786) 987-6217
           </p>
         </div>
       </div>

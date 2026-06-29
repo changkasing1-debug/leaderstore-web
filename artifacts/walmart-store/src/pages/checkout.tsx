@@ -60,7 +60,7 @@ ${form.notes || "None"}
 `;
 
     // Attempt to send via mailto
-    const mailto = `mailto:info@leaderstore.us?subject=${encodeURIComponent(`New Order - ${form.name}`)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:shop@leaderstore.us?subject=${encodeURIComponent(`New Order - ${form.name}`)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
 
     setTimeout(() => {
@@ -86,7 +86,7 @@ ${form.notes || "None"}
             </p>
             <div className="bg-[#F0F4F8] rounded-xl p-4 text-left mb-6 text-sm">
               <p className="text-[#526880]">
-                A confirmation email was sent to <strong className="text-[#07121A]">info@leaderstore.us</strong> with your order details.
+                A confirmation email was sent to <strong className="text-[#07121A]">shop@leaderstore.us</strong> with your order details.
               </p>
             </div>
             <Link
@@ -189,7 +189,7 @@ ${form.notes || "None"}
                         value={form.phone}
                         onChange={handleChange}
                         className="w-full px-3 py-2.5 rounded-lg border border-[#CFD9E6] text-sm text-[#07121A] focus:outline-none focus:ring-2 focus:ring-[#001A2E]/20 focus:border-[#001A2E]"
-                        placeholder="+1 (786) 940-1456"
+                        placeholder="+1 (786) 987-6217"
                       />
                     </div>
                   </div>

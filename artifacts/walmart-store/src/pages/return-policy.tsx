@@ -5,7 +5,7 @@ const steps = [
   {
     step: "01",
     title: "Contact Your Account Manager",
-    desc: "Reach out to your dedicated account manager or email info@leaderstore.us within the eligible return window to request a Return Merchandise Authorization (RMA).",
+    desc: "Reach out to your dedicated account manager or email shop@leaderstore.us within the eligible return window to request a Return Merchandise Authorization (RMA).",
   },
   {
     step: "02",
@@ -114,11 +114,11 @@ export default function ReturnPolicy() {
           </p>
           <p className="text-sm">
             Email:{" "}
-            <a href="mailto:info@leaderstore.us" className="text-primary underline">
-              info@leaderstore.us
+            <a href="mailto:shop@leaderstore.us" className="text-primary underline">
+              shop@leaderstore.us
             </a>
             <span className="text-muted-foreground mx-2">|</span>
-            Phone: (786) 940-1456
+            Phone: (786) 987-6217
           </p>
         </div>
       </div>

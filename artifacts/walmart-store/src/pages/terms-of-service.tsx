@@ -79,7 +79,7 @@ export default function TermsOfService() {
         <section>
           <h2 className="text-xl font-semibold mb-3">9. Contact</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Questions? Contact us at <a href="mailto:info@leaderstore.us" className="text-primary underline">info@leaderstore.us</a> or (786) 940-1456.
+            Questions? Contact us at <a href="mailto:shop@leaderstore.us" className="text-primary underline">shop@leaderstore.us</a> or (786) 987-6217.
           </p>
         </section>
       </div>

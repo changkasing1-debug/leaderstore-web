@@ -312,7 +312,7 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-[#526880] mb-0.5">Phone</p>
-                    <p className="text-sm font-bold text-[#07121A]">+1 (786) 940-1456</p>
+                    <p className="text-sm font-bold text-[#07121A]">+1 (786) 987-6217</p>
                   </div>
                 </div>
 
@@ -322,7 +322,7 @@ export default function About() {
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-[#526880] mb-0.5">Email</p>
-                    <p className="text-sm font-bold text-[#07121A]">info@leaderstore.us</p>
+                    <p className="text-sm font-bold text-[#07121A]">shop@leaderstore.us</p>
                   </div>
                 </div>
 

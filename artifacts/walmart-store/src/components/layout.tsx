@@ -242,7 +242,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="h-3.5 w-3.5 text-[#4ade80]" />
                   </div>
-                  <span className="text-sm text-white/60 leading-snug">4805 NW 79TH AVE<br />Doral, FL 33166</span>
+                  <span className="text-sm text-white/60 leading-snug">4805 NW 79TH AVE STE 10 A101<br />Doral, FL 33166</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
@@ -254,7 +254,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="h-3.5 w-3.5 text-[#4ade80]" />
                   </div>
-                  <a href="mailto:info@leaderstore.us" className="text-sm text-white/60 hover:text-white transition-colors">info@leaderstore.us</a>
+                  <a href="mailto:shop@leaderstore.us" className="text-sm text-white/60 hover:text-white transition-colors">shop@leaderstore.us</a>
                 </div>
               </div>
             </div>

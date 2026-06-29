@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
         <section>
           <h2 className="text-xl font-semibold mb-3">7. Your Rights</h2>
           <p className="text-muted-foreground leading-relaxed">
-            You have the right to access, correct, or request deletion of your personal data. To exercise these rights, contact us at <a href="mailto:info@leaderstore.us" className="text-primary underline">info@leaderstore.us</a>.
+            You have the right to access, correct, or request deletion of your personal data. To exercise these rights, contact us at <a href="mailto:shop@leaderstore.us" className="text-primary underline">shop@leaderstore.us</a>.
           </p>
         </section>
 
@@ -74,9 +74,9 @@ export default function PrivacyPolicy() {
           <p className="text-muted-foreground leading-relaxed">
             For questions about this Privacy Policy, contact:<br />
             Leader Store LLC<br />
-            4805 NW 79TH AVE, Miami, FL 33166<br />
-            Email: info@leaderstore.us<br />
-            Phone: (786) 940-1456
+            4805 NW 79TH AVE STE 10 A101, Miami, FL 33166<br />
+            Email: shop@leaderstore.us<br />
+            Phone: (786) 987-6217
           </p>
         </section>
       </div>
