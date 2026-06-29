@@ -248,7 +248,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                     <Phone className="h-3.5 w-3.5 text-[#4ade80]" />
                   </div>
-                  <a href="tel:+17869401456" className="text-sm text-white/60 hover:text-white transition-colors">+1 (786) 940-1456</a>
+                  <a href="tel:+17869876217" className="text-sm text-white/60 hover:text-white transition-colors">+1 (786) 987-6217</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
